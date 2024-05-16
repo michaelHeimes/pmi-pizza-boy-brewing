@@ -1,8 +1,5 @@
 footer#colophon {
 
-	.site-info {
-
-	}
 	
 	.left {
 		.bottom {
@@ -12,17 +9,40 @@ footer#colophon {
 		}
 	}
 		
-	ul#footer-links {
+	ul#footer-nav {
 		@include breakpoint(medium down) {
 			padding-bottom: 4.08rem;
 		}
 		li {
-			a {
-				font-size: rem-calc(14);
-				line-height: rem-calc(19);
-				font-weight: bold;
-				text-transform: uppercase;
+			&.home-link {
+				display: none;
 			}
+		}
+		> li {
+			font-family: $font-heading;
+			font-size: rem-calc(24);
+			line-height: 1.4166;
+			> a {
+				color: $white;
+			}
+			.menu {
+				flex-direction: column;
+				li {
+					line-height: 1.375;
+					font-family: $font-body;
+					a {
+						font-weight: 500;
+						color: $color-yellow;
+					}
+				}
+			}
+		}
+	}
+	
+	.site-info {
+		background-color: #042241;
+		a {
+			color: #D7E9FC;
 		}
 	}
 	

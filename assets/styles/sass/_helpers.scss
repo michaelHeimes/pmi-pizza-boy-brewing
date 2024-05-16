@@ -1,0 +1,88 @@
+.has-bg {
+	position: relative;
+	.bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-repeat: no-repeat;
+	}
+}
+.position-relative {
+	position: relative;
+}
+
+.font-heading {
+	font-family: $font-heading;
+}
+
+.weight-medium {
+	font-weight: 500;
+}
+
+.weight-semibold {
+	font-weight: 600;
+}
+
+.color-light-blue {
+	color: $color-light-blue;
+}
+
+.bg-blue {
+	background-color: $color-blue;
+}
+
+.bg-light-blue {
+	background-color: $color-light-blue;
+}
+
+// .color-white {
+// 	color: $white;
+// 	p,
+// 	ul,
+// 	ol {
+// 		color: $white;
+// 	}
+// }
+// 
+// .color-light-gray {
+// 	color: $light-gray;
+// }
+// 
+// .color-alt-black {
+// 	color: $color-alt-black;
+// }
+// 
+// .bg-gold {
+// 	background-color: $color-gold;
+// 	color: $color-alt-black;
+// 	a {
+// 		color: $color-alt-black;
+// 	}
+// }
+// 
+// .bg-white {
+// 	background-color: $white;
+// }
+// 
+// .bg-black {
+// 	background-color: $black;
+// 	color: $white;
+// }
+// 
+// .font-header {
+// 	font-family: $font-header;
+// }
+// 
+// .weight-semibold {
+// 	font-weight: 600;
+// }
+
+.height-100 {
+	height: 100%;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}

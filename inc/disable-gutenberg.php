@@ -9,7 +9,7 @@ function smartwp_remove_wp_block_library_css(){
  wp_dequeue_style( 'wp-block-library-theme' );
  wp_dequeue_style( 'wc-blocks-style' ); // Remove WooCommerce block CSS
 } 
-add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
+//add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
 
 // Disable Gutenberg Post Type
 /*
@@ -25,27 +25,24 @@ function prefix_disable_gutenberg($current_status, $post_type)
  * Templates and Page IDs without editor
  *
  */
-// function ea_disable_editor( $id = false ) {
-// 
-// 	$excluded_templates = array(
-// 		'page-templates/template-home.php',
-// 		'page-templates/template-plan.php',
-// 		'page-templates/template-tour-landing.php',
-// 		'page-templates/template-tour-type.php',
-// 	);
-// 
-// 	$excluded_ids = array(
-// 		// get_option( 'page_on_front' )
-// 	);
-// 
-// 	if( empty( $id ) )
-// 		return false;
-// 
-// 	$id = intval( $id );
-// 	$template = get_page_template_slug( $id );
-// 
-// 	return in_array( $id, $excluded_ids ) || in_array( $template, $excluded_templates );
-// }
+function ea_disable_editor( $id = false ) {
+
+	$excluded_templates = array(
+		'page-templates/template-home.php',
+	);
+
+	$excluded_ids = array(
+		// get_option( 'page_on_front' )
+	);
+
+	if( empty( $id ) )
+		return false;
+
+	$id = intval( $id );
+	$template = get_page_template_slug( $id );
+
+	return in_array( $id, $excluded_ids ) || in_array( $template, $excluded_templates );
+}
 
 /**
  * Disable Gutenberg by template

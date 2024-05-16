@@ -21,27 +21,12 @@ header.site-header {
 				margin: 0 .3rem 0rem;
 				
 				> a {
-					font-size: rem-calc(21);
+					color: $white;
+					font-size: rem-calc(22);
 					text-transform: uppercase;
-					letter-spacing: 2.1px;
 					padding: 1.78rem 0.5rem 1.78rem;
 					position: relative;
 					
-					@include breakpoint(tablet) {
-						font-size: rem-calc(14);
-						letter-spacing: 1.4px;
-					}
-					
-					span {
-						&:before {
-							content: '';
-							width: calc(100% - 1rem);
-							position: absolute;
-							top: 0;
-							height: 11px;
-							background-color: transparent;
-						}
-					}
 					
 				&:hover {
 
@@ -51,9 +36,7 @@ header.site-header {
 				
 			&.is-active,
 			&.current-menu-ancestor {
-				span:before {
-					background-color: $white;
-				}
+
 			}
 				
 			&.menu-item-has-children {

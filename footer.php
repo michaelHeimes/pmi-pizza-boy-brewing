@@ -8,47 +8,108 @@
  *
  * @package trailhead
  */
-
+ $footer_logo = get_field('footer_logo', 'option') ?? null;
+ $social_menu_items = wp_get_nav_menu_items(get_nav_menu_locations()['social-links']);
+ $subfooter_links = get_field('subfooter_links', 'option') ?? null;
 ?>
 
-				<footer id="colophon" class="site-footer">
-					<div class="site-info">
-						<div class="grid-container">
+				<footer id="colophon" class="site-footer bg-blue">
+					<div class="grid-container position-relative">
+						<div class="top grid-x grid-padding-x">
+							<?php
+								if( !empty( $footer_logo) ) {								
+									$imgID = $footer_logo['ID'];
+									$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+									$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
+									echo '<div class="logo-wrap cell small-12">';
+									echo $img;
+									echo '</div>';
+								}
+							?>
+							<?php 
+								if( $social_menu_items) {
+									echo '<div class="social-wrap cell small-12 medium-6">';
+										trailhead_social_links();
+									echo '</div>';
+								}
+							?>
+						</div>
+						<div class="contact-menu-wrap grid-x grid-padding-x">
+							<?php if( !empty($phone_number) || !empty($street_address) || !empty($city_state_zip_code) || !empty($directions_url) || !empty($hours) ):?>
+								<div class="footer-col contact-info cell small-12 tablet-shrink">
+									<?php if( !empty($phone_number) ):?>
+										<div>
+											<h3>Contact Us</h3>
+											Call/Text: <a href="tel:<?=esc_html( $phone_number );?>"><?=esc_html( $phone_number );?></a>
+										</div>
+									<?php endif;?>
+									<?php if( !empty($street_address) || !empty($city_state_zip_code) || !empty($directions_url) ):?>
+										<div>
+											<h3>Visit Us</h3>
+											<?php if( !empty($street_address) ):?>
+												<div><?=esc_html( $street_address );?></div>
+											<?php endif;?>
+											<?php if( !empty($city_state_zip_code) || !empty($directions_url) ):?>
+												<div><?=esc_html( $city_state_zip_code );?> - 
+													<?php if( !empty($directions_url) ):?>
+														<a href="<?=$directions_url;?>" target="_blank" aria-label="Opens directions in a new tab">directions</a>	
+													<?php endif;?>
+												</div>
+											<?php endif;?>
+										</div>
+									<?php endif;?>
+									<?php if( !empty($hours) ):?>
+										<div>
+											<h3>Hours</h3>
+											<div>
+												<?=wp_kses_post( $hours );?>
+											</div>
+										</div>
+									<?php endif;?>
+								</div>
+							<?php endif;?>
+							<div class="footer-col nav-menu cell small-12 tablet-auto">
+								<?php trailhead_footer_menu();?>
+							</div>
+						</div>
+					</div>
+					<div class="site-info color-light-blue">
+						<div class="grid-container fluid">
 							<div class="grid-x grid-padding-x">
-								<div class="cell small-12">
-									<?php 
-									$image = get_field('footer_logo', 'option');
-									if( !empty( $image ) ): ?>
-									<div class="top">
-										<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-									</div>
-									<?php endif; ?>
-									<?php 
-									$link = get_field('parent_company_link', 'option');
-									if( $link ): 
-										$link_url = $link['url'];
-										$link_title = $link['title'];
-										$link_target = $link['target'] ? $link['target'] : '_self';
+								<div class="cell small-12 tablet-auto">
+									<p>
+										&copy;<?= date("Y");?>
+										<?php if( !empty(get_field('copyright_text', 'option') ) ){
+											echo get_field('copyright_text', 'option');	
+										};?>
+										<?php if( !empty($subfooter_links) ):
+											foreach($subfooter_links as $subfooter_link):	
+											$link = $subfooter_link['link'] ?? null;
+												if( $link ): 
 										?>
-									<div class="bottom">
-										<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-									</div>
-									<?php endif; ?>	
-									<a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>">
-										<?php
-										/* translators: %s: CMS name, i.e. WordPress. */
-										printf( esc_html__( 'Proudly powered by %s', '_s' ), 'WordPress' );
-										?>
-									</a>
-									<span class="sep"> | </span>
-										<?php
-										/* translators: 1: Theme name, 2: Theme author. */
-										printf( esc_html__( 'Theme: %1$s by %2$s.', '_s' ), '_s', '<a href="https://automattic.com/">Automattic</a>' );
-										?>
+											<span>
+												<span>|</span>
+												<?php 
+													$link_url = $link['url'];
+													$link_title = $link['title'];
+													$link_target = $link['target'] ? $link['target'] : '_self';
+													?>
+													<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+											</span>
+										<?php endif; endforeach; endif;?>
+									</p>
+								</div>
+								<div class="cell small-12 tablet-shrink">
+									<p>
+										Website by:
+										<a class="uppercase" href="https://gopipedream.com/" target="_blank">
+											Pipedream
+										</a>
+									</p>
 								</div>
 							</div>
 						</div>
-					</div><!-- .site-info -->
+					</div>
 				</footer><!-- #colophon -->
 					
 			</div><!-- #page -->

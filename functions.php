@@ -173,15 +173,21 @@ add_action( 'wp_enqueue_scripts', 'trailhead_scripts' );
 /**
  * Enqueue Google Fonts.
  */
-function enqueue_google_fonts() {
-	// Enqueue the Google Fonts stylesheet
-	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Tenor+Sans&display=swapp', array(), null);
-
-	// Preload the Google Fonts stylesheet
-	add_action('wp_head', function () {
-		echo '<link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Tenor+Sans&display=swap" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">';
-	});
-}
+wp_enqueue_style( 'dmc-', 'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Francois+One&display=swap', array(), _S_VERSION, );
+ 
+ function google_font_loader_tag_filter( $html, $handle ) {
+	 if ( $handle === 'dmc-' ) {
+		 $rel_preconnect = "rel='stylesheet preconnect'";
+ 
+		 return str_replace(
+			 "rel='stylesheet'",
+			 $rel_preconnect,
+			 $html
+		 );
+	 }
+	 return $html;
+ }
+ add_filter( 'style_loader_tag', 'google_font_loader_tag_filter', 10, 2 );
 
 
 // Disable Tabelpress Stylesheet
