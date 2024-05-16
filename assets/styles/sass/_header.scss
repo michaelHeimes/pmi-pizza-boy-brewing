@@ -1,6 +1,11 @@
 header.site-header {
+	position: relative;
+	z-index: 55555;
 	transition: transform .5s ease;
-	
+	.top-bar {
+		padding: 0;
+		border-bottom: 2px solid $white;
+	}
 	#top-bar-menu {
 		
 		li.logo {

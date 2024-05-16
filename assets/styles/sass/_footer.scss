@@ -1,6 +1,11 @@
-footer#colophon {
+.prefooter-cta {
+	.bg.mask {
+		background-color: $color-yellow;
+		mix-blend-mode: multiply;
+	}
+}
 
-	
+footer#colophon {	
 	.left {
 		.bottom {
 			@include breakpoint(medium down) {

@@ -1,3 +1,64 @@
 .page-template-page-home {
-	
+	.page-banner {
+		.content {
+			width: 100%;
+		}
+	}
+	.cta-slides {
+
+	}
+	.home-cta-slider {
+		width: 70%;
+		max-width: 1024px;
+		margin: auto;
+		.swiper-slide {
+			display: flex;
+			height: auto;
+			border-top: 10px solid $white;
+			border-bottom: 10px solid $white;
+		}
+		a.grid-x {
+			flex-wrap: nowrap;
+		}
+		.swiper-button-next,
+		.swiper-button-prev {
+			height: auto;
+			width: auto;
+			border-top: 10x solid $white;
+			border-bottom: 10x solid $white;
+			&:after {
+				display: none;
+			}
+		}
+		.swiper-button-prev {
+			left: 0;
+		}
+		.swiper-button-next {
+			right: 0;
+		}
+	}
+	.cards-slider-copy-cta {
+		.bg.mask {
+			background-color: #116496;
+			mix-blend-mode: multiply;
+		}
+	}
+	.cards-slider {
+		width: 80%;
+		.swiper-wrapper {
+			padding-bottom: 1rem;
+		}
+		.swiper-pagination {
+			position: static;
+			span {
+				background-color: $color-blue;
+				&:hover {
+					background-color: $white;
+				}
+				&.swiper-pagination-bullet-active {
+					background-color: $color-yellow;
+				}
+			}
+		}
+	}
 }

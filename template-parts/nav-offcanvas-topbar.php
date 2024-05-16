@@ -42,7 +42,7 @@
 								$link_target = $link['target'] ? $link['target'] : '_self';
 							?>
 								<li class="cell shrink">
-									<a class="grid-x align-middle" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+									<a class="grid-x align-middle color-yellow" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
 										<?php if( !empty( $icon ) ) {
 											$imgID = $icon['ID'];
 											$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );

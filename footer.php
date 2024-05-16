@@ -8,10 +8,82 @@
  *
  * @package trailhead
  */
+ // Pre-footer CTA
+ $pfcta_background_image = get_field('pfcta_background_image', 'options') ?? null;
+ $pfcta_heading = get_field('pfcta_heading', 'options') ?? null;
+ $global_cta_icon_links = get_field('global_cta_icon_links', 'option') ?? null;
+ $global_order_online_link = get_field('global_order_online_link', 'option') ?? null;
+ 
+ // Footer
  $footer_logo = get_field('footer_logo', 'option') ?? null;
  $social_menu_items = wp_get_nav_menu_items(get_nav_menu_locations()['social-links']);
  $subfooter_links = get_field('subfooter_links', 'option') ?? null;
+
 ?>
+				<?php if( !empty( $pfcta_background_image) || !empty(  $pfcta_heading ) || !empty( $global_cta_icon_links ) || !empty( $global_order_online_link ) ):?>
+					<section class="prefooter-cta has-bg has-object-fit">
+						<?php if(  !empty( $pfcta_background_image ) ) {
+							$imgID =  $pfcta_background_image['ID'];
+							$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+							$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "object-fit-img", "alt"=>$img_alt] );
+							echo $img;
+						}?>
+						<div class="bg mask"></div>
+						
+						<?php if( !empty( $global_cta_icon_links ) || !empty( $global_order_online_link ) || !empty(  $pfcta_heading ) ):?>
+							<div class="grid-container position-relative">
+								<div class="header grid-x grid-padding-x">
+									<div class="cell small-12">
+										<?php if( !empty(  $pfcta_heading ) ):?>
+											<h2 class="color-white text-center"><?=esc_html( $pfcta_heading );?></h2>
+										<?php endif;?>
+									</div>
+								</div>
+								<?php if( !empty( $global_cta_icon_links ) || !empty( $global_order_online_link ) ):?>
+									<ul class="icon-links-order-link font-heading grid-x grid-padding-x no-bullet align-middle align-center">
+										<?php if( $global_cta_icon_links ):
+											foreach( $global_cta_icon_links as $global_cta_icon_link ):
+											$icon = $global_cta_icon_link['white_icon'] ?? null;
+											$link = $global_cta_icon_link['link'] ?? null;
+											$link_url = $link['url'];
+											$link_title = $link['title'];
+											$link_target = $link['target'] ? $link['target'] : '_self';
+										?>
+											<li class="cell shrink">
+												<a class="grid-x align-middle color-white" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+													<?php if( !empty( $icon ) ) {
+														$imgID = $icon['ID'];
+														$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+														$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
+														echo '<div class="icon-wrap">';
+														echo $img;
+														echo '</div>';
+													}?>
+													<span><?php echo esc_html( $link_title ); ?></span>
+												</a>
+											</li>
+										<?php endforeach; endif;?>
+										<?php 
+										$link = $global_order_online_link;
+										if( $link ): 
+											$link_url = $link['url'];
+											$link_title = $link['title'];
+											$link_target = $link['target'] ? $link['target'] : '_self';
+											?>
+											<li class="cell shrink">
+												<a class="button gir-x align-middle" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+													<span><?php echo esc_html( $link_title ); ?></span>
+													<svg xmlns="http://www.w3.org/2000/svg" width="12.35" height="20"><path d="M2.35 0 0 2.35 7.633 10 0 17.65 2.35 20l10-10Z" fill="#fff"/></svg>
+												</a>
+											</li>
+										<?php endif; ?>
+									</ul>
+								<?php endif;?>
+							</div>
+						<?php endif;?>
+					</section>
+				<?php endif;?>
+				
 
 				<footer id="colophon" class="site-footer bg-blue">
 					<div class="grid-container position-relative">

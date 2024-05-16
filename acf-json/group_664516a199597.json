@@ -63,7 +63,7 @@
         {
             "key": "field_664517350cbc4",
             "label": "Slider Transition Delay (in seconds)",
-            "name": "slider_transition_delay",
+            "name": "hero_slider_transition_delay",
             "aria-label": "",
             "type": "number",
             "instructions": "",
@@ -85,7 +85,7 @@
         {
             "key": "field_6645174b0cbc5",
             "label": "Slides",
-            "name": "slides",
+            "name": "hero_slides",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -96,12 +96,12 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
+            "layout": "block",
             "pagination": 0,
             "min": 0,
             "max": 0,
             "collapsed": "",
-            "button_label": "Add Row",
+            "button_label": "Add Slide",
             "rows_per_page": 20,
             "sub_fields": [
                 {
@@ -136,7 +136,15 @@
                     "type": "image",
                     "instructions": "Minimum: 1600 by 610 pixels<br>\r\nPreferred for @2x: 1220 by 2061 pixels",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_664517590cbc6",
+                                "operator": "==",
+                                "value": "image"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "50",
                         "class": "",
@@ -162,7 +170,15 @@
                     "type": "file",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_664517590cbc6",
+                                "operator": "==",
+                                "value": "video"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "50",
                         "class": "",
@@ -194,6 +210,31 @@
             "open": 0,
             "multi_expand": 0,
             "endpoint": 0
+        },
+        {
+            "key": "field_6646031551822",
+            "label": "Background Image",
+            "name": "ci_background_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
         },
         {
             "key": "field_664517fe0cbca",
@@ -259,6 +300,28 @@
             "endpoint": 0
         },
         {
+            "key": "field_66461f2978465",
+            "label": "Slider Transition Delay (in seconds)",
+            "name": "ctas_slider_transition_delay",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 7,
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_66454818d4246",
             "label": "CTAs Slides",
             "name": "ctas_slides",
@@ -272,12 +335,12 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
+            "layout": "block",
             "pagination": 0,
             "min": 0,
             "max": 0,
             "collapsed": "",
-            "button_label": "Add Row",
+            "button_label": "Add Slide",
             "rows_per_page": 20,
             "sub_fields": [
                 {
@@ -290,13 +353,13 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "33",
                         "class": "",
                         "id": ""
                     },
                     "choices": {
                         "title-button": "Title with Button",
-                        "linked-title": "Linked Heading"
+                        "linked-title": "Linked Title"
                     },
                     "default_value": "",
                     "return_format": "value",
@@ -314,7 +377,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "33",
                         "class": "",
                         "id": ""
                     },
@@ -327,7 +390,57 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "",
-                    "preview_size": "medium",
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_66454818d4246"
+                },
+                {
+                    "key": "field_66454985daffc",
+                    "label": "Button Link",
+                    "name": "button_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_66454834d4247",
+                                "operator": "==",
+                                "value": "title-button"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_66454818d4246"
+                },
+                {
+                    "key": "field_664549badaffd",
+                    "label": "Linked Title",
+                    "name": "linked_title",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_66454834d4247",
+                                "operator": "==",
+                                "value": "linked-title"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
                     "parent_repeater": "field_66454818d4246"
                 },
                 {
@@ -357,56 +470,6 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_66454818d4246"
-                },
-                {
-                    "key": "field_66454985daffc",
-                    "label": "Button Link",
-                    "name": "button_link",
-                    "aria-label": "",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_66454834d4247",
-                                "operator": "==",
-                                "value": "linked-title"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "parent_repeater": "field_66454818d4246"
-                },
-                {
-                    "key": "field_664549badaffd",
-                    "label": "Linked Title",
-                    "name": "linked_title",
-                    "aria-label": "",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_66454834d4247",
-                                "operator": "==",
-                                "value": "linked-title"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
                     "parent_repeater": "field_66454818d4246"
                 }
             ]
@@ -487,6 +550,28 @@
             },
             "placement": "top",
             "endpoint": 0
+        },
+        {
+            "key": "field_66461f2b78466",
+            "label": "Slider Transition Delay (in seconds)",
+            "name": "cscta_slider_transition_delay",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 7,
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_664518bf0cbcf",
@@ -632,5 +717,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1715817006
+    "modified": 1715871865
 }

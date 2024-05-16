@@ -25,16 +25,50 @@
 	font-weight: 600;
 }
 
+.color-white {
+	color: $white;
+}
+
 .color-light-blue {
 	color: $color-light-blue;
 }
 
+.color-yellow {
+	color: $color-yellow;
+}
+
+.bg-yellow {
+	background-color: $color-yellow;
+}
+
+.bg-blue,
+.bg-light-blue {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		color: $white;
+	}
+}
+
 .bg-blue {
 	background-color: $color-blue;
+
 }
 
 .bg-light-blue {
 	background-color: $color-light-blue;
+}
+
+.color-pale-blue {
+	color: $color-pale-blue;
+	p,
+	.p,
+	ul,
+	ol {
+		color: $color-pale-blue;
+	}
 }
 
 // .color-white {

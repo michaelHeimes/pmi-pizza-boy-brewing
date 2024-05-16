@@ -2,3 +2,37 @@ strong,
 b {
 	font-weight: 600;
 }
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4 {
+	text-transform: uppercase;
+}
+
+h1,
+.h1 {
+	font-size: clamp(1.837rem, 1.411rem + 1.898vw, 2.625rem);
+}
+
+h2,
+.h2 {
+	line-height: 1.25;
+	font-size: clamp(1.575rem, 1.209rem + 1.627vw, 2.25rem);
+}
+
+h3,
+.h3 {
+	line-height: 1.4;
+	font-size: clamp(1.4rem, 1.075rem + 1.446vw, 2rem);
+}
+
+h4,
+.h4 {
+	line-height: 1.73;
+	font-size: clamp(1.137rem, 0.873rem + 1.175vw, 1.625rem);
+}

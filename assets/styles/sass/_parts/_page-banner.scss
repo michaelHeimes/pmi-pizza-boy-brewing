@@ -1,0 +1,138 @@
+.page-banner {
+	position: relative;
+	overflow: hidden;
+	border-bottom: 7px solid $color-yellow;
+	.pagination-container {
+		max-width: rem-calc(1500);
+		.swiper-pagination.swiper-pagination-bullets {
+			text-align: left;
+			span {
+				text-shadow: 0px 3px 6px rgba(0,0,0,.81);
+			}
+		}
+	}
+	&.style-hero-slider {
+		min-height: 100vh;
+		max-height: 790px;
+		.bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.content {
+			z-index: 2;
+		}
+		h1 {
+			text-shadow: 0px 0px 8px rgba(0,0,0,1);
+			line-height: .97959;
+			margin-bottom: .205em;
+			font-size: 4.287rem;
+			font-size: clamp(4.287rem, 3.394rem + 3.973vw, 6.125rem);
+			@include breakpoint(medium) {
+				font-size: 6.125rem;
+				font-size: clamp(4.287rem, 3.394rem + 3.973vw, 6.125rem);
+			}
+			span {
+				text-transform: none;
+			}
+		}
+	}
+	&.style-banner-slider {
+		position: relative;
+		height: 100%;
+		min-height: 625px;
+		max-width: 100vw;
+		.bg-slider {
+			width: 100%;
+		}
+		.img-wrap,
+		.video-wrap {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.swiper-slide {
+			display: flex;
+			.content {
+				display: flex;
+				> .grid-x {
+					align-items: center;
+					box-sizing: border-box;
+				}
+				.h3 {
+					line-height: 1.2;
+					margin: 0;
+				}
+			}
+			svg {
+				path {
+					transition: .25s ease;
+				}
+			}
+			.btn-wrap {
+				@include breakpoint(small down) {
+					text-align: center;
+				}
+			}
+			button {
+				@include breakpoint(small down) {
+					width: 67%;
+					margin: 2rem auto 0;
+				}
+				&:hover {
+					svg {
+						path:first-child {
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.bg-slider {
+		height: 100%;
+		opacity: 0;
+		transition: opacity .3s ease .1s;
+		.swiper-slide {
+			height: 100%;
+		}
+		&.swiper-initialized {
+			opacity: 1;
+		}
+	}
+	.img-wrap,
+	.video-wrap {
+		height: 100%;
+		position: relative;
+		img,
+		video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;	
+		}	
+	}
+	.content {
+		z-index: 1;
+		width: 100%;
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+		.grid-container {
+			flex-wrap: nowrap;
+		}
+		.title-wrap {
+			flex: 1;
+			h1 {
+				text-shadow: 0px 0px 8px rgba(0,0,0,1);
+			}
+		}
+	}
+
+}
