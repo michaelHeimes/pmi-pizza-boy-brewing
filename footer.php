@@ -18,6 +18,11 @@
  $footer_logo = get_field('footer_logo', 'option') ?? null;
  $social_menu_items = wp_get_nav_menu_items(get_nav_menu_locations()['social-links']);
  $subfooter_links = get_field('subfooter_links', 'option') ?? null;
+ $phone_number = get_field('contact_phone_number', 'option') ?? null;
+ $street_address = get_field('contact_street_address', 'option') ?? null;
+ $city_state_zip_code = get_field('contact_city_state_zip_code', 'option') ?? null;
+ $directions_url = get_field('contact_directions_url', 'option') ?? null;
+ $hours = get_field('contact_hours', 'option') ?? null;
 
 ?>
 				<?php if( !empty( $pfcta_background_image) || !empty(  $pfcta_heading ) || !empty( $global_cta_icon_links ) || !empty( $global_order_online_link ) ):?>
@@ -71,7 +76,7 @@
 											$link_target = $link['target'] ? $link['target'] : '_self';
 											?>
 											<li class="cell shrink">
-												<a class="button gir-x align-middle" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+												<a class="button grid-x align-middle" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
 													<span><?php echo esc_html( $link_title ); ?></span>
 													<svg xmlns="http://www.w3.org/2000/svg" width="12.35" height="20"><path d="M2.35 0 0 2.35 7.633 10 0 17.65 2.35 20l10-10Z" fill="#fff"/></svg>
 												</a>
@@ -108,13 +113,7 @@
 						</div>
 						<div class="contact-menu-wrap grid-x grid-padding-x">
 							<?php if( !empty($phone_number) || !empty($street_address) || !empty($city_state_zip_code) || !empty($directions_url) || !empty($hours) ):?>
-								<div class="footer-col contact-info cell small-12 tablet-shrink">
-									<?php if( !empty($phone_number) ):?>
-										<div>
-											<h3>Contact Us</h3>
-											Call/Text: <a href="tel:<?=esc_html( $phone_number );?>"><?=esc_html( $phone_number );?></a>
-										</div>
-									<?php endif;?>
+								<div class="footer-col contact-info cell small-12 tablet-shrink color-pale-blue">
 									<?php if( !empty($street_address) || !empty($city_state_zip_code) || !empty($directions_url) ):?>
 										<div>
 											<h3>Visit Us</h3>
@@ -124,20 +123,42 @@
 											<?php if( !empty($city_state_zip_code) || !empty($directions_url) ):?>
 												<div><?=esc_html( $city_state_zip_code );?> - 
 													<?php if( !empty($directions_url) ):?>
-														<a href="<?=$directions_url;?>" target="_blank" aria-label="Opens directions in a new tab">directions</a>	
+														<a class="color-yellow" href="<?=$directions_url;?>" target="_blank" aria-label="Opens directions in a new tab">map</a>	
 													<?php endif;?>
 												</div>
 											<?php endif;?>
 										</div>
 									<?php endif;?>
+									
+									
+									<?php if( !empty($phone_number) ):?>
+										<div>
+											<h3>Contact Us</h3>
+											Call: <a class="color-pale-blue" href="tel:<?=esc_html( $phone_number );?>"><?=esc_html( $phone_number );?></a>
+										</div>
+									<?php endif;?>
+
 									<?php if( !empty($hours) ):?>
 										<div>
-											<h3>Hours</h3>
 											<div>
 												<?=wp_kses_post( $hours );?>
 											</div>
 										</div>
 									<?php endif;?>
+									<?php 
+									$link = $global_order_online_link;
+									if( $link ): 
+										$link_url = $link['url'];
+										$link_title = $link['title'];
+										$link_target = $link['target'] ? $link['target'] : '_self';
+										?>
+										<div>
+											<a class="button grid-x align-middle bg-yellow" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+												<span><?php echo esc_html( $link_title ); ?></span>
+												<svg xmlns="http://www.w3.org/2000/svg" width="12.35" height="20"><path d="M2.35 0 0 2.35 7.633 10 0 17.65 2.35 20l10-10Z" fill="#fff"/></svg>
+											</a>
+										</div>
+									<?php endif; ?>
 								</div>
 							<?php endif;?>
 							<div class="footer-col nav-menu cell small-12 tablet-auto">

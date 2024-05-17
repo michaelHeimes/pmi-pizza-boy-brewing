@@ -428,9 +428,29 @@
             "placeholder": ""
         },
         {
+            "key": "field_66469d2bed9ee",
+            "label": "Phone Number",
+            "name": "contact_phone_number",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_664552d8eeaf2",
             "label": "Hours",
-            "name": "hours",
+            "name": "contact_hours",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -466,5 +486,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1715873781
+    "modified": 1715903809
 }

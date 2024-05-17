@@ -36,3 +36,16 @@ h4,
 	line-height: 1.73;
 	font-size: clamp(1.137rem, 0.873rem + 1.175vw, 1.625rem);
 }
+
+p,
+.p,
+ul,
+ol {
+	line-height: 1.615;
+	font-size: 1.137rem;
+	font-size: clamp(1.137rem, 0.873rem + 1.175vw, 1.625rem);
+	@include breakpoint(medium) {
+		font-size: 1.625rem;
+		font-size: clamp(1.137rem, 0.873rem + 1.175vw, 1.625rem);
+	}
+}

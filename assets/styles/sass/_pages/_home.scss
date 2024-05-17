@@ -1,11 +1,45 @@
 .page-template-page-home {
-	.page-banner {
-		.content {
-			width: 100%;
+	.copy-image {
+		padding-top: 6.169rem;
+		padding-bottom: 6.912rem;
+		padding-top: clamp(6.169rem, 4.735rem + 6.37vw, 8.813rem);
+		padding-bottom: clamp(6.912rem, 5.306rem + 7.139vw, 9.875rem);
+		@include breakpoint(medium) {
+			padding-top: 8.813rem;
+			padding-bottom: 9.875rem;
+			padding-top: clamp(6.169rem, 4.735rem + 6.37vw, 8.813rem);
+			padding-bottom: clamp(6.912rem, 5.306rem + 7.139vw, 9.875rem);
+		}
+		.bg {
+			background-size: cover;
+		}
+		img {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 40%;
 		}
 	}
 	.cta-slides {
-
+		.swiper-slide {
+			.inner {
+				min-height: clamp(25.462rem, 19.546rem + 26.295vw, 36.375rem);
+			}
+			&.layout-title-button {
+				.inner {
+					padding: 0 10%;
+					max-width: 316px;
+					margin: auto;
+					h2 {
+						margin-top: 5rem;
+						margin-bottom: 1.85em;
+					}
+					a.button {
+						margin-bottom: 5rem;
+					}
+				}	
+			}
+		}
 	}
 	.home-cta-slider {
 		width: 70%;

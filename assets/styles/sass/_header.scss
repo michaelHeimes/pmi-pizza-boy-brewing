@@ -1,7 +1,33 @@
 header.site-header {
+	max-width: 100% !important;
 	position: relative;
-	z-index: 55555;
+	z-index: 5555;
 	transition: transform .5s ease;
+	.pre-header {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		ul {
+			margin: 0;
+		}
+		.icon-links-order-link {
+			
+		}
+		.icon-link,
+		.order-link {
+			margin: 15px;
+		}
+		.icon-link {
+			font-size: rem-calc(23);
+			img {
+				margin-right: 14px;
+			}
+		}
+		.order-link {
+			a.button.chev-btn {
+				padding: .521em .7386em;
+			}
+		}
+	}
 	.top-bar {
 		padding: 0;
 		border-bottom: 2px solid $white;
@@ -22,46 +48,112 @@ header.site-header {
 			
 		#main-nav {
 			align-items: center;
+			li {
+				a {
+					color: $white;
+					font-family: $font-heading;
+					font-weight: 700;
+					font-size: rem-calc(22);
+					line-height: 1.4;
+					text-transform: uppercase;
+				}
+			}
 			>li {
-				margin: 0 .3rem 0rem;
+				margin: 0;
+				
+				&:not(.menu-item-has-children) {
+					> a:hover {
+						color: $white;
+					}
+				}
 				
 				> a {
-					color: $white;
-					font-size: rem-calc(22);
-					text-transform: uppercase;
-					padding: 1.78rem 0.5rem 1.78rem;
-					position: relative;
+					padding: .8rem 2.5rem .8rem;
 					
+					@include breakpoint(tablet) {
+						font-size: rem-calc(20);
+					}
+					
+					span {
+						&:before {
+							content: '';
+							width: calc(100% - 1rem);
+							position: absolute;
+							top: 0;
+							height: 11px;
+							background-color: transparent;
+						}
+					}
 					
 				&:hover {
-
+		
 				}
 					
 				}
 				
-			&.is-active,
-			&.current-menu-ancestor {
-
+			&.is-active {
+				a {
+					background-color: $color-blue;
+					color: $white;
+				}
 			}
-				
+			&:not(.menu-item-has-children) a:hover {
+				color: $color-blue;
+			}
 			&.menu-item-has-children {
-				
+				&.is-active {
+					>a {
+						position: relative;
+						&:before {
+							content: '';
+							display: block;
+							background-color: $color-blue;
+							height: 9px;
+							position: absolute;
+							left: 0;
+							right: 0;
+							width: 100%;
+							border-radius: 6px 6px 0 0;
+							top: -8px;
+						}
+					}
+				}
 				ul.submenu {
+					background-color: $color-blue;
+					border-radius: 0 6px 6px 6px;
+					overflow: hidden;
 					li {
+						&:first-child {
+							a {
+								//padding-top: 2.2rem;
+							}
+						}
+						&:last-child {
+							a {
+								//padding-bottom: 2rem;
+							}
+						}
+						&:only-child {
+							a {
+								padding-top: 2.2rem;
+								padding-bottom: 2rem;
+							}
+						}
 						a {
-
-							
+							padding: 0.85rem 2.5rem;
+							transition: background-color .25s ease;
 						&:hover {
-
+							background-color: $color-light-blue;
+							color: $white;
 						}
 							
 						}
 						
 					}
 				}
-	
+		
 			}
-
+		
 			}
 		}
 		

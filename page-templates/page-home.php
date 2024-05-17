@@ -118,7 +118,7 @@ $cscta_button_links = $fields['cscta_button_links'] ?? null;
 											$imgID = $ci_image['ID'];
 											$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
 											$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
-											echo '<div class="img-wrap cell small-12 medium-5">';
+											echo '<div class="img-wrap cell small-12 medium-5 show-for-medium">';
 											echo $img;
 											echo '</div>';
 										}?>
@@ -145,7 +145,7 @@ $cscta_button_links = $fields['cscta_button_links'] ?? null;
 													$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "object-fit-img", "alt"=>$img_alt] );
 													echo $img;
 												}?>
-												<div class="inner position-relative grid-x flex-dir-column align-middle<?php if( $layout == 'linked-title' ) { echo ' align-right'; } else { ' align-center'; };?>">
+												<div class="inner position-relative grid-x flex-dir-column align-middle<?php if( $layout == 'linked-title' ) { echo ' align-right'; } else { echo ' align-center'; };?>">
 													<?php if( $layout == 'title-button' ):?>
 														<?php if( !empty($title) ):?>
 															<h2><?=esc_html( $title );?></h2>
@@ -171,7 +171,21 @@ $cscta_button_links = $fields['cscta_button_links'] ?? null;
 													?>
 														<a class="chev-link grid-x align-middle" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
 															<h2><?php echo esc_html( $link_title ); ?></h2>
-															<svg xmlns="http://www.w3.org/2000/svg" width="50.725" height="70.996"><defs><filter id="a" x="0" y="0" width="50.725" height="70.996" filterUnits="userSpaceOnUse"><feOffset dy="3"/><feGaussianBlur stdDeviation="3" result="blur"/><feFlood flood-opacity=".808"/><feComposite operator="in" in2="blur"/><feComposite in="SourceGraphic"/></filter></defs><g filter="url(#a)"><path data-name="ic_chevron_right_24px" d="M15.227 6 9 12.227 29.227 32.5 9 52.769 15.227 59l26.5-26.5Z" fill="#fff"/></g></svg>
+															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50.725" height="70.996" viewBox="0 0 50.725 70.996">
+															  <defs>
+																<filter id="ic_chevron_right_24px" x="0" y="0" width="50.725" height="70.996" filterUnits="userSpaceOnUse">
+																  <feOffset dy="3" input="SourceAlpha"/>
+																  <feGaussianBlur stdDeviation="3" result="blur"/>
+																  <feFlood flood-opacity="0.808"/>
+																  <feComposite operator="in" in2="blur"/>
+																  <feComposite in="SourceGraphic"/>
+																</filter>
+															  </defs>
+															  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#ic_chevron_right_24px)">
+																<path id="ic_chevron_right_24px-2" data-name="ic_chevron_right_24px" d="M14.817,6,8.59,12.227,28.817,32.5,8.59,52.769,14.817,59l26.5-26.5Z" transform="translate(0.41)" fill="#fff"/>
+															  </g>
+															</svg>
+
 														</a>
 													<?php endif;?>
 												</div>

@@ -243,10 +243,10 @@
                 slidesPerView: 2,
                 speed: 500,
                 spaceBetween: 10,
-                autoplay: {
-                    delay: delay + '000',
-                    disableOnInteraction: false,
-                },
+                // autoplay: {
+                //     delay: delay + '000',
+                //     disableOnInteraction: false,
+                // },
                 navigation: {
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",

@@ -69,6 +69,10 @@ svg {
 	}
 }
 
+.grid-x.nowrap {
+	flex-wrap: nowrap;
+}
+
 button,
 .button {
 	cursor: pointer;
@@ -92,6 +96,11 @@ button,
 		&:hover {
 			background-color: $color-light-blue;
 			color: $white;
+		}
+	}
+	&.chev-btn {
+		span {
+			margin-right: 1.17em;
 		}
 	}
 	&.chev-link {
