@@ -212,9 +212,9 @@ $cscta_button_links = $fields['cscta_button_links'] ?? null;
 									echo '<div class="bg mask"></div>';
 								}?>
 								<div class="grid-container position-relative">
-									<div class="grid-x grid-padding-x">
+									<div class="grid-x grid-padding-x align-middle">
 										<?php if( !empty($cscta_slider_images) ):?>
-											<div class="cell small-12 medium-5 xmedium-4">
+											<div class="cell small-12 tablet-5 large-4">
 												<div class="cards-slider" data-delay="<?= esc_attr( $cscta_slider_transition_delay );?>">
 													<div class="swiper-wrapper">
 														<?php foreach( $cscta_slider_images as $image ):
@@ -245,13 +245,15 @@ $cscta_button_links = $fields['cscta_button_links'] ?? null;
 											</div>
 										<?php endif;?>
 										<?php if( !empty($cscta_copy) ):?>
-											<div class="cell small-12 medium-7 xmedium-8 color-pale-blue">
-												<?=wp_kses_post( $cscta_copy );?>
+											<div class="cell small-12 tablet-7 large-8 color-pale-blue">
+												<div class="copy-wrap">
+													<?=wp_kses_post( $cscta_copy );?>
+												</div>
 											</div>
 										<?php endif;?>
 									</div>
 									<?php if( !empty($cscta_button_links) ):?>
-										<div class="grid-x grid-padding-x align-center">
+										<div class="button-links grid-x grid-padding-x align-center">
 											<?php foreach($cscta_button_links as $cscta_button_link):
 												$link = $cscta_button_link['link'];
 												if( $cscta_button_link && $link ):

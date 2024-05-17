@@ -1,7 +1,7 @@
 <?php
 
 // Disable Gutenberg
-add_filter( 'use_block_editor_for_post', '__return_false' );
+//add_filter( 'use_block_editor_for_post', '__return_false' );
 
 //Remove Gutenberg Block Library CSS from loading on the frontend
 function smartwp_remove_wp_block_library_css(){

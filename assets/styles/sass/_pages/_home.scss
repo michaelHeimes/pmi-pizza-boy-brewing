@@ -22,22 +22,43 @@
 	}
 	.cta-slides {
 		.swiper-slide {
+			width: 50%;
 			.inner {
 				min-height: clamp(25.462rem, 19.546rem + 26.295vw, 36.375rem);
+			}
+			h2 {
+				text-shadow: 0px 3px 6px 0px rgba(0,0,0,0.81);
 			}
 			&.layout-title-button {
 				.inner {
 					padding: 0 10%;
+					padding: 0 3rem;
 					max-width: 316px;
 					margin: auto;
 					h2 {
-						margin-top: 5rem;
+						margin-top: 2rem;
 						margin-bottom: 1.85em;
 					}
 					a.button {
-						margin-bottom: 5rem;
+						margin-bottom: 2rem;
+						box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.76);
+						padding: .521em 0.7578em;
 					}
 				}	
+			}
+			&.layout-linked-title {
+				.inner {
+					padding: 0 10%;
+					padding: 2rem 10%;
+					max-width: 380px;
+					margin: auto;
+					h2 {
+						line-height: .9444;
+					}
+					svg {
+						flex: 1 0 auto;
+					}
+				}
 			}
 		}
 	}
@@ -56,10 +77,9 @@
 		}
 		.swiper-button-next,
 		.swiper-button-prev {
+			z-index: 1;
 			height: auto;
 			width: auto;
-			border-top: 10x solid $white;
-			border-bottom: 10x solid $white;
 			&:after {
 				display: none;
 			}
@@ -72,19 +92,45 @@
 		}
 	}
 	.cards-slider-copy-cta {
+		border-bottom: 10px solid $white;
+		padding-top: 7.088rem;
+		padding-bottom: 2.8rem;
+		padding-top: clamp(7.088rem, 5.441rem + 7.319vw, 10.125rem);
+		padding-bottom: clamp(2.8rem, 2.149rem + 2.892vw, 4rem);
+		@include breakpoint(medium) {
+			padding-top: 10.125rem;
+			padding-bottom: 4rem;
+			padding-top: clamp(7.088rem, 5.441rem + 7.319vw, 10.125rem);
+			padding-bottom: clamp(2.8rem, 2.149rem + 2.892vw, 4rem);
+		}
 		.bg.mask {
 			background-color: #116496;
 			mix-blend-mode: multiply;
 		}
 	}
 	.cards-slider {
-		width: 80%;
+		@include breakpoint(medium down) {
+			max-width: 400px;
+			margin: 0 auto 3rem;
+		}
 		.swiper-wrapper {
 			padding-bottom: 1rem;
+			.swiper-slide {
+				box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.44);
+			}
+			.img-wrap {
+				border: 9px solid $white;
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
 		}
 		.swiper-pagination {
 			position: static;
 			span {
+				margin: 13px;
 				background-color: $color-blue;
 				&:hover {
 					background-color: $white;
@@ -92,6 +138,29 @@
 				&.swiper-pagination-bullet-active {
 					background-color: $color-yellow;
 				}
+			}
+		}
+	}
+	.copy-wrap {
+		h3 {
+			margin-bottom: .4em;
+		}
+		@include breakpoint(medium) {
+			padding-left: 8%;
+		}
+	}
+	.button-links {
+		padding-top: 4.063rem;
+		padding-top: clamp(4.063rem, 3.554rem + 2.259vw, 5rem);
+		@include breakpoint(medium) {
+			padding-top: 5rem;
+			padding-top: clamp(4.063rem, 3.554rem + 2.259vw, 5rem);
+		}
+		a.button {
+			padding: .6407em .5032em;
+			margin-bottom: $smallGutter;
+			@include breakpoint(medium) {
+				margin-bottom: $mediumGutter;
 			}
 		}
 	}

@@ -58,7 +58,7 @@ function trailhead_footer_menu() {
 	wp_nav_menu(array(
 		'container'			=> 'false',				// Remove nav container
 		'menu_id'			=> 'footer-nav',		// Adding custom nav id
-		'menu_class'		=> 'menu footer-nav',				// Adding custom nav class
+		'menu_class'		=> 'no-bullet footer-nav',				// Adding custom nav class
 		'theme_location'	=> 'footer-nav',		// Where it's located in the theme
 		'depth'				=> 2,					// Limit the depth of the nav
 		'fallback_cb'		=> false,					// Fallback function
@@ -78,7 +78,7 @@ function trailhead_social_links() {
 	wp_nav_menu(array(
 		'container'			=> 'false',				// Remove nav container
 		'menu_id'			=> 'social-links',		// Adding custom nav id
-		'menu_class'		=> 'menu',				// Adding custom nav class
+		'menu_class'		=> 'menu align-center',				// Adding custom nav class
 		'theme_location'	=> 'social-links',		// Where it's located in the theme
 		'depth'				=> 0,					// Limit the depth of the nav
 		'fallback_cb'		=> ''					// Fallback function

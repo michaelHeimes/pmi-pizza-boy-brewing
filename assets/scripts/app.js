@@ -240,13 +240,14 @@
         if(ctasSlider) {
             const swiper = new Swiper(ctasSlider, {
                 loop: true,
+                loopAdditionalSlides: 1,
                 slidesPerView: 2,
                 speed: 500,
                 spaceBetween: 10,
-                // autoplay: {
-                //     delay: delay + '000',
-                //     disableOnInteraction: false,
-                // },
+                autoplay: {
+                    delay: delay + '000',
+                    disableOnInteraction: false,
+                },
                 navigation: {
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",
@@ -266,10 +267,15 @@
                 spaceBetween: 0,
                 effect: "cards",
                 grabCursor: true,
-                autoplay: {
-                    delay: delay + '000',
-                    disableOnInteraction: false,
+                cardsEffect: {
+                    slideShadows: false,
+                    perSlideOffset: 8, // Space between cards in px
+                    perSlideRotate: 3, // Rotation of cards in degrees
                 },
+                // autoplay: {
+                //     delay: delay + '000',
+                //     disableOnInteraction: false,
+                // },
                 pagination: {
                     el: ".swiper-pagination",
                     clickable: true,

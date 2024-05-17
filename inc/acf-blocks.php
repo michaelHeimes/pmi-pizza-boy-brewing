@@ -6,15 +6,34 @@ function my_acf_init_block_types() {
     // Check function exists.
     if( function_exists('acf_register_block_type') ) {
 
-        // register a testimonial block.
         acf_register_block_type(array(
-            'name'              => 'large-colored-copy',
-            'title'             => __('Large Colored Copy'),
-            'description'       => __('A custom Large Colored Copy block.'),
-            'render_template'   => 'template-parts/blocks/large-colored-copy.php',
+            'name'              => 'accordion',
+            'title'             => __('Block: Accordion'),
+            'description'       => __('Block: Accordion'),
+            'render_template'   => 'template-parts/blocks/accordion.php',
             'category'          => 'formatting',
             'icon'              => 'admin-comments',
-            'keywords'          => array( 'large', 'colored', 'copy', 'text' ),
+            'keywords'          => array( 'custom', 'block', 'accordion' ),
+        ));
+        
+        acf_register_block_type(array(
+            'name'              => 'button-group',
+            'title'             => __('Block: Button Group'),
+            'description'       => __('Block: Button Group'),
+            'render_template'   => 'template-parts/blocks/button-group.php',
+            'category'          => 'formatting',
+            'icon'              => 'admin-comments',
+            'keywords'          => array( 'custom', 'block', 'button', 'buttons', 'group' ),
+        ));
+        
+        acf_register_block_type(array(
+            'name'              => 'tabs',
+            'title'             => __('Block: Tabbed Content'),
+            'description'       => __('Block: Tabbed Content'),
+            'render_template'   => 'template-parts/blocks/tabbed-content.php',
+            'category'          => 'formatting',
+            'icon'              => 'admin-comments',
+            'keywords'          => array( 'custom', 'block', 'tabs', 'tabbed' ),
         ));
     }
 }

@@ -45,44 +45,46 @@
 									</div>
 								</div>
 								<?php if( !empty( $global_cta_icon_links ) || !empty( $global_order_online_link ) ):?>
-									<ul class="icon-links-order-link font-heading grid-x grid-padding-x no-bullet align-middle align-center">
-										<?php if( $global_cta_icon_links ):
-											foreach( $global_cta_icon_links as $global_cta_icon_link ):
-											$icon = $global_cta_icon_link['white_icon'] ?? null;
-											$link = $global_cta_icon_link['link'] ?? null;
-											$link_url = $link['url'];
-											$link_title = $link['title'];
-											$link_target = $link['target'] ? $link['target'] : '_self';
-										?>
-											<li class="cell shrink">
-												<a class="grid-x align-middle color-white" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
-													<?php if( !empty( $icon ) ) {
-														$imgID = $icon['ID'];
-														$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
-														$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
-														echo '<div class="icon-wrap">';
-														echo $img;
-														echo '</div>';
-													}?>
-													<span><?php echo esc_html( $link_title ); ?></span>
-												</a>
-											</li>
-										<?php endforeach; endif;?>
-										<?php 
-										$link = $global_order_online_link;
-										if( $link ): 
-											$link_url = $link['url'];
-											$link_title = $link['title'];
-											$link_target = $link['target'] ? $link['target'] : '_self';
+									<div class="icon-links-order-link font-heading">
+										<ul class="grid-x grid-padding-x no-bullet align-middle align-center">
+											<?php if( $global_cta_icon_links ):
+												foreach( $global_cta_icon_links as $global_cta_icon_link ):
+												$icon = $global_cta_icon_link['white_icon'] ?? null;
+												$link = $global_cta_icon_link['link'] ?? null;
+												$link_url = $link['url'];
+												$link_title = $link['title'];
+												$link_target = $link['target'] ? $link['target'] : '_self';
 											?>
-											<li class="cell shrink">
-												<a class="button grid-x align-middle" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
-													<span><?php echo esc_html( $link_title ); ?></span>
-													<svg xmlns="http://www.w3.org/2000/svg" width="12.35" height="20"><path d="M2.35 0 0 2.35 7.633 10 0 17.65 2.35 20l10-10Z" fill="#fff"/></svg>
-												</a>
-											</li>
-										<?php endif; ?>
-									</ul>
+												<li class="icon-link cell shrink">
+													<a class="grid-x align-middle color-white" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+														<?php if( !empty( $icon ) ) {
+															$imgID = $icon['ID'];
+															$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+															$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
+															echo '<div class="icon-wrap">';
+															echo $img;
+															echo '</div>';
+														}?>
+														<span><?php echo esc_html( $link_title ); ?></span>
+													</a>
+												</li>
+											<?php endforeach; endif;?>
+											<?php 
+											$link = $global_order_online_link;
+											if( $link ): 
+												$link_url = $link['url'];
+												$link_title = $link['title'];
+												$link_target = $link['target'] ? $link['target'] : '_self';
+												?>
+												<li class="order-link cell shrink">
+													<a class="button grid-x chev-btn align-middle" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+														<span><?php echo esc_html( $link_title ); ?></span>
+														<svg xmlns="http://www.w3.org/2000/svg" width="12.35" height="20"><path d="M2.35 0 0 2.35 7.633 10 0 17.65 2.35 20l10-10Z" fill="#fff"/></svg>
+													</a>
+												</li>
+											<?php endif; ?>
+										</ul>
+									</div>
 								<?php endif;?>
 							</div>
 						<?php endif;?>
@@ -92,7 +94,7 @@
 
 				<footer id="colophon" class="site-footer bg-blue">
 					<div class="grid-container position-relative">
-						<div class="top grid-x grid-padding-x">
+						<div class="top grid-x grid-padding-x text-center">
 							<?php
 								if( !empty( $footer_logo) ) {								
 									$imgID = $footer_logo['ID'];
@@ -105,7 +107,7 @@
 							?>
 							<?php 
 								if( $social_menu_items) {
-									echo '<div class="social-wrap cell small-12 medium-6">';
+									echo '<div class="social-wrap cell small-12">';
 										trailhead_social_links();
 									echo '</div>';
 								}
@@ -113,9 +115,9 @@
 						</div>
 						<div class="contact-menu-wrap grid-x grid-padding-x">
 							<?php if( !empty($phone_number) || !empty($street_address) || !empty($city_state_zip_code) || !empty($directions_url) || !empty($hours) ):?>
-								<div class="footer-col contact-info cell small-12 tablet-shrink color-pale-blue">
+								<div class="footer-col contact-info cell small-12 tablet-4 color-pale-blue">
 									<?php if( !empty($street_address) || !empty($city_state_zip_code) || !empty($directions_url) ):?>
-										<div>
+										<div class="address">
 											<h3>Visit Us</h3>
 											<?php if( !empty($street_address) ):?>
 												<div><?=esc_html( $street_address );?></div>
@@ -132,14 +134,13 @@
 									
 									
 									<?php if( !empty($phone_number) ):?>
-										<div>
-											<h3>Contact Us</h3>
+										<div class="phone">
 											Call: <a class="color-pale-blue" href="tel:<?=esc_html( $phone_number );?>"><?=esc_html( $phone_number );?></a>
 										</div>
 									<?php endif;?>
 
 									<?php if( !empty($hours) ):?>
-										<div>
+										<div class="hours">
 											<div>
 												<?=wp_kses_post( $hours );?>
 											</div>
@@ -153,7 +154,7 @@
 										$link_target = $link['target'] ? $link['target'] : '_self';
 										?>
 										<div>
-											<a class="button grid-x align-middle bg-yellow" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+											<a class="button chev-btn grid-x align-middle bg-yellow" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
 												<span><?php echo esc_html( $link_title ); ?></span>
 												<svg xmlns="http://www.w3.org/2000/svg" width="12.35" height="20"><path d="M2.35 0 0 2.35 7.633 10 0 17.65 2.35 20l10-10Z" fill="#fff"/></svg>
 											</a>
