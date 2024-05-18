@@ -9,16 +9,22 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		
-	<div class="entry-content">
+<article id="post-<?php the_ID(); ?>">
+    <?php 
+        if( get_field('full_width_banner_image') ) {
+            get_template_part('template-parts/banner', 'full-width-image');
+        }
+    ?>
+        <div class="entry-content">
         <div class="grid-container">
-            <div class="grid-x grid-padding-x">
-                <div class="cell small-12">
-		            <?php get_template_part('template-parts/loop-modules');?>
+            <div class="grid-x grid-padding-x align-center">
+                <div class="content-wrap cell small-12 large-11 xlarge-10">
+                    <?php the_content();?>
                 </div>
             </div>
         </div>
-	</div><!-- .entry-content -->
+        </div><!-- .entry-content -->
 
 </article><!-- #post-<?php the_ID(); ?> -->
+<div class="gradient-border"></div>
+

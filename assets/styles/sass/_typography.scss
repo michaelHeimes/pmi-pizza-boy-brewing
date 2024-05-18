@@ -40,7 +40,8 @@ h4,
 p,
 .p,
 ul,
-ol {
+ol,
+cite {
 	line-height: 1.615;
 	font-size: 1.137rem;
 	font-size: clamp(1.137rem, 0.873rem + 1.175vw, 1.625rem);

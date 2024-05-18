@@ -1,0 +1,109 @@
+body {
+	.gform_wrapper.gravity-theme {
+		.gform_fields {
+			display: grid;
+			grid-column-gap: 39px;
+			grid-row-gap: 41px;
+		}
+		@media (max-width: 640px) {
+			.ginput_complex span:not(:last-of-type) {
+				margin-bottom: rem-calc(34);
+			}
+		}
+		@media (min-width: 641px) {
+			.ginput_complex:not(.ginput_container_address) fieldset:not([style*="display:none"]):not(.ginput_full), 
+			.ginput_complex:not(.ginput_container_address) span:not([style*="display:none"]):not(.ginput_full) {
+				padding-right: 28px;
+			}
+			.ginput_container_address span,
+			.ginput_full:not(:last-of-type) {
+				margin-bottom: rem-calc(34);
+			}
+			.ginput_container_address {
+				margin-left: -19.5px;
+				margin-right: -19.5px;
+				span {
+					flex: 0 0 33.3333%;
+					padding-left: 19.5px;
+					padding-right: 19.5px;
+				}
+			}
+		}
+		p.gform_required_legend,
+		.gfield_header_item, 
+		.gform_fileupload_rules, 
+		.ginput_complex label,
+		.gfield_label {
+			font-size: rem-calc(23);
+			color: #2C2C2C;
+			font-weight: 400;
+			padding-bottom: 0;
+			margin-bottom: 2px;
+		}
+		input[type=email], 
+		input[type=month], 
+		input[type=number], 
+		input[type=password], 
+		input[type=search], 
+		input[type=tel], 
+		input[type=text], 
+		input[type=time], 
+		input[type=url], 
+		input[type=week], 
+		select, 
+		textarea {
+			color: $white;
+			background-color: $black;
+			&:not(textarea):not(select) {
+				height: rem-calc(60);
+			}
+		}
+	}
+	.gform_footer, 
+	.gform_page_footer {
+		margin: 28px 0 0;
+	}
+	.entry-content {
+		.gform_wrapper.gravity-theme {
+			.gform_fields {
+				grid-row-gap: 34px;
+			}
+			.gfield_label,
+			.ginput_complex label {
+				padding-top: 0;
+				color: $black;
+			}
+			input[type=email], 
+			input[type=month], 
+			input[type=number], 
+			input[type=password], 
+			input[type=search], 
+			input[type=tel], 
+			input[type=text], 
+			input[type=time], 
+			input[type=url], 
+			input[type=week], 
+			select, 
+			textarea {
+				color: $black;
+				background-color: $white;
+				border: 1px solid $dark-gray;
+				border-radius: 0;
+				&:not(textarea):not(select) {
+					height: rem-calc(60);
+				}
+			}
+			@media (max-width: 640px) {
+				.ginput_complex span:not(:last-of-type) {
+					margin-bottom: rem-calc(34);
+				}
+			}
+			@media (min-width: 641px) {
+				.ginput_container_address span,
+				.ginput_full:not(:last-of-type) {
+					margin-bottom: rem-calc(34);
+				}
+			}
+		}
+	}
+}

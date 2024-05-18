@@ -24,17 +24,23 @@ if( !empty($block['className']) ) {
 $allow_all_closed = get_field('allow_all_closed') ?? null;
 $all_closed_by_default = get_field('all_closed_by_default') ?? null;
 $allow_multiple_open = get_field('allow_multiple_open') ?? null;
+$convert_to_tabs_for_mobile_devices = get_field('convert_to_tabs_for_mobile_devices') ?? null;
 $accordions = get_field('accordion') ?? null;
 
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="module block <?php echo esc_attr($className); ?>">
     <?php if( !empty($accordions) ):?>
-        <ul class="accordion" data-accordion
+        <ul class="accordion" 
+        <?php  if($convert_to_tabs_for_mobile_devices) :?>
+            data-responsive-accordion-tabs="tabs medium-accordion"
+        <?php else:?>
+            data-accordion
+        <?php endif;?>
         <?php
             if( $allow_all_closed ) { echo ' data-allow-all-closed="true" '; }
             if( $allow_multiple_open ) { echo ' data-multi-expand="true" '; }
         ?>
-         data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge-delay="500" data-deep-link-smudge-offset="50"
+         data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge-delay="500" data-deep-link-smudge-offset="250"
         >
             
             <?php $i = 1; foreach( $accordions as $accordion ):

@@ -26,7 +26,7 @@ $tabs = get_field('tabs') ?? null;
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="module block <?php echo esc_attr($className); ?>">
 	<?php if( !empty($tabs) ):?>
-		<ul class="tabs" data-responsive-accordion-tabs="tabs small-accordion tablet-tabs" id="<?=$block['id'];?>-tabs" data-allow-all-closed="true" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge-delay="500" data-deep-link-smudge-offset="50">
+		<ul class="tabs" data-responsive-accordion-tabs="tabs small-accordion tablet-tabs" id="<?=$block['id'];?>-tabs" data-allow-all-closed="true" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge-delay="500" data-deep-link-smudge-offset="350">
 			<?php $i = 1; foreach( $tabs as $tab ):
 				$title = $tab['title'];	
 			?>

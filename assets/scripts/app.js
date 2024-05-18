@@ -29,12 +29,12 @@
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.abide.js
 
 // Tabs UI
-//@*prepros-prepend vendor/foundation/js/plugins/foundation.tabs.js
+//@prepros-prepend vendor/foundation/js/plugins/foundation.tabs.js
 
 // Accordian
 //@prepros-prepend vendor/foundation/js/plugins/foundation.accordion.js
 //@prepros-prepend vendor/foundation/js/plugins/foundation.accordionMenu.js
-//@*prepros-prepend vendor/foundation/js/plugins/foundation.responsiveAccordionTabs.js
+//@prepros-prepend vendor/foundation/js/plugins/foundation.responsiveAccordionTabs.js
 
 // Menu enhancements
 //@prepros-prepend vendor/foundation/js/plugins/foundation.drilldown.js
@@ -233,33 +233,10 @@
         
     }
     
-    _app.ctas_slider = function() {
-        const ctasSlider = document.querySelector('.home-cta-slider');
-        const delay = ctasSlider.getAttribute('data-delay');
-
-        if(ctasSlider) {
-            const swiper = new Swiper(ctasSlider, {
-                loop: true,
-                loopAdditionalSlides: 1,
-                slidesPerView: 2,
-                speed: 500,
-                spaceBetween: 10,
-                autoplay: {
-                    delay: delay + '000',
-                    disableOnInteraction: false,
-                },
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-            });
-        }
-    }
-    
     _app.cards_slider = function() {
         const cardsSlider = document.querySelector('.cards-slider');
-        const delay = cardsSlider.getAttribute('data-delay');
         if(cardsSlider) {
+            const delay = cardsSlider.getAttribute('data-delay');
             const swiper = new Swiper(cardsSlider, {
                 loop: false,
                 slidesPerView: 1,
@@ -295,7 +272,6 @@
         // Custom Functions
         //_app.mobile_takover_nav();
         _app.banner_slider();
-        _app.ctas_slider();
         _app.cards_slider();
     }
     

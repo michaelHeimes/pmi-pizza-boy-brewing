@@ -69,6 +69,131 @@ svg {
 	}
 }
 
+ul.tabs {
+	border-top: 0;
+	border-right: 0;
+	border-left: 0;
+	li {
+		margin-right: 4px;
+		position: relative;
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			left: 1px;
+			bottom: -1px;
+			width: calc(100% - 2px);
+			height: 1px;
+			background-color: transparent;
+		}
+		&:after,
+		a {
+			transition: .25s ease;
+		}
+		&:first-child {
+			border-top-left-radius: 3px;
+		}
+		&:lasst-child {
+			border-top-right-radius: 3px;
+		}
+		&:not(.is-active) a {
+			background-color: #BFBFBF;
+			border-left-color: #BFBFBF;
+			border-top-color: #BFBFBF;
+			border-right-color: #BFBFBF;
+		}
+		&.is-active {
+			&:after {
+				background-color: $white;
+			}
+			a:hover {
+				cursor: default;
+				background-color: $white;
+				color: $color-blue;
+				border-color: #919191;
+			}
+			&:hover:after {
+				background-color: $white;
+			}
+		}
+		&:hover {
+			background-color: $color-blue;
+			color: $white;
+			border-color: $color-blue;
+			&:after {
+				left: 0px;
+				bottom: -1px;
+				width: 100%;
+				background-color: $color-blue;
+			}
+		}
+		a {
+			font-family: $font-heading;
+			font-weight: 700;
+			background-color: #BFBFBF;
+			border: 1px solid #919191;
+			border-bottom: 0;
+			transition: background-color .25s ease;
+			font-size: 1.094rem;
+			font-size: clamp(1.094rem, 0.759rem + 0.893vw, 1.563rem);
+			@include breakpoint(medium) {
+				font-size: 1.563rem;
+				font-size: clamp(1.094rem, 0.759rem + 0.893vw, 1.563rem);
+			}
+			&:hover {
+				background-color: $color-blue;
+				color: $white;
+				border-color: $color-blue;
+			}
+		}
+	}
+}
+
+.accordion {
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	overflow: hidden;
+	.accordion-item {
+		a.accordion-title {
+			border-bottom: 0;
+			font-size: 1.094rem;
+			background-color: $light-gray;
+			font-size: clamp(1.094rem, 0.84rem + 1.13vw, 1.563rem);
+			@include breakpoint(medium) {
+				font-size: 1.563rem;
+				font-size: clamp(1.094rem, 0.84rem + 1.13vw, 1.563rem);
+			}
+			&:before {
+				right: 1.75rem;
+				margin-top: -30px;
+				font-size: 52px;
+			}
+		}
+		.accordion-content {
+			border-top: 0;
+		}
+		&.is-active {
+			a.accordion-title {
+				background-color: transparent;
+			}
+		}
+		&:first-child {
+			a.accordion-title {
+				//border-bottom: 1px solid $black;
+				border-top-left-radius: 3px;
+				border-top-right-radius: 3px;
+			}
+		}
+		&:last-child:not(.is-active) {
+			a.accordion-title {
+				border-bottom: 1px solid #DDDFE0;
+				border-bottom-left-radius: 3px;
+				border-bottom-right-radius: 3px;
+			}
+		}
+	}
+}
+
 .grid-x.nowrap {
 	flex-wrap: nowrap;
 }
@@ -164,6 +289,19 @@ POSTS & CONTENT STYLES
 		margin-left: auto; 
 		display: block; 
 		clear: both; 
+	}
+	
+	@include breakpoint(small down) {
+		.alignleft,
+		img.alignleft,
+		.alignright,
+		img.alignright {
+			float: none;
+			display: block;
+			width: 100%;
+			text-align: center;
+			margin: auto;
+		}
 	}
 			
 	video, object {
