@@ -6,8 +6,10 @@
 		max-width: rem-calc(1500);
 		.swiper-pagination.swiper-pagination-bullets {
 			text-align: left;
+			bottom: 1.2rem;
 			span {
 				text-shadow: 0px 3px 6px rgba(0,0,0,.81);
+				margin: 13px;
 			}
 		}
 	}
@@ -41,10 +43,12 @@
 			}
 		}
 	}
-	&.style-banner-slider {
+	&.style-banner-slider,
+	&.blog-banner {
 		position: relative;
 		height: 100%;
-		min-height: 625px;
+		height: 530px;
+		height: clamp(27.344rem, 24.209rem + 13.931vw, 33.125rem);
 		max-width: 100vw;
 		.bg-slider {
 			width: 100%;

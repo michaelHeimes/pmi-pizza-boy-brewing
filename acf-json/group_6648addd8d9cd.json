@@ -31,7 +31,7 @@
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -142,6 +142,18 @@
                 "param": "page_template",
                 "operator": "==",
                 "value": "default"
+            },
+            {
+                "param": "page_type",
+                "operator": "!=",
+                "value": "posts_page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
             }
         ]
     ],
@@ -156,5 +168,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1716039408
+    "modified": 1716158980
 }

@@ -45,7 +45,10 @@ $button_links = get_field('button_links') ?? null;
                 $link_target = $link['target'] ? $link['target'] : '_self';
                 ?>
             <div class="cell shrink">
-                <a class="button purple-ds" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                <a class="button chev-btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                    <span><?php echo esc_html( $link_title ); ?></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12.35" height="20"><path d="M2.35 0 0 2.35 7.633 10 0 17.65 2.35 20l10-10Z" fill="#fff"/></svg>
+                </a>
             </div>
             <?php endif; ?>
         <?php endforeach;?>

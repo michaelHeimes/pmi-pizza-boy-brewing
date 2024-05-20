@@ -15,7 +15,7 @@
 		}
 		img {
 			position: absolute;
-			top: 0;
+			top: -7px;
 			right: 0;
 			width: 40%;
 		}
@@ -27,7 +27,7 @@
 				min-height: clamp(25.462rem, 19.546rem + 26.295vw, 36.375rem);
 			}
 			h2 {
-				text-shadow: 0px 3px 6px 0px rgba(0,0,0,0.81);
+				text-shadow: 0px 3px 6px rgba(0,0,0,0.81);
 			}
 			&.layout-title-button {
 				.inner {
