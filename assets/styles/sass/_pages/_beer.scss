@@ -1,0 +1,13 @@
+.beer-banner {
+	&:before {
+		content: '';
+		display: block;	
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background-image: url(../images/beer-banner-hops-pattern.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+}

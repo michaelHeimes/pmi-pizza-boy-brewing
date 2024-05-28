@@ -15,8 +15,8 @@
             get_template_part('template-parts/section', 'page-banner');
         }
     ?>
-    <div class="entry-content">
-    <div class="grid-container">
+    <div class="entry-content has-top-repeating-bg position-relative">
+    <div class="grid-container position-relative">
         <div class="grid-x grid-padding-x align-center">
             <div class="content-wrap cell small-12">
                 <?php the_content();?>

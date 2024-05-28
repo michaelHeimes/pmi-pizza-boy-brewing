@@ -1,25 +1,13 @@
 <?php
 
-// Disable Gutenberg
-//add_filter( 'use_block_editor_for_post', '__return_false' );
-
-//Remove Gutenberg Block Library CSS from loading on the frontend
-function smartwp_remove_wp_block_library_css(){
- wp_dequeue_style( 'wp-block-library' );
- wp_dequeue_style( 'wp-block-library-theme' );
- wp_dequeue_style( 'wc-blocks-style' ); // Remove WooCommerce block CSS
-} 
-//add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
-
-// Disable Gutenberg Post Type
-/*
-add_filter('use_block_editor_for_post_type', 'prefix_disable_gutenberg', 10, 2);
-function prefix_disable_gutenberg($current_status, $post_type)
-{
-    if ($post_type === 'page') return false;
-    return $current_status;
-}
-*/
+/**
+ * Disable Editor
+ *
+ * @package      ClientName
+ * @author       Bill Erickson
+ * @since        1.0.0
+ * @license      GPL-2.0+
+**/
 
 /**
  * Templates and Page IDs without editor
@@ -28,11 +16,13 @@ function prefix_disable_gutenberg($current_status, $post_type)
 function ea_disable_editor( $id = false ) {
 
 	$excluded_templates = array(
-		'page-templates/template-home.php',
+		'page-templates/page-home.php',
+		'page-templates/page-beer.php',
 	);
 
 	$excluded_ids = array(
-		// get_option( 'page_on_front' )
+		//This is because we need an ACF field due to inability to use the_content() 
+		get_option( 'page_for_posts' )
 	);
 
 	if( empty( $id ) )
@@ -48,16 +38,42 @@ function ea_disable_editor( $id = false ) {
  * Disable Gutenberg by template
  *
  */
-// function ea_disable_gutenberg( $can_edit, $post_type ) {
-// 
-// 	if( ! ( is_admin() && !empty( $_GET['post'] ) ) )
-// 		return $can_edit;
-// 
-// 	if( ea_disable_editor( $_GET['post'] ) )
-// 		$can_edit = false;
-// 
-// 	return $can_edit;
-// 
-// }
-// add_filter( 'gutenberg_can_edit_post_type', 'ea_disable_gutenberg', 10, 2 );
-// add_filter( 'use_block_editor_for_post_type', 'ea_disable_gutenberg', 10, 2 );
+function ea_disable_gutenberg( $can_edit, $post_type ) {
+
+	if( ! ( is_admin() && !empty( $_GET['post'] ) ) )
+		return $can_edit;
+
+	if( ea_disable_editor( $_GET['post'] ) )
+		$can_edit = false;
+
+	return $can_edit;
+
+}
+add_filter( 'gutenberg_can_edit_post_type', 'ea_disable_gutenberg', 10, 2 );
+add_filter( 'use_block_editor_for_post_type', 'ea_disable_gutenberg', 10, 2 );
+
+/**
+ * Disable Classic Editor by template
+ *
+ */
+function ea_disable_classic_editor() {
+
+	$screen = get_current_screen();
+	if( 'page' !== $screen->id || ! isset( $_GET['post']) )
+		return;
+
+	if( ea_disable_editor( $_GET['post'] ) ) {
+		remove_post_type_support( 'page', 'editor' );
+	}
+
+}
+//add_action( 'admin_head', 'ea_disable_classic_editor' );
+
+// Disable by post type
+function disable_gutenberg_for_beer_cpt($can_edit, $post_type) {
+	if ($post_type === 'beer-cpt') {
+		return false;
+	}
+	return $can_edit;
+}
+add_filter('use_block_editor_for_post_type', 'disable_gutenberg_for_beer_cpt', 10, 2);

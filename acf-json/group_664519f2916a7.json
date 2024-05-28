@@ -334,6 +334,27 @@
                     },
                     "return_format": "array",
                     "parent_repeater": "field_664551a491ddf"
+                },
+                {
+                    "key": "field_6654b85124f70",
+                    "label": "Custom Class (optional)",
+                    "name": "custom_class",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_664551a491ddf"
                 }
             ]
         },
@@ -486,5 +507,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1715903809
+    "modified": 1716828267
 }

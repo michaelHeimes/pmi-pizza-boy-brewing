@@ -238,7 +238,7 @@ require_once(get_template_directory().'/inc/comments.php');
 require_once(get_template_directory().'/inc/page-navi.php'); 
 
 // Adds site styles to the WordPress editor
-require_once(get_template_directory().'/inc/editor-styles.php'); 
+//require_once(get_template_directory().'/inc/editor-styles.php'); 
 
 // ACF Options
 require_once(get_template_directory().'/inc/acf-json.php');
@@ -268,7 +268,7 @@ require_once(get_template_directory().'/inc/disable-gutenberg.php');
 // require_once(get_template_directory().'/inc/login.php'); 
 
 // Customize the WordPress admin
-// require_once(get_template_directory().'/inc/admin.php'); 
+require_once(get_template_directory().'/inc/admin.php'); 
 
 // Sitemap Removal
 // require_once(get_template_directory().'/inc/sitemap-removal.php');

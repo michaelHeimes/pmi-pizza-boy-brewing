@@ -22,6 +22,24 @@
 	}
 	.cta-slides {
 		.swiper-slide {
+
+		}
+	}
+	.home-cta-slider {
+		max-width: 440px;
+		margin: auto;
+		@include breakpoint(medium) {
+			max-width: 1024px;
+			width: calc(100% - 60px);
+		}
+		@include breakpoint(large) {
+			width: 70%;
+		}
+		.swiper-slide {
+			display: flex;
+			height: auto;
+			border-top: 10px solid $white;
+			border-bottom: 10px solid $white;
 			width: 50%;
 			.inner {
 				min-height: clamp(25.462rem, 19.546rem + 26.295vw, 36.375rem);
@@ -31,10 +49,12 @@
 			}
 			&.layout-title-button {
 				.inner {
-					padding: 0 10%;
-					padding: 0 3rem;
+					padding: 0 7%;
 					max-width: 316px;
 					margin: auto;
+					@include breakpoint(tablet) {
+						padding: 0 3rem;
+					}
 					h2 {
 						margin-top: 2rem;
 						margin-bottom: 1.85em;
@@ -61,17 +81,6 @@
 				}
 			}
 		}
-	}
-	.home-cta-slider {
-		width: 70%;
-		max-width: 1024px;
-		margin: auto;
-		.swiper-slide {
-			display: flex;
-			height: auto;
-			border-top: 10px solid $white;
-			border-bottom: 10px solid $white;
-		}
 		a.grid-x {
 			flex-wrap: nowrap;
 		}
@@ -80,6 +89,17 @@
 			z-index: 1;
 			height: auto;
 			width: auto;
+			max-width: 26px;
+			@include breakpoint(medium) {
+				max-width: 36px;
+			}
+			@include breakpoint(xmedium) {
+				max-width: 49px;
+			}
+			svg {
+				width: 100%;
+				max-width: 100%;
+			}
 			&:after {
 				display: none;
 			}
@@ -155,13 +175,6 @@
 		@include breakpoint(medium) {
 			padding-top: 5rem;
 			padding-top: clamp(4.063rem, 3.554rem + 2.259vw, 5rem);
-		}
-		a.button {
-			padding: .6407em .5032em;
-			margin-bottom: $smallGutter;
-			@include breakpoint(medium) {
-				margin-bottom: $mediumGutter;
-			}
 		}
 	}
 }

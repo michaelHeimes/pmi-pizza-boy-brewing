@@ -35,6 +35,17 @@ function my_acf_init_block_types() {
             'icon'              => 'admin-comments',
             'keywords'          => array( 'custom', 'block', 'tabs', 'tabbed' ),
         ));
+        
+        acf_register_block_type(array(
+            'name'              => 'menu',
+            'title'             => __('Block: Menu'),
+            'description'       => __('Block: Menu'),
+            'render_template'   => 'template-parts/blocks/menu.php',
+            'category'          => 'formatting',
+            'icon'              => 'admin-comments',
+            'keywords'          => array( 'custom', 'block', 'menu'),
+        ));
+        
     }
 }
 

@@ -27,6 +27,22 @@ svg {
 	}
 }
 
+.has-top-repeating-bg {
+	position: relative;
+	&:before {
+		content: '';
+		display: block;	
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: clamp(27.563rem, 21.158rem + 28.464vw, 39.375rem);
+		background-image: url(../images/hops-pattern.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+}
+
 .has-object-fit {
 	img.object-fit-img {
 		position: absolute;
@@ -199,7 +215,9 @@ ul.tabs {
 }
 
 button,
-.button {
+.button,
+a.button {
+	background-color: $color-blue;
 	cursor: pointer;
 	&.no-style {
 		background: transparent;
@@ -224,6 +242,7 @@ button,
 		}
 	}
 	&.chev-btn {
+		text-align: left;
 		span {
 			margin-right: 1.17em;
 		}
@@ -243,8 +262,24 @@ button,
 			}
 		}
 	}
+	&.bg-yellow {
+		&:hover,
+		&:active {
+			background-color: $color-blue;
+		}
+	}
 	&.large {
 		padding: .8637em .7934em;
+		font-size: clamp(1.4rem, 1.075rem + 1.446vw, 2rem);
+	}
+}
+
+.button-grid {
+	.button {
+		margin-bottom: $smallGutter;
+		@include breakpoint(medium) {
+			margin-bottom: $mediumGutter;
+		}
 	}
 }
 

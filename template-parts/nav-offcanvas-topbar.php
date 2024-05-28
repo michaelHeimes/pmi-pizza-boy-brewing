@@ -35,13 +35,14 @@
 						<ul class="grid-x grid-padding-x no-bullet align-middle align-right">
 							<?php if( $global_cta_icon_links ):
 								foreach( $global_cta_icon_links as $global_cta_icon_link ):
-								$icon = $global_cta_icon_link['icon'] ?? null;
-								$link = $global_cta_icon_link['link'] ?? null;
-								$link_url = $link['url'];
-								$link_title = $link['title'];
-								$link_target = $link['target'] ? $link['target'] : '_self';
+									$custom_class = $global_cta_icon_link['custom_class'] ?? null;
+									$icon = $global_cta_icon_link['icon'] ?? null;
+									$link = $global_cta_icon_link['link'] ?? null;
+									$link_url = $link['url'];
+									$link_title = $link['title'];
+									$link_target = $link['target'] ? $link['target'] : '_self';
 							?>
-								<li class="icon-link cell shrink">
+								<li class="icon-link cell shrink <?=esc_attr( $custom_class );?>">
 									<a class="grid-x nowrap align-middle color-yellow" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
 										<?php if( !empty( $icon ) ) {
 											$imgID = $icon['ID'];
@@ -60,7 +61,7 @@
 								$link_title = $link['title'];
 								$link_target = $link['target'] ? $link['target'] : '_self';
 								?>
-								<li class="order-link cell shrink">
+								<li class="order-link cell shrink show-for-tablet">
 									<a class="button grid-x chev-btn align-middle" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
 										<span><?php echo esc_html( $link_title ); ?></span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="12.35" height="20"><path d="M2.35 0 0 2.35 7.633 10 0 17.65 2.35 20l10-10Z" fill="#fff"/></svg>
@@ -74,10 +75,22 @@
 		</div>
 	</div>
 
-	<div class="top-bar" id="top-bar-menu">
-		
-	
+	<div class="top-bar" id="top-bar-menu">		
 		<div class="top-bar-left float-left">
+			<?php 
+			$link = $global_order_online_link;
+			if( $link ): 
+				$link_url = $link['url'];
+				$link_title = $link['title'];
+				$link_target = $link['target'] ? $link['target'] : '_self';
+				?>
+				<div class="order-link cell shrink hide-for-tablet">
+					<a class="button grid-x chev-btn align-middle" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+						<span><?php echo esc_html( $link_title ); ?></span>
+						<svg xmlns="http://www.w3.org/2000/svg" width="12.35" height="20"><path d="M2.35 0 0 2.35 7.633 10 0 17.65 2.35 20l10-10Z" fill="#fff"/></svg>
+					</a>
+				</div>
+			<?php endif; ?>
 			<div class="show-for-tablet">
 				<?php trailhead_top_nav();?>
 			</div>

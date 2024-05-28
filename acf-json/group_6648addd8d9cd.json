@@ -132,6 +132,27 @@
                     "max_size": "",
                     "mime_types": "",
                     "parent_repeater": "field_6648addd905cd"
+                },
+                {
+                    "key": "field_6653e5fa51e19",
+                    "label": "Title (Optional)",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6648addd905cd"
                 }
             ]
         }
@@ -168,5 +189,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1716158980
+    "modified": 1716774729
 }

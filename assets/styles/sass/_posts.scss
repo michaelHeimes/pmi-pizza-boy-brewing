@@ -35,22 +35,6 @@
 	}
 }
 
-.has-top-repeating-bg {
-	position: relative;
-	&:before {
-		content: '';
-		display: block;	
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: clamp(27.563rem, 21.158rem + 28.464vw, 39.375rem);
-		background-image: url(../images/hops-pattern.png);
-		background-size: contain;
-		background-repeat: no-repeat;
-	}
-}
-
 .post-card {
 	margin-bottom: 3.6em;
 	a {

@@ -25,7 +25,7 @@ add_filter('admin_footer_text', 'trailhead_custom_admin_footer');
 	        $in['block_formats'] = "Paragraph=p; Heading 2=h2; Heading 3=h3; Heading 4=h4; Heading 5=h5; Heading 6=h6;Preformatted=pre";
 	    return $in;
 	}
-	add_filter( 'tiny_mce_before_init', 'dg_tiny_mce_remove_h1' );
+	//add_filter( 'tiny_mce_before_init', 'dg_tiny_mce_remove_h1' );
 
 
 /**
@@ -47,7 +47,7 @@ add_filter('admin_footer_text', 'trailhead_custom_admin_footer');
 		array_unshift($buttons, 'styleselect');
 		return $buttons;
 	}
-	add_filter('mce_buttons_2', 'add_styleselect');
+	//add_filter('mce_buttons_2', 'add_styleselect');
 
 
 	// add default styles to styleselect
@@ -67,14 +67,14 @@ add_filter('admin_footer_text', 'trailhead_custom_admin_footer');
 		
 		return $init_array;  
 	} 
-	add_filter( 'tiny_mce_before_init', 'add_styleselect_classes' ); 
+	//add_filter( 'tiny_mce_before_init', 'add_styleselect_classes' ); 
 
 
 	// add editor-style.css
 	function theme_editor_style() {
 		add_editor_style( get_template_directory_uri() . '/assets/styles/style.min.css' );
 	}
-	add_action('init', 'theme_editor_style');
+	//add_action('init', 'theme_editor_style');
 
 
 	// remove revisions meta box and recreate on right side for all post types
@@ -100,3 +100,13 @@ add_filter('admin_footer_text', 'trailhead_custom_admin_footer');
 		
 	}
 	add_action('do_meta_boxes','relocate_revisions_metabox', 30);
+	
+	
+	
+	// add featured image instructions
+	function featured_image_dimensions( $content, $post_id, $thumbnail_id ) {
+			$help_text = '<p><b>Minimum Size:</b> 314px by 290px</p>';
+			$help_text .= '<p><b>Minimum Size:</b> 628px by 580px</p>';
+			return $help_text . $content;
+		}
+	add_filter( 'admin_post_thumbnail_html', 'featured_image_dimensions', 10, 3 );
