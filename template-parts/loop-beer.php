@@ -36,7 +36,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class($article_classes); ?> data-terms="<?= esc_attr($combined_terms); ?>">
+<article id="post-<?php the_ID(); ?>" <?php post_class($article_classes); ?> data-terms="<?= esc_attr($combined_terms); ?>" data-brew-date="<?=esc_attr($brew_date);?>">
 	<a class="color-black" href="<?=esc_url( get_permalink() );?>" rel="bookmark">
 		<div>
 			<div class="thumb-wrap">
@@ -44,7 +44,7 @@
 			</div>
 			<header class="entry-header">
 				<?php
-					the_title( '<h2 class="entry-title">', '</h2>' );
+					the_title( '<h2 class="entry-title beer-name">', '</h2>' );
 				?>
 				<?php
 				echo '<div class="color-black">';
@@ -67,7 +67,7 @@
 						<?php if( !empty($brew_date) ):
 							$date = DateTime::createFromFormat( 'Ymd', $brew_date );
 						?>
-							<div>Brew Date: <?=esc_html( $date->format( 'd/m/Y' ) );?></div>	
+							<div>Brew Date: <span class="brew-date"><?=esc_html( $date->format( 'm/d/Y' ) );?></span></div>	
 						<?php endif;?>
 					</div>
 				<?php endif;?>

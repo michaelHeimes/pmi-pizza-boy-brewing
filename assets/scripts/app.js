@@ -134,7 +134,7 @@
     
         if( $isotopeFilterLoadMore ) {
                 
-                const $container = $('.isotope-filter-loadmore .filter-grid');
+                var $container = $('.isotope-filter-loadmore .filter-grid');
                 var $postsPer = $isotopeFilterLoadMore.getAttribute('data-postsper');
                 //console.log('posts per load:' + $postsPer);
                 
@@ -184,6 +184,26 @@
                 $($container).isotope({
                     itemSelector: '.filter-grid article',
                     layoutMode: 'fitRows',
+                    getSortData: {
+                        beername: '.beer-name',
+                        brewdate: '.brew-date',
+                    }
+                });
+                
+                $('.sort-dropdown').on( 'click', 'button', function() {
+                    let parentDropdown = $(this).parent().parent();
+                    $(parentDropdown).foundation('close');
+
+                    /* Get the element name to sort */
+                    var sortValue = $(this).attr('data-sort-value');
+
+                    /* Get the sorting direction: asc||desc */
+                    var direction = $(this).attr('data-sort-direction');
+                    /* convert it to a boolean */
+                    var isAscending = (direction == 'asc');
+                    
+                    $container.isotope({ sortBy: sortValue, sortAscending: isAscending });
+                    
                 });
                
                 // Function to set equal heights for each row

@@ -40,7 +40,7 @@ if( get_field('blog_banner_title', $queried_object) ) {
 					if ( have_posts() ) :?>
 						 
 						<?php
-						echo '<div class="posts-grid grid-x grid-padding-x small-up-1 medium-up-2 tablet-up-3">';
+						echo '<div class="posts-grid grid-x grid-padding-x small-up-1 medium-up-2 tablet-up-3 card-grid">';
  
 							/* Start the Loop */
 							while ( have_posts() ) :

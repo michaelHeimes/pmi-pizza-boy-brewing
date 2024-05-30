@@ -4341,7 +4341,7 @@ table.hover:not(.unstriped) tr:nth-of-type(even):hover {
   width: 300px;
   padding: 1rem;
   visibility: hidden;
-  border: 1px solid #cacaca;
+  border: 1px solid #F9AE4B;
   border-radius: 6px;
   background-color: #fff;
   font-size: 1rem;
@@ -4359,7 +4359,7 @@ table.hover:not(.unstriped) tr:nth-of-type(even):hover {
 }
 
 .dropdown-pane.small {
-  width: 200px;
+  width: 243px;
 }
 
 .dropdown-pane.large {
@@ -7515,6 +7515,29 @@ ul.tabs li a:hover {
       flex-wrap: nowrap;
 }
 
+.grid-x.grid-padding-x.card-grid, .card-grid.nav-links {
+  margin-left: -1.5625rem;
+  margin-right: -1.5625rem;
+}
+@media print, screen and (min-width: 64em) {
+  .grid-x.grid-padding-x.card-grid, .card-grid.nav-links {
+    margin-left: -2.1875rem;
+    margin-right: -2.1875rem;
+  }
+}
+.grid-x.grid-padding-x.card-grid > .cell, .card-grid.nav-links > .cell, .nav-links.card-grid > div,
+.nav-links.card-grid > li {
+  padding-left: 1.5625rem;
+  padding-right: 1.5625rem;
+}
+@media print, screen and (min-width: 64em) {
+  .grid-x.grid-padding-x.card-grid > .cell, .card-grid.nav-links > .cell, .nav-links.card-grid > div,
+  .nav-links.card-grid > li {
+    padding-left: 2.1875rem;
+    padding-right: 2.1875rem;
+  }
+}
+
 /*********************
 POSTS & CONTENT STYLES
 *********************/
@@ -9128,6 +9151,10 @@ a.button.large,
   cursor: auto;
   overflow: hidden;
 }
+#options.tax-menu-wrap .option-set.tax-menu > .cell .button, #options.tax-menu-wrap .nav-links.option-set.tax-menu > div .button,
+#options.tax-menu-wrap .nav-links.option-set.tax-menu > li .button {
+  font-size: 1rem;
+}
 #options.tax-menu-wrap .input-wrap {
   display: inline-block;
   min-width: 0;
@@ -9149,7 +9176,7 @@ a.button.large,
   cursor: pointer;
 }
 #options.tax-menu-wrap .input-wrap [type=checkbox]:checked + label, #options.tax-menu-wrap .input-wrap [type=checkbox]:hover + label {
-  color: #fff;
+  color: #002D5C;
   background-color: #D7E9FC;
 }
 
@@ -10048,7 +10075,6 @@ body.single-post article.no-banner {
 .beer-banner {
   padding-top: 5.775rem;
   padding-top: clamp(5.775rem, 4.433rem + 5.964vw, 8.25rem);
-  padding-bottom: 5px;
 }
 @media print, screen and (min-width: 40em) {
   .beer-banner {
@@ -10103,6 +10129,20 @@ body.single-post article.no-banner {
   }
 }
 
+.page-template-page-beer .beer-banner {
+  padding-bottom: 4.987rem;
+  padding-bottom: clamp(4.987rem, 3.829rem + 5.151vw, 7.125rem);
+}
+@media print, screen and (min-width: 40em) {
+  .page-template-page-beer .beer-banner {
+    padding-bottom: 7.125rem;
+    padding-bottom: clamp(4.987rem, 3.829rem + 5.151vw, 7.125rem);
+  }
+}
+
+.single-beer-cpt .beer-banner {
+  padding-bottom: 5px;
+}
 .single-beer-cpt .prefooter-cta {
   border-top: 10px solid #fff;
 }

@@ -1,7 +1,6 @@
 .beer-banner {
 	padding-top: 5.775rem;
 	padding-top: clamp(5.775rem, 4.433rem + 5.964vw, 8.25rem);
-	padding-bottom: 5px;
 	@include breakpoint(medium) {
 		padding-top: 8.25rem;
 		padding-top: clamp(5.775rem, 4.433rem + 5.964vw, 8.25rem);
@@ -54,7 +53,22 @@
 		}
 	}
 }
+
+.page-template-page-beer {
+	.beer-banner {
+		padding-bottom: 4.987rem;
+		padding-bottom: clamp(4.987rem, 3.829rem + 5.151vw, 7.125rem);
+		@include breakpoint(medium) {
+			padding-bottom: 7.125rem;
+			padding-bottom: clamp(4.987rem, 3.829rem + 5.151vw, 7.125rem);
+		}
+	}
+}
+
 .single-beer-cpt {
+	.beer-banner {
+		padding-bottom: 5px;
+	}
 	.prefooter-cta {
 		border-top: 10px solid $white;
 	}

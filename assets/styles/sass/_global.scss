@@ -214,6 +214,23 @@ ul.tabs {
 	flex-wrap: nowrap;
 }
 
+.grid-x.grid-padding-x.card-grid {
+	margin-left: rem-calc(-25);
+	margin-right: rem-calc(-25);
+	@include breakpoint(large) {
+		margin-left: rem-calc(-35);
+		margin-right: rem-calc(-35);
+	}
+	> .cell {
+		padding-left: rem-calc(25);
+		padding-right: rem-calc(25);
+		@include breakpoint(large) {
+			padding-left: rem-calc(35);
+			padding-right: rem-calc(35);
+		}
+	}
+}
+
 /*********************
 POSTS & CONTENT STYLES
 *********************/

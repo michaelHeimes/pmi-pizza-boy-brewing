@@ -50,7 +50,7 @@
 									$date = DateTime::createFromFormat( 'Ymd', $brew_date );
 								?>
 									<div class="h4 color-white font-body weight-semibold">
-										Brew Date: <?=esc_html( $date->format( 'd/m/Y' ) );?>
+										Brew Date: <?=esc_html( $date->format( 'm/d/Y' ) );?>
 									</div>	
 								<?php endif;?>
 							</div>

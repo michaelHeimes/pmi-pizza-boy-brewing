@@ -1,4 +1,5 @@
 <?php
+$page_title = get_the_title();
 $queried_object = get_queried_object() ?? null;
 
 // This template is used for all JS load more and filtering
@@ -52,8 +53,8 @@ $availability_terms_check = array_merge($availability_terms_check, $post_terms);
 	<header class="entry-header beer-banner position-relative bg-blue">
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x align-center">
-				<div class="cell small-12">
-	
+				<div class="cell small-12 position-relative">
+					<h1 class="color-white text-center"><?=$page_title;?></h1>
 					<div id="options" class="tax-menu-wrap uppercase">
 						<div class="styles tax-menu grid-x grid-padding-x align-center">
 							<?php if($primary_cat_terms && !is_wp_error($primary_cat_terms)) : foreach($primary_cat_terms as $term): ?>
@@ -98,10 +99,32 @@ $availability_terms_check = array_merge($availability_terms_check, $post_terms);
 			</div>
 		</div>
 	</header>
-	<div class="grid-container">
+	<div class="grid-container position-relative">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12">
-				<div class="filter-grid grid-x grid-padding-x small-up-1 medium-up-2 tablet-up-3">
+				<div class="grid-container">
+					<div class="dropdown-wrap grid-x align-right">
+						<button class="button grid-x grid-padding-x" type="button" data-toggle="sort-dropdown">
+							<div class="cell auto uppercase">Sort By</div>
+							<div class="cell shrink">
+								<svg xmlns="http://www.w3.org/2000/svg" width="9.18" height="18"><path d="M4.59 2.83 7.76 6l1.41-1.41L4.59 0 0 4.59 1.42 6Zm0 12.34L1.42 12 .01 13.41 4.59 18l4.59-4.59L7.76 12Z" fill="#f9ae4c"/></svg>
+							</div>
+						</button>
+						<div class="dropdown-pane sort-dropdown small text-center" id="sort-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true" data-trap-focus="true">
+							<div>
+								<button id="sort-alphabetically" type="button" class="no-style font-heading uppercase color-yellow" data-sort-direction="asc" data-sort-value="beername">
+									Sort By Alphabetical
+								</button>
+							</div>
+							<div>
+								<button id="sort-brew-date" type="button" class="no-style font-heading uppercase color-yellow" data-sort-direction="asc" data-sort-value="brewdate">
+									Sort By Brew Date
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="filter-grid grid-x grid-padding-x card-grid small-up-1 medium-up-2 tablet-up-3">
 					<?php foreach( $posts as $post ){
 						get_template_part('template-parts/loop', 'beer',
 							array(

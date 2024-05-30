@@ -112,6 +112,9 @@ a.button,
 				cursor: auto;
 				overflow: hidden;
 			}
+			.button {
+				font-size: rem-calc(16);
+			}
 		}
 	}
 	.input-wrap {
@@ -134,7 +137,7 @@ a.button,
 			cursor: pointer;
 			&:checked + label,
 			&:hover + label {
-				color: $white;
+				color: $color-blue;
 				background-color: $color-pale-blue;
 			}
 		}

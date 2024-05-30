@@ -40,7 +40,7 @@ $posts_page_id = get_option('page_for_posts'); // Retrieve the ID of the posts p
 						if ( have_posts() ) :?>
 							
 							<?php
-							echo '<div class="posts-grid grid-x grid-padding-x small-up-1 medium-up-2 tablet-up-3">';
+							echo '<div class="posts-grid grid-x grid-padding-x card-grid small-up-1 medium-up-2 tablet-up-3">';
 	
 								/* Start the Loop */
 								while ( have_posts() ) :
