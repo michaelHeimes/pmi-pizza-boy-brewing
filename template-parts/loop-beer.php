@@ -32,7 +32,7 @@
 	 $combined_terms = implode(' ', $term_slugs);
  }
  
- $article_classes = 'beer-card load-more-filter-card cell' . ' ' . $combined_terms;
+ $article_classes = 'beer-card hidden load-more-filter-card cell' . ' ' . $combined_terms;
 
 ?>
 

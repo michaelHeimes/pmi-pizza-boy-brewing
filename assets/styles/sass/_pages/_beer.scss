@@ -63,6 +63,17 @@
 			padding-bottom: clamp(4.987rem, 3.829rem + 5.151vw, 7.125rem);
 		}
 	}
+	article.load-more-filter-card {
+		transition: opacity .25s ease .35s;
+		&.hidden {
+			visibility: hidden;
+			width: 0px !important;
+			height: 0px !important;
+			margin: 0px !important;
+			padding: 0px !important;
+			opacity: 0;
+		}
+	}
 }
 
 .single-beer-cpt {

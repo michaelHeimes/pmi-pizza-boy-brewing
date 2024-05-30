@@ -204,6 +204,8 @@
                     
                     $container.isotope({ sortBy: sortValue, sortAscending: isAscending });
                     
+                    loadMore(initShow);
+                    
                 });
                
                 // Function to set equal heights for each row

@@ -49,7 +49,7 @@ $availability_terms_check = array_merge($availability_terms_check, $post_terms);
 
 ?>
 
-<section class="isotope-filter-loadmore loading overflow-hidden" data-postsper="12>">
+<section class="isotope-filter-loadmore loading overflow-hidden" data-postsper="12">
 	<header class="entry-header beer-banner position-relative bg-blue">
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x align-center">
