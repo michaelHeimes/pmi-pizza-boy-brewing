@@ -17,6 +17,10 @@
 	font-family: $font-heading;
 }
 
+.font-body {
+	font-family: $font-body;
+}
+
 .weight-medium {
 	font-weight: 500;
 }
@@ -29,12 +33,20 @@
 	color: $white;
 }
 
+.color-black {
+	color: $black;
+}
+
 .color-blue {
 	color: $color-blue;
 }
 
 .color-light-blue {
 	color: $color-light-blue;
+}
+
+.color-pale-blue {
+	color: $color-pale-blue;
 }
 
 .color-yellow {

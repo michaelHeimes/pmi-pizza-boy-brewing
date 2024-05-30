@@ -1,13 +1,61 @@
 .beer-banner {
+	padding-top: 5.775rem;
+	padding-top: clamp(5.775rem, 4.433rem + 5.964vw, 8.25rem);
+	padding-bottom: 5px;
+	@include breakpoint(medium) {
+		padding-top: 8.25rem;
+		padding-top: clamp(5.775rem, 4.433rem + 5.964vw, 8.25rem);
+	}
 	&:before {
 		content: '';
 		display: block;	
 		position: absolute;
 		top: 0;
 		left: 0;
+		right: 0;
+		bottom: 0;
 		width: 100%;
+		height: 100%;
 		background-image: url(../images/beer-banner-hops-pattern.png);
 		background-size: contain;
 		background-repeat: no-repeat;
+	}
+	.img-wrap,
+	.text-wrap {
+		margin-bottom: 3rem;
+	}
+	.img-wrap {
+		max-width: 433px;
+		margin-left: auto;
+		margin-right: auto;
+		img {
+			border-radius: 22px;
+			border-radius: clamp(0.963rem, 0.739rem + 0.994vw, 1.375rem);
+			box-shadow: 0px 1px 26px 0px rgba(4,22,41,0.75);
+		}
+	}
+	.text-wrap {
+		p {
+			&:not(:last-of-type) {
+				margin-bottom: 1.35em;
+			}
+		}
+	}
+	.abv-date {
+		padding-top: rem-calc(8);
+	}
+	.tax-menu {
+		padding-top: rem-calc(24);
+		li {
+			margin-bottom: $smallGutter;
+			@include breakpoint(medium) {
+				margin-bottom: $mediumGutter;
+			}
+		}
+	}
+}
+.single-beer-cpt {
+	.prefooter-cta {
+		border-top: 10px solid $white;
 	}
 }

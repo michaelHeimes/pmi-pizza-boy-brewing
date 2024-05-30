@@ -6,21 +6,48 @@
  *
  * @package trailhead
  */
+ $abv = get_field('abv') ?? null;
+ $brew_date = get_field('brew_date') ?? null;
+ 
+ $post_id = $post->ID;
+ $term_slugs = [];
+ $taxonomies = array('style', 'abv-range', 'availability');
+
+ // Loop through each taxonomy
+ foreach ($taxonomies as $taxonomy) {
+	 // Get the terms assigned to the post for the current taxonomy
+	 $terms = get_the_terms($post_id, $taxonomy);
+ 
+	 // Check if there are any terms
+	 if ($terms && !is_wp_error($terms)) {
+		 // Loop through each term and add its slug to the array
+		 foreach ($terms as $term) {
+			 $term_slugs[] = $term->slug;
+		 }
+	 }
+ }
+ 
+ // Combine term slugs into a single string separated by spaces
+ if (!empty($term_slugs)) {
+	 $combined_terms = implode(' ', $term_slugs);
+ }
+ 
+ $article_classes = 'beer-card load-more-filter-card cell' . ' ' . $combined_terms;
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('post-card cell'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class($article_classes); ?> data-terms="<?= esc_attr($combined_terms); ?>">
 	<a class="color-black" href="<?=esc_url( get_permalink() );?>" rel="bookmark">
-		<div class="thumb-wrap">
-			<?php the_post_thumbnail('beer-archive'); ?>
-		</div>
-		
 		<div>
+			<div class="thumb-wrap">
+				<?php the_post_thumbnail('beer-archive'); ?>
+			</div>
 			<header class="entry-header">
 				<?php
-					the_title( '<h2 class="entry-title color-black">', '</h2>' );
+					the_title( '<h2 class="entry-title">', '</h2>' );
 				?>
 				<?php
+				echo '<div class="color-black">';
 				if ( has_excerpt() ) {
 					// If there is a custom excerpt, display it
 					the_excerpt();
@@ -30,7 +57,20 @@
 					$trimmed_content = mb_substr( $content, 0, 20 ) . '...'; // Get the first 20 characters and append ellipsis
 					echo '<p>' . esc_html( $trimmed_content ) . '</p>';
 				}
+				echo '<div>';
 				?>
+				<?php if( !empty($abv) || $brew_date ):?>
+					<div class="p color-light-blue">
+						<?php if( !empty($abv) ):?>
+							<div>ABV: <?=esc_html($abv);?>%</div>	
+						<?php endif;?>
+						<?php if( !empty($brew_date) ):
+							$date = DateTime::createFromFormat( 'Ymd', $brew_date );
+						?>
+							<div>Brew Date: <?=esc_html( $date->format( 'd/m/Y' ) );?></div>	
+						<?php endif;?>
+					</div>
+				<?php endif;?>
 			</header><!-- .entry-header -->
 		</div>
 	
