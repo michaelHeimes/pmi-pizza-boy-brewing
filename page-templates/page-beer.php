@@ -25,12 +25,6 @@ $posts = get_posts($args);
 		<main id="primary" class="site-main">
 	
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			
-				<?php get_template_part('template-parts/section', 'beer-banner',
-					array(
-						'title' => get_the_title(),
-					),
-				);?>
 	
 				<?php get_template_part('template-parts/content', 'load-more-filter-grid', 
 					array(

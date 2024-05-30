@@ -7515,101 +7515,6 @@ ul.tabs li a:hover {
       flex-wrap: nowrap;
 }
 
-button,
-.button,
-a.button {
-  background-color: #002D5C;
-  cursor: pointer;
-}
-button.no-style,
-.button.no-style,
-a.button.no-style {
-  background: transparent;
-  padding: 0;
-  margin: 0;
-}
-button:not(.no-style),
-.button:not(.no-style),
-a.button:not(.no-style) {
-  font-size: clamp(1.05rem, 0.917rem + 0.59vw, 1.5rem);
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-button:not(.no-style) span,
-.button:not(.no-style) span,
-a.button:not(.no-style) span {
-  display: inline-block;
-}
-button:not(.no-style) svg path,
-.button:not(.no-style) svg path,
-a.button:not(.no-style) svg path {
-  -webkit-transition: 0.25s ease;
-  transition: 0.25s ease;
-}
-button:not(.no-style):hover,
-.button:not(.no-style):hover,
-a.button:not(.no-style):hover {
-  background-color: #116496;
-  color: #fff;
-}
-button.chev-btn,
-.button.chev-btn,
-a.button.chev-btn {
-  text-align: left;
-}
-button.chev-btn span,
-.button.chev-btn span,
-a.button.chev-btn span {
-  margin-right: 1.17em;
-}
-button.chev-link span,
-.button.chev-link span,
-a.button.chev-link span {
-  margin-right: 1.6875rem;
-}
-button.chev-link.no-bg,
-.button.chev-link.no-bg,
-a.button.chev-link.no-bg {
-  padding-left: 0;
-  background-color: transparent;
-}
-button.chev-link.no-bg span,
-.button.chev-link.no-bg span,
-a.button.chev-link.no-bg span {
-  margin-right: 1.25rem;
-}
-button.chev-link.no-bg:hover,
-.button.chev-link.no-bg:hover,
-a.button.chev-link.no-bg:hover {
-  background-color: transparent;
-}
-button.bg-yellow:hover, button.bg-yellow:active,
-.button.bg-yellow:hover,
-.button.bg-yellow:active,
-a.button.bg-yellow:hover,
-a.button.bg-yellow:active {
-  background-color: #002D5C;
-}
-button.large,
-.button.large,
-a.button.large {
-  padding: 0.8637em 0.7934em;
-  font-size: clamp(1.4rem, 1.075rem + 1.446vw, 2rem);
-}
-
-.button-grid .button {
-  margin-bottom: 20px;
-}
-@media print, screen and (min-width: 40em) {
-  .button-grid .button {
-    margin-bottom: 30px;
-  }
-}
-
 /*********************
 POSTS & CONTENT STYLES
 *********************/
@@ -9061,6 +8966,191 @@ body .entry-content .gform_wrapper.gravity-theme textarea:not(textarea):not(sele
   .single-post .nav-links {
     padding-bottom: 9.25rem;
   }
+}
+
+button,
+.button,
+a.button,
+.button.input-wrap label {
+  background-color: #002D5C;
+  cursor: pointer;
+}
+button.no-style,
+.button.no-style,
+a.button.no-style,
+.button.input-wrap label.no-style {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+button:not(.no-style):not(.input-wrap),
+.button:not(.no-style):not(.input-wrap),
+a.button:not(.no-style):not(.input-wrap),
+.button.input-wrap label:not(.no-style):not(.input-wrap) {
+  font-size: clamp(1.05rem, 0.917rem + 0.59vw, 1.5rem);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+button:not(.no-style):not(.input-wrap) span,
+.button:not(.no-style):not(.input-wrap) span,
+a.button:not(.no-style):not(.input-wrap) span,
+.button.input-wrap label:not(.no-style):not(.input-wrap) span {
+  display: inline-block;
+}
+button:not(.no-style):not(.input-wrap) svg path,
+.button:not(.no-style):not(.input-wrap) svg path,
+a.button:not(.no-style):not(.input-wrap) svg path,
+.button.input-wrap label:not(.no-style):not(.input-wrap) svg path {
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+}
+button:not(.no-style):not(.input-wrap):hover,
+.button:not(.no-style):not(.input-wrap):hover,
+a.button:not(.no-style):not(.input-wrap):hover,
+.button.input-wrap label:not(.no-style):not(.input-wrap):hover {
+  background-color: #116496;
+  color: #fff;
+}
+button.chev-btn,
+.button.chev-btn,
+a.button.chev-btn,
+.button.input-wrap label.chev-btn {
+  text-align: left;
+}
+button.chev-btn span,
+.button.chev-btn span,
+a.button.chev-btn span,
+.button.input-wrap label.chev-btn span {
+  margin-right: 1.17em;
+}
+button.chev-link span,
+.button.chev-link span,
+a.button.chev-link span,
+.button.input-wrap label.chev-link span {
+  margin-right: 1.6875rem;
+}
+button.chev-link.no-bg,
+.button.chev-link.no-bg,
+a.button.chev-link.no-bg,
+.button.input-wrap label.chev-link.no-bg {
+  padding-left: 0;
+  background-color: transparent;
+}
+button.chev-link.no-bg span,
+.button.chev-link.no-bg span,
+a.button.chev-link.no-bg span,
+.button.input-wrap label.chev-link.no-bg span {
+  margin-right: 1.25rem;
+}
+button.chev-link.no-bg:hover,
+.button.chev-link.no-bg:hover,
+a.button.chev-link.no-bg:hover,
+.button.input-wrap label.chev-link.no-bg:hover {
+  background-color: transparent;
+}
+button.bg-yellow:hover, button.bg-yellow:active,
+.button.bg-yellow:hover,
+.button.bg-yellow:active,
+a.button.bg-yellow:hover,
+a.button.bg-yellow:active,
+.button.input-wrap label.bg-yellow:hover,
+.button.input-wrap label.bg-yellow:active {
+  background-color: #002D5C;
+}
+button.large,
+.button.large,
+a.button.large,
+.button.input-wrap label.large {
+  padding: 0.8637em 0.7934em;
+  font-size: clamp(1.4rem, 1.075rem + 1.446vw, 2rem);
+}
+
+.button-grid .button {
+  margin-bottom: 20px;
+}
+@media print, screen and (min-width: 40em) {
+  .button-grid .button {
+    margin-bottom: 30px;
+  }
+}
+
+.tax-menu-wrap button,
+.tax-menu-wrap .button {
+  display: inline-block;
+  min-width: 0;
+}
+
+.tax-menu.grid-padding-x, .tax-menu.nav-links {
+  margin-left: -0.625rem;
+  margin-left: -0.625rem;
+}
+.tax-menu.grid-padding-x > .cell, .tax-menu.nav-links > .cell, .nav-links.tax-menu > div,
+.nav-links.tax-menu > li {
+  padding: 0.625rem;
+}
+.tax-menu.grid-padding-x .button, .tax-menu.nav-links .button,
+.tax-menu.grid-padding-x .input-wrap label,
+.tax-menu.nav-links .input-wrap label {
+  background-color: #F9AE4B;
+  border-style: solid;
+}
+.tax-menu.grid-padding-x .button:is(span), .tax-menu.nav-links .button:is(span), .tax-menu.grid-padding-x .button.active, .tax-menu.nav-links .button.active, .tax-menu.grid-padding-x .button:hover, .tax-menu.nav-links .button:hover,
+.tax-menu.grid-padding-x .input-wrap label:is(span),
+.tax-menu.nav-links .input-wrap label:is(span),
+.tax-menu.grid-padding-x .input-wrap label.active,
+.tax-menu.nav-links .input-wrap label.active,
+.tax-menu.grid-padding-x .input-wrap label:hover,
+.tax-menu.nav-links .input-wrap label:hover {
+  color: #fff;
+  background-color: #116496;
+}
+.tax-menu.grid-padding-x span.button, .tax-menu.nav-links span.button {
+  cursor: default;
+}
+
+#options.tax-menu-wrap .option-set.tax-menu > .cell, #options.tax-menu-wrap .nav-links.option-set.tax-menu > div,
+#options.tax-menu-wrap .nav-links.option-set.tax-menu > li {
+  opacity: 1;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+#options.tax-menu-wrap .option-set.tax-menu > .cell.hide-btn, #options.tax-menu-wrap .nav-links.option-set.tax-menu > div.hide-btn,
+#options.tax-menu-wrap .nav-links.option-set.tax-menu > li.hide-btn {
+  opacity: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  cursor: auto;
+  overflow: hidden;
+}
+#options.tax-menu-wrap .input-wrap {
+  display: inline-block;
+  min-width: 0;
+}
+#options.tax-menu-wrap .input-wrap label {
+  margin: 0;
+  line-height: 1;
+  display: block;
+  background-color: transparent;
+  cursor: pointer;
+  color: #D7E9FC;
+  border: 1px solid #D7E9FC;
+}
+#options.tax-menu-wrap .input-wrap [type=checkbox] {
+  opacity: 0;
+  pointer-events: all;
+  position: absolute;
+  margin: 0;
+  cursor: pointer;
+}
+#options.tax-menu-wrap .input-wrap [type=checkbox]:checked + label, #options.tax-menu-wrap .input-wrap [type=checkbox]:hover + label {
+  color: #fff;
+  background-color: #D7E9FC;
 }
 
 .page-banner {

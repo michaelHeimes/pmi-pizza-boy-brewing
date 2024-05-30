@@ -1,0 +1,142 @@
+button,
+.button,
+a.button,
+.button.input-wrap label {
+	background-color: $color-blue;
+	cursor: pointer;
+	&.no-style {
+		background: transparent;
+		padding: 0;
+		margin: 0;
+	}
+	&:not(.no-style):not(.input-wrap) {
+		font-size: clamp(1.05rem, 0.917rem + 0.59vw, 1.5rem);
+		display: inline-flex;
+		align-items: center;
+		span {
+			display: inline-block;
+		}
+		svg {
+			path {
+				transition: .25s ease;
+			}
+		}
+		&:hover {
+			background-color: $color-light-blue;
+			color: $white;
+		}
+	}
+	&.chev-btn {
+		text-align: left;
+		span {
+			margin-right: 1.17em;
+		}
+	}
+	&.chev-link {
+		span {
+			margin-right: rem-calc(27);
+		}
+		&.no-bg {
+			padding-left: 0;
+			background-color: transparent;
+			span {
+				margin-right: rem-calc(20);
+			}
+			&:hover {
+				background-color: transparent;
+			}
+		}
+	}
+	&.bg-yellow {
+		&:hover,
+		&:active {
+			background-color: $color-blue;
+		}
+	}
+	&.large {
+		padding: .8637em .7934em;
+		font-size: clamp(1.4rem, 1.075rem + 1.446vw, 2rem);
+	}
+}
+
+.button-grid {
+	.button {
+		margin-bottom: $smallGutter;
+		@include breakpoint(medium) {
+			margin-bottom: $mediumGutter;
+		}
+	}
+}
+
+.tax-menu-wrap {
+	button,
+	.button {
+		display: inline-block;
+		min-width: 0;
+	}
+}
+
+.tax-menu.grid-padding-x {
+	margin-left: rem-calc(-10);
+	margin-left: rem-calc(-10);
+	> .cell {
+		padding: rem-calc(10);
+	}
+	.button,
+	.input-wrap label {
+		background-color: $color-yellow;
+		border-style: solid;
+		&:is(span),
+		&.active,
+		&:hover {
+			color: $white;
+			background-color: $color-light-blue;
+		}
+	}
+	span.button {
+		cursor: default;
+	}
+}
+
+#options.tax-menu-wrap {
+	.option-set.tax-menu {
+		> .cell {
+			opacity: 1;
+			transition: all .2s ease;
+			&.hide-btn {
+				opacity: 0;
+				padding: 0;
+				width: 0;
+				height: 0;
+				pointer-events: none;
+				cursor: auto;
+				overflow: hidden;
+			}
+		}
+	}
+	.input-wrap {
+		display: inline-block;
+		min-width: 0;
+		label {
+			margin: 0;
+			line-height: 1;
+			display: block;
+			background-color: transparent;
+			cursor: pointer;
+			color: $color-pale-blue;
+			border: 1px solid $color-pale-blue;
+		}
+		[type=checkbox] {
+			opacity: 0;
+			pointer-events: all;
+			position: absolute;
+			margin: 0;
+			cursor: pointer;
+			&:checked + label,
+			&:hover + label {
+				color: $white;
+				background-color: $color-pale-blue;
+			}
+		}
+	}
+}

@@ -79,6 +79,9 @@
 // What Input
 //@prepros-prepend vendor/what-input.js
 
+// Isotope
+//@prepros-prepend vendor/isotope.pkgd.js
+
 // Swiper
 //@prepros-prepend vendor/swiper-bundle.js
 
@@ -125,6 +128,295 @@
     }
     
     // Custom Functions
+    _app.isotope_filtering = function() {
+          
+        var $isotopeFilterLoadMore = document.querySelector('.isotope-filter-loadmore');
+    
+        if( $isotopeFilterLoadMore ) {
+                
+                const $container = $('.isotope-filter-loadmore .filter-grid');
+                var $postsPer = $isotopeFilterLoadMore.getAttribute('data-postsper');
+                //console.log('posts per load:' + $postsPer);
+                
+               const facetingBtns = function(filteredItems) {
+                    // console.log('Filtering Complete after filter with ' + filteredItems.length + ' items');
+                    const filterButtons = document.querySelectorAll('#options input');
+               
+                    if (filterButtons.length > 0) {
+                        const postsShown = filteredItems;
+                        let activeTerms = [];
+               
+                        postsShown.forEach(function(postShown) {
+                            if (postShown) {
+                                const post = Object.values(postShown);
+                                const terms = post[0].getAttribute('data-terms');
+                                activeTerms.push(terms.split(' '));
+                            }
+                        });
+               
+                        // Flatten the array of arrays into a single array
+                        activeTerms = activeTerms.flat();
+               
+                        filterButtons.forEach(function(btn) {
+                           
+                            var greatGrandparent = $(btn).parent().parent().parent();
+                            var grandparent = $(btn).parent().parent();
+                            const taxonomyGroup = $(grandparent).data('group');
+
+                            const btnTerms = btn.getAttribute('data-taxonomy-terms').split(' ');
+               
+                            const hasMatchingTerm = btnTerms.some(term => activeTerms.includes(term));
+                            const wrapper = btn.parentElement.parentElement;
+                            var groupSiblings = $(grandparent).siblings(`[data-group="${taxonomyGroup}"]`);
+                            if (!hasMatchingTerm) {
+                                if (!wrapper.classList.contains('top-level')) {
+                                    wrapper.classList.add('hide-btn');
+                                }
+                            } else {
+                                if(!groupSiblings.hasClass('active')) {
+                                    wrapper.classList.remove('hide-btn');
+                                }
+                            }
+                        });
+                    }
+                };
+               
+                $($container).isotope({
+                    itemSelector: '.filter-grid article',
+                    layoutMode: 'fitRows',
+                });
+               
+                // Function to set equal heights for each row
+                const setEqualRowHeights = function() {
+                    const rows =$isotopeFilterLoadMore.querySelectorAll('.filter-grid.equal-heights > *'); // Assuming each row is a direct child of .filter-grid
+                    let maxRowHeight = 0;
+               
+                    rows.forEach(function(row) {
+                        const rowHeight = row.getBoundingClientRect().height;
+                        maxRowHeight = Math.max(maxRowHeight, rowHeight);
+                    });
+               
+                    rows.forEach(function(row) {
+                        row.style.minHeight = maxRowHeight + 'px';
+                    });
+                    $container.isotope('layout');
+                };
+                // Attach the event listener to the window object
+                window.addEventListener('resize', setEqualRowHeights);
+                
+                $container.addClass('init');
+
+                var isAnimating = false;
+                var filters = {};
+                var comboFilter = "";
+                $('#options input').on( 'click', function( event ) {
+                    if (isAnimating) return; // Prevent clicks during transition
+                    isAnimating = true; 
+                    
+                    var checkbox = event.target;
+                    var $checkbox = $( checkbox );
+                    //var group = $checkbox.parents('.option-set').attr('data-group');
+                    
+
+
+                    // Initialize an empty array to store input values
+                    var queryParams = [];
+                    
+                    var greatGrandparent = $(this).parent().parent().parent();
+                    var grandparent = $(this).parent().parent();
+                    const taxonomyGroup = $(grandparent).data('group');
+                    
+                    var group = taxonomyGroup;
+                    //console.log(group );
+                    
+                    if( $(grandparent).hasClass('active') ) {
+                        $(grandparent).removeClass('active');
+                        var groupSiblings = $(grandparent).siblings(`[data-group="${taxonomyGroup}"]`);
+                        $(groupSiblings).each(function() {
+                            $(this).removeClass('hide-btn');
+                        });
+                    } else {
+                        $(grandparent).addClass('active');
+                        var groupSiblings = $(grandparent).siblings(`[data-group="${taxonomyGroup}"]`);
+
+                        $(groupSiblings).each(function() {
+                            if(!$(this).hasClass('active')) {
+                                $(this).addClass('hide-btn');
+                            }
+                        });
+                    }
+
+                    // Iterate over each checked input within #options
+                    $('#options input:checked').each(function() {
+                        // Get the name and value of each checked input
+                        var name = $(this).attr('name');
+                        var value = $(this).val();
+
+                        // Construct query parameter string and push to array
+                        queryParams.push(encodeURIComponent(name) + '=' + encodeURIComponent(value));
+                    });
+                  
+                    // Construct the full query string by joining all query parameters with '&'
+                    var queryString = queryParams.join('&');
+                  
+                    // Update the URL with the new query string
+                    window.history.replaceState({}, '', window.location.pathname + '?' + queryString);
+                   
+                    // Reset the flag after the transition is complete
+                    setTimeout(function() {
+                        isAnimating = false;
+                    }, 350);
+
+                    // create array for filter group, if not there yet
+                    var filterGroup = filters[ group ];
+                        if ( !filterGroup ) {
+                        filterGroup = filters[ group ] = [];
+                    }
+                  // add/remove filter
+                  if ( checkbox.checked ) {
+                     // add filter
+                     filterGroup.push( checkbox.value );
+                  } else {
+                     // remove filter
+                  var index = filterGroup.indexOf( checkbox.value );
+                     filterGroup.splice( index, 1 );
+                  }
+                
+                  var comboFilter = getComboFilter();
+                    $($container).isotope({
+                        filter: comboFilter
+                    }).promise().done(function() {
+                        // Initialize Isotope and then call facetingBtns directly
+                        $container.isotope('layout');
+                        facetingBtns($container.data('isotope').filteredItems);
+
+                    });
+                    
+                });                
+                
+               //Click matching button if query string match
+               // Parse the query string
+                var queryString = window.location.search.substring(1);
+                var queryParams = queryString.split('&');
+                var params = {};
+                queryParams.forEach(function(param) {
+                    var pair = param.split('=');
+                    var name = pair[0];
+                    var value = decodeURIComponent(pair[1]);
+               
+                    // If the parameter name is already in the params object, push the value to an array
+                    if (params[name]) {
+                        if (!Array.isArray(params[name])) {
+                            params[name] = [params[name]];
+                        }
+                        params[name].push(value);
+                    } else {
+                        params[name] = value;
+                    }
+                });
+               
+                // Check inputs based on query parameters
+                for (var key in params) {
+                    var values = params[key];
+                    if (Array.isArray(values)) {
+                        // If the value is an array, iterate over each value and check the corresponding inputs
+                        values.forEach(function(value) {
+                            checkInput(key, value);
+                        });
+                    } else {
+                        // If the value is not an array, check the corresponding input
+                        checkInput(key, values);
+                    }
+                }
+               
+                function checkInput(name, value) {
+                    var $inputs = $('#options').find('input[name="' + name + '"][value="' + value + '"]');
+                    if ($inputs.length > 0) {
+                        //$inputs.prop('checked', true);
+                        $inputs.click();
+                    }
+                }                
+                
+               function getComboFilter() {
+                    var combo = [];
+                    for ( var prop in filters ) {
+                        var group = filters[ prop ];
+                        if ( !group.length ) {
+                        // no filters in group, carry on
+                            continue;
+                        }
+                        // add first group
+                        if ( !combo.length ) {
+                            combo = group.slice(0);
+                            continue;
+                        }
+                        // add additional groups
+                        var nextCombo = [];
+                        // split group into combo: [ A, B ] & [ 1, 2 ] => [ A1, A2, B1, B2 ]
+                        for ( var i=0; i < combo.length; i++ ) {
+                            for ( var j=0; j < group.length; j++ ) {
+                                var item = combo[i] + group[j];
+                                nextCombo.push( item );
+                            }
+                        }
+                        combo = nextCombo;
+                    }
+                    var comboFilter = combo.join(', ');
+                        return comboFilter;
+                }
+    
+                
+                //****************************
+                  // Isotope Load more button
+                  //****************************
+                  var initShow = parseInt($postsPer); //number of items loaded on init & onclick load more button
+                  var counter = initShow; //counter for load more button
+                  var iso = $container.data('isotope'); // get Isotope instance
+                
+                  loadMore(initShow); //execute function onload
+                
+                  function loadMore(toShow) {
+                    $container.find(".hidden").removeClass("hidden");
+                    
+                    setEqualRowHeights();
+                
+                    var hiddenElems = iso.filteredItems.slice(toShow, iso.filteredItems.length).map(function(item) {
+                      return item.element;
+                    });
+                    $(hiddenElems).addClass('hidden');
+                    $container.isotope('layout');
+                
+                    //when no more to load, hide show more button
+                    if (hiddenElems.length == 0) {
+                      jQuery("#load-more").parent().hide();
+                    } else {
+                      jQuery("#load-more").parent().show();
+                    };
+                
+                  }
+                                
+                  //when load more button clicked
+                  $("#load-more").click(function() {
+                    if ($('#filters').data('clicked')) {
+                      //when filter button clicked, set initial value for counter
+                      counter = initShow;
+                      $('#filters').data('clicked', false);
+                    } else {
+                      counter = counter;
+                    };
+
+                    counter = counter + initShow;
+                
+                    loadMore(counter);
+                  });
+                
+                  //when filter button clicked
+                  $('#options').on( 'change', function( event ) {
+                      loadMore(initShow);
+                  });
+                  
+        }
+    }
     
     _app.mobile_takover_nav = function() {
         $(document).on('click', 'a#menu-toggle', function(){
@@ -306,6 +598,7 @@
         
         // Custom Functions
         //_app.mobile_takover_nav();
+        _app.isotope_filtering();
         _app.banner_slider();
         _app.ctas_slider();
         _app.cards_slider();
