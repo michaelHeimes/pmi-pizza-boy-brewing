@@ -93,7 +93,7 @@
 			@include breakpoint(medium) {
 				max-width: 36px;
 			}
-			@include breakpoint(xmedium) {
+			@include breakpoint(tablet) {
 				max-width: 49px;
 			}
 			svg {

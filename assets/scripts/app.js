@@ -138,6 +138,23 @@
                 var $postsPer = $isotopeFilterLoadMore.getAttribute('data-postsper');
                 //console.log('posts per load:' + $postsPer);
                 
+                const checkableInputs = document.querySelectorAll('#options input');
+                // Add keydown event listener to each input
+                checkableInputs.forEach(function(input) {
+                    input.addEventListener('keydown', function(event) {
+                        // Check if the pressed key is Enter (key code 13)
+                        if (event.key === 'Enter' || event.keyCode === 13) {
+                            event.preventDefault(); // Prevent form submission
+                
+                            // Toggle checkbox state
+                            if (input.type === 'checkbox') {
+                                input.click();
+                                input.parentElement.focus();
+                            }
+                        }
+                    });
+                });
+                
                const facetingBtns = function(filteredItems) {
                     // console.log('Filtering Complete after filter with ' + filteredItems.length + ' items');
                     const filterButtons = document.querySelectorAll('#options input');
@@ -171,10 +188,12 @@
                             if (!hasMatchingTerm) {
                                 if (!wrapper.classList.contains('top-level')) {
                                     wrapper.classList.add('hide-btn');
+                                    wrapper.querySelector('input').setAttribute('tabindex', '-1');
                                 }
                             } else {
                                 if(!groupSiblings.hasClass('active')) {
                                     wrapper.classList.remove('hide-btn');
+                                    wrapper.querySelector('input').setAttribute('tabindex', '');
                                 }
                             }
                         });
@@ -193,18 +212,25 @@
                 $('.sort-dropdown').on( 'click', 'button', function() {
                     let parentDropdown = $(this).parent().parent();
                     $(parentDropdown).foundation('close');
-
-                    /* Get the element name to sort */
-                    var sortValue = $(this).attr('data-sort-value');
-
-                    /* Get the sorting direction: asc||desc */
-                    var direction = $(this).attr('data-sort-direction');
-                    /* convert it to a boolean */
-                    var isAscending = (direction == 'asc');
                     
-                    $container.isotope({ sortBy: sortValue, sortAscending: isAscending });
-                    
-                    loadMore(initShow);
+                    if( $(this).hasClass('active') ) {
+                        // do nothing
+                    } else {
+                        $(this).addClass('active');
+                        $(this).attr('disabled','disabled');
+                        $(this).parent().siblings().find('button').removeClass('active');
+                        /* Get the element name to sort */
+                        var sortValue = $(this).attr('data-sort-value');
+    
+                        /* Get the sorting direction: asc||desc */
+                        var direction = $(this).attr('data-sort-direction');
+                        /* convert it to a boolean */
+                        var isAscending = (direction == 'asc');
+                        
+                        $container.isotope({ sortBy: sortValue, sortAscending: isAscending });
+                        
+                        loadMore(initShow);
+                    }
                     
                 });
                

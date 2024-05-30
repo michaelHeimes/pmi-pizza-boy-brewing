@@ -32,19 +32,19 @@
 	 $combined_terms = implode(' ', $term_slugs);
  }
  
- $article_classes = 'beer-card hidden load-more-filter-card cell' . ' ' . $combined_terms;
+ $article_classes = 'beer-card hidden cell grid-x' . ' ' . $combined_terms;
 
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class($article_classes); ?> data-terms="<?= esc_attr($combined_terms); ?>" data-brew-date="<?=esc_attr($brew_date);?>">
-	<a class="color-black" href="<?=esc_url( get_permalink() );?>" rel="bookmark">
+	<a class="color-black grid-x flex-dir-column align-justify" href="<?=esc_url( get_permalink() );?>" rel="bookmark">
 		<div>
 			<div class="thumb-wrap">
 				<?php the_post_thumbnail('beer-archive'); ?>
 			</div>
 			<header class="entry-header">
 				<?php
-					the_title( '<h2 class="entry-title beer-name">', '</h2>' );
+					the_title( '<h2 class="entry-title beer-name h4">', '</h2>' );
 				?>
 				<?php
 				echo '<div class="color-black">';
@@ -57,10 +57,10 @@
 					$trimmed_content = mb_substr( $content, 0, 20 ) . '...'; // Get the first 20 characters and append ellipsis
 					echo '<p>' . esc_html( $trimmed_content ) . '</p>';
 				}
-				echo '<div>';
+				echo '</div>';
 				?>
 				<?php if( !empty($abv) || $brew_date ):?>
-					<div class="p color-light-blue">
+					<div class="meta p color-light-blue">
 						<?php if( !empty($abv) ):?>
 							<div>ABV: <?=esc_html($abv);?>%</div>	
 						<?php endif;?>

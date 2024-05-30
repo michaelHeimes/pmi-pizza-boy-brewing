@@ -110,3 +110,52 @@ add_filter('admin_footer_text', 'trailhead_custom_admin_footer');
 			return $help_text . $content;
 		}
 	add_filter( 'admin_post_thumbnail_html', 'featured_image_dimensions', 10, 3 );
+	
+	
+	
+	// Add custom admin column for event_date
+	function custom_brew_columns($columns) {
+		$columns['brew_date'] = 'Brew Date';
+		return $columns;
+	}
+	add_filter('manage_beer-cpt_posts_columns', 'custom_brew_columns');
+	
+	// Display event_date in custom admin column with format m/d/Y
+	function custom_brew_column_content($column, $post_id) {
+		if ($column == 'brew_date') {
+			$event_date = get_field('brew_date', $post_id); // Replace 'event_date' with your ACF field name
+			if ($event_date) {
+				$formatted_date = date('m/d/Y', strtotime($event_date));
+				echo $formatted_date;
+			}
+		}
+	}
+	add_action('manage_beer-cpt_posts_custom_column', 'custom_brew_column_content', 10, 2);
+	
+	
+	
+	
+	
+	
+	// Make the brew_date column sortable
+	function beer_cpt_sortable_columns($columns) {
+		$columns['brew_date'] = 'brew_date';
+		return $columns;
+	}
+	add_filter('manage_edit-beer-cpt_sortable_columns', 'beer_cpt_sortable_columns');
+	
+	// Add custom sorting for the brew_date column
+	function beer_cpt_column_orderby($query) {
+		if (!is_admin()) {
+			return;
+		}
+	
+		$orderby = $query->get('orderby');
+	
+		if ('brew_date' === $orderby) {
+			$query->set('meta_key', 'brew_date');
+			$query->set('orderby', 'meta_value');
+		}
+	}
+	add_action('pre_get_posts', 'beer_cpt_column_orderby');
+

@@ -9155,6 +9155,16 @@ a.button.large,
 #options.tax-menu-wrap .nav-links.option-set.tax-menu > li .button {
   font-size: 1rem;
 }
+#options.tax-menu-wrap .option-set.tax-menu > .cell .button:focus, #options.tax-menu-wrap .nav-links.option-set.tax-menu > div .button:focus,
+#options.tax-menu-wrap .nav-links.option-set.tax-menu > li .button:focus {
+  outline: 1px dotted #212121;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+#options.tax-menu-wrap .option-set.tax-menu > .cell .input-wrap:has(input:focus) label.button, #options.tax-menu-wrap .nav-links.option-set.tax-menu > div .input-wrap:has(input:focus) label.button,
+#options.tax-menu-wrap .nav-links.option-set.tax-menu > li .input-wrap:has(input:focus) label.button {
+  outline: 1px dotted #212121;
+  outline: 5px auto -webkit-focus-ring-color;
+}
 #options.tax-menu-wrap .input-wrap {
   display: inline-block;
   min-width: 0;
@@ -9570,12 +9580,17 @@ body.page-template-default .entry-content:not(.accordion-content):not(.tabs-pane
   height: auto;
   width: auto;
   max-width: 26px;
-  max-width: 49px;
 }
 @media print, screen and (min-width: 40em) {
   .page-template-page-home .home-cta-slider .swiper-button-next,
   .page-template-page-home .home-cta-slider .swiper-button-prev {
     max-width: 36px;
+  }
+}
+@media print, screen and (min-width: 56.25em) {
+  .page-template-page-home .home-cta-slider .swiper-button-next,
+  .page-template-page-home .home-cta-slider .swiper-button-prev {
+    max-width: 49px;
   }
 }
 .page-template-page-home .home-cta-slider .swiper-button-next svg,
@@ -10129,27 +10144,118 @@ body.single-post article.no-banner {
   }
 }
 
-.page-template-page-beer .beer-banner {
+.page-template-page-beer .beer-banner,
+.tax-style .beer-banner {
+  margin-bottom: 2.313rem;
+  margin-bottom: clamp(1.619rem, 1.243rem + 1.672vw, 2.313rem);
+  padding-top: 3.413rem;
+  padding-top: clamp(3.413rem, 2.62rem + 3.524vw, 4.875rem);
   padding-bottom: 4.987rem;
   padding-bottom: clamp(4.987rem, 3.829rem + 5.151vw, 7.125rem);
 }
 @media print, screen and (min-width: 40em) {
-  .page-template-page-beer .beer-banner {
+  .page-template-page-beer .beer-banner,
+  .tax-style .beer-banner {
+    padding-top: 7.125rem;
+    padding-top: clamp(3.413rem, 2.62rem + 3.524vw, 4.875rem);
     padding-bottom: 7.125rem;
     padding-bottom: clamp(4.987rem, 3.829rem + 5.151vw, 7.125rem);
   }
 }
-.page-template-page-beer article.load-more-filter-card {
+.page-template-page-beer .beer-banner p,
+.tax-style .beer-banner p {
+  color: #D7E9FC;
+}
+.page-template-page-beer button[data-toggle=sort-dropdown]:not(.no-style):not(.input-wrap),
+.page-template-page-beer button#sort-brew-date:not(.no-style):not(.input-wrap),
+.tax-style button[data-toggle=sort-dropdown]:not(.no-style):not(.input-wrap),
+.tax-style button#sort-brew-date:not(.no-style):not(.input-wrap) {
+  color: #F9AE4B;
+  font-size: 1.125rem;
+}
+.page-template-page-beer button[data-toggle=sort-dropdown]:not(.no-style):not(.input-wrap):hover,
+.page-template-page-beer button#sort-brew-date:not(.no-style):not(.input-wrap):hover,
+.tax-style button[data-toggle=sort-dropdown]:not(.no-style):not(.input-wrap):hover,
+.tax-style button#sort-brew-date:not(.no-style):not(.input-wrap):hover {
+  background-color: #116496;
+  color: #fff;
+}
+.page-template-page-beer button[data-toggle=sort-dropdown],
+.tax-style button[data-toggle=sort-dropdown] {
+  background-color: #fff;
+  border: 1px solid #F9AE4B;
+  margin-bottom: 1.75rem;
+}
+.page-template-page-beer button[data-toggle=sort-dropdown][aria-expanded=true],
+.tax-style button[data-toggle=sort-dropdown][aria-expanded=true] {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.page-template-page-beer button[data-toggle=sort-dropdown]:hover,
+.tax-style button[data-toggle=sort-dropdown]:hover {
+  border-color: #116496;
+}
+.page-template-page-beer .sort-dropdown .btn-wrap:not(:last-child),
+.tax-style .sort-dropdown .btn-wrap:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+.page-template-page-beer .sort-dropdown button,
+.tax-style .sort-dropdown button {
+  -webkit-transition: color 0.25s ease;
+  transition: color 0.25s ease;
+}
+.page-template-page-beer .sort-dropdown button:hover:not(.active),
+.tax-style .sort-dropdown button:hover:not(.active) {
+  color: #002D5C;
+}
+.page-template-page-beer .sort-dropdown button.active,
+.tax-style .sort-dropdown button.active {
+  opacity: 0.5;
+}
+.page-template-page-beer .sort-dropdown button.active:hover,
+.tax-style .sort-dropdown button.active:hover {
+  cursor: default;
+}
+.page-template-page-beer article.beer-card,
+.tax-style article.beer-card {
+  margin-bottom: 2.875rem;
   -webkit-transition: opacity 0.25s ease 0.35s;
   transition: opacity 0.25s ease 0.35s;
 }
-.page-template-page-beer article.load-more-filter-card.hidden {
+.page-template-page-beer article.beer-card.hidden,
+.tax-style article.beer-card.hidden {
   visibility: hidden;
   width: 0px !important;
   height: 0px !important;
   margin: 0px !important;
   padding: 0px !important;
   opacity: 0;
+}
+.page-template-page-beer article.beer-card a,
+.tax-style article.beer-card a {
+  height: auto;
+}
+.page-template-page-beer article.beer-card .thumb-wrap,
+.tax-style article.beer-card .thumb-wrap {
+  margin-bottom: 0.625rem;
+}
+.page-template-page-beer article.beer-card img,
+.tax-style article.beer-card img {
+  border-radius: 6px;
+}
+.page-template-page-beer article.beer-card h2,
+.tax-style article.beer-card h2 {
+  text-transform: none;
+  line-height: 1.1923;
+  margin-bottom: 0.15em;
+}
+.page-template-page-beer article.beer-card .meta,
+.tax-style article.beer-card .meta {
+  padding-top: 0.3125rem;
+}
+.page-template-page-beer article.beer-card .entry-footer,
+.tax-style article.beer-card .entry-footer {
+  padding-top: 2rem;
 }
 
 .single-beer-cpt .beer-banner {

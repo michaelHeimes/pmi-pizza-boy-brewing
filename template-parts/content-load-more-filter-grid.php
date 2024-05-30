@@ -1,5 +1,17 @@
 <?php
-$page_title = get_the_title();
+$post_content = '';
+
+if( is_archive() ) {
+	$queried_object = get_queried_object() ?? null;
+	if( !empty($queried_object->description) ) {
+		$post_content = $queried_object->description;
+	} else {
+		$post_content = $queried_object->name;
+	}
+} else {
+	$post_content = get_post_field('post_content', get_the_ID());
+}
+
 $queried_object = get_queried_object() ?? null;
 
 // This template is used for all JS load more and filtering
@@ -12,7 +24,7 @@ $style_terms = get_terms( array(
 ) );
 
 $primary_cat_terms = $style_terms;
-$primary_cat_front = '/our-beers/';
+$primary_cat_front = '/brewery/our-beers/';
 $primary_all = $primary_cat_front;
 $index_page = $primary_cat_front;
 $active_term = $style;
@@ -54,7 +66,7 @@ $availability_terms_check = array_merge($availability_terms_check, $post_terms);
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x align-center">
 				<div class="cell small-12 position-relative">
-					<h1 class="color-white text-center"><?=$page_title;?></h1>
+					<h1 class="color-white text-center"><?=wp_kses_post($post_content);?></h1>
 					<div id="options" class="tax-menu-wrap uppercase">
 						<div class="styles tax-menu grid-x grid-padding-x align-center">
 							<?php if($primary_cat_terms && !is_wp_error($primary_cat_terms)) : foreach($primary_cat_terms as $term): ?>
@@ -110,21 +122,21 @@ $availability_terms_check = array_merge($availability_terms_check, $post_terms);
 								<svg xmlns="http://www.w3.org/2000/svg" width="9.18" height="18"><path d="M4.59 2.83 7.76 6l1.41-1.41L4.59 0 0 4.59 1.42 6Zm0 12.34L1.42 12 .01 13.41 4.59 18l4.59-4.59L7.76 12Z" fill="#f9ae4c"/></svg>
 							</div>
 						</button>
-						<div class="dropdown-pane sort-dropdown small text-center" id="sort-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true" data-trap-focus="true">
-							<div>
+						<div class="dropdown-pane sort-dropdown small text-center" id="sort-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true" data-trap-focus="true" data-position="bottom" data-alignment="center">
+							<div class="btn-wrap">
 								<button id="sort-alphabetically" type="button" class="no-style font-heading uppercase color-yellow" data-sort-direction="asc" data-sort-value="beername">
 									Sort By Alphabetical
 								</button>
 							</div>
-							<div>
-								<button id="sort-brew-date" type="button" class="no-style font-heading uppercase color-yellow" data-sort-direction="asc" data-sort-value="brewdate">
+							<div class="btn-wrap">
+								<button id="sort-brew-date" type="button" class="active no-style font-heading uppercase color-yellow" data-sort-direction="asc" data-sort-value="brewdate">
 									Sort By Brew Date
 								</button>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="filter-grid grid-x grid-padding-x card-grid small-up-1 medium-up-2 tablet-up-3">
+				<div class="filter-grid equal-heights grid-x grid-padding-x card-grid small-up-1 medium-up-2 tablet-up-3">
 					<?php foreach( $posts as $post ){
 						get_template_part('template-parts/loop', 'beer',
 							array(
