@@ -22,7 +22,7 @@ function ea_disable_editor( $id = false ) {
 
 	$excluded_ids = array(
 		//This is because we need an ACF field due to inability to use the_content() 
-		get_option( 'page_for_posts' )
+		//get_option( 'page_for_posts' )
 	);
 
 	if( empty( $id ) )

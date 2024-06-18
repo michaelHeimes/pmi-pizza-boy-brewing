@@ -111,6 +111,14 @@
 			}
 		}
 	}
+	.grid-wrap  {
+		padding-bottom: 8.094rem;
+		padding-bottom: clamp(8.094rem, 6.213rem + 8.358vw, 11.563rem);
+			@include breakpoint(medium) {
+				padding-bottom: 11.563rem;
+				padding-bottom: clamp(8.094rem, 6.213rem + 8.358vw, 11.563rem);
+			}
+	}
 	article.beer-card {
 		margin-bottom: rem-calc(46);
 		transition: opacity .25s ease .35s;
@@ -142,6 +150,10 @@
 		.entry-footer {
 			padding-top: rem-calc(32);
 		}
+	}
+	.load-more-wrap {
+		padding-top: 78px;
+		padding-top: clamp(3.413rem, 2.62rem + 3.524vw, 4.875rem);
 	}
 }
 

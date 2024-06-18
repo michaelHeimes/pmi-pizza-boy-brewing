@@ -8214,7 +8214,7 @@ header.site-header .pre-header .icon-link {
   font-size: 1.4375rem;
 }
 header.site-header .pre-header .icon-link img {
-  margin-right: 14px;
+  margin-right: 10px;
 }
 @media print, screen and (max-width: 56.24875em) {
   header.site-header .pre-header .icon-link:not(.call-us-link) img {
@@ -8225,7 +8225,7 @@ header.site-header .pre-header .icon-link img {
   }
 }
 header.site-header .pre-header .order-link a.button.chev-btn {
-  padding: 0.521em 0.7386em;
+  padding: 0.552em 0.858em;
 }
 header.site-header .top-bar {
   border-bottom: 2px solid #fff;
@@ -8481,16 +8481,16 @@ header.site-header #top-bar-menu .menu-toggle-wrap a#menu-toggle.clicked span:nt
 .prefooter-cta {
   border-bottom: 10px solid #fff;
   padding-top: 5.425rem;
-  padding-bottom: 6.213rem;
+  padding-bottom: 5.644rem;
   padding-top: clamp(5.425rem, 4.164rem + 5.602vw, 7.75rem);
-  padding-bottom: clamp(6.213rem, 4.769rem + 6.416vw, 8.875rem);
+  padding-bottom: clamp(5.644rem, 4.332rem + 5.828vw, 8.063rem);
 }
 @media print, screen and (min-width: 40em) {
   .prefooter-cta {
     padding-top: 7.75rem;
-    padding-bottom: 8.875rem;
+    padding-bottom: 8.063rem;
     padding-top: clamp(5.425rem, 4.164rem + 5.602vw, 7.75rem);
-    padding-bottom: clamp(6.213rem, 4.769rem + 6.416vw, 8.875rem);
+    padding-bottom: clamp(5.644rem, 4.332rem + 5.828vw, 8.063rem);
   }
 }
 .prefooter-cta .bg.mask {
@@ -8810,11 +8810,13 @@ body .entry-content .gform_wrapper.gravity-theme textarea:not(textarea):not(sele
 }
 
 .grid-intro {
-  padding-bottom: 3.1875rem;
+  padding-bottom: 1.837rem;
+  padding-bottom: clamp(1.837rem, 1.411rem + 1.898vw, 2.625rem);
 }
 @media print, screen and (min-width: 40em) {
   .grid-intro {
-    padding-bottom: 4.4375rem;
+    padding-bottom: 2.625rem;
+    padding-bottom: clamp(1.837rem, 1.411rem + 1.898vw, 2.625rem);
   }
 }
 
@@ -8831,7 +8833,6 @@ body .entry-content .gform_wrapper.gravity-theme textarea:not(textarea):not(sele
   margin-bottom: 3.6em;
 }
 .post-card a {
-  display: block;
   position: relative;
 }
 .post-card a .chev-btn {
@@ -8972,6 +8973,9 @@ body .entry-content .gform_wrapper.gravity-theme textarea:not(textarea):not(sele
 .nav-links.pagination li a:hover svg path {
   fill: #F9AE4B;
 }
+.nav-links.pagination li span.current {
+  color: #F9AE4B;
+}
 .nav-links.pagination li .next {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
@@ -9074,6 +9078,12 @@ button.chev-link.no-bg:hover,
 a.button.chev-link.no-bg:hover,
 .button.input-wrap label.chev-link.no-bg:hover {
   background-color: transparent;
+}
+button.bg-yellow,
+.button.bg-yellow,
+a.button.bg-yellow,
+.button.input-wrap label.bg-yellow {
+  background-color: #F9AE4B;
 }
 button.bg-yellow:hover, button.bg-yellow:active,
 .button.bg-yellow:hover,
@@ -9226,17 +9236,25 @@ a.button.large,
   line-height: 1.2;
   margin-bottom: 0;
   padding: 4rem 0;
-  font-size: 4.287rem;
-  font-size: clamp(4.287rem, 3.394rem + 3.973vw, 6.125rem);
+  font-size: 5.338rem;
+  font-size: clamp(5.338rem, 4.097rem + 5.512vw, 7.625rem);
 }
 @media print, screen and (min-width: 40em) {
   .page-banner.style-hero-slider h1 {
-    font-size: 6.125rem;
-    font-size: clamp(4.287rem, 3.394rem + 3.973vw, 6.125rem);
+    font-size: 7.625rem;
+    font-size: clamp(5.338rem, 4.097rem + 5.512vw, 7.625rem);
   }
 }
 .page-banner.style-hero-slider h1 span {
   text-transform: none;
+  font-size: 4.9rem;
+  font-size: clamp(4.9rem, 3.761rem + 5.06vw, 7rem);
+}
+@media print, screen and (min-width: 40em) {
+  .page-banner.style-hero-slider h1 span {
+    font-size: 7rem;
+    font-size: clamp(4.9rem, 3.761rem + 5.06vw, 7rem);
+  }
 }
 .page-banner.style-banner-slider, .page-banner.blog-banner {
   position: relative;
@@ -9797,9 +9815,9 @@ body.page-template-default .entry-content:not(.accordion-content):not(.tabs-pane
 body.page-template-page-search .entry-content:not(.accordion-content):not(.tabs-panel),
 body.single-post .entry-content:not(.accordion-content):not(.tabs-panel) {
   overflow: hidden;
-  padding-top: 5.5rem;
+  padding-top: 2.625rem;
   padding-bottom: 5.5rem;
-  padding-top: clamp(5.5rem, 4.574rem + 4.115vw, 8rem);
+  padding-top: clamp(2.625rem, 2.015rem + 2.711vw, 3.75rem);
   padding-bottom: clamp(5.5rem, 4.574rem + 4.115vw, 8rem);
 }
 @media print, screen and (min-width: 40em) {
@@ -9807,9 +9825,9 @@ body.single-post .entry-content:not(.accordion-content):not(.tabs-panel) {
   body.page-template-default .entry-content:not(.accordion-content):not(.tabs-panel),
   body.page-template-page-search .entry-content:not(.accordion-content):not(.tabs-panel),
   body.single-post .entry-content:not(.accordion-content):not(.tabs-panel) {
-    padding-top: 8rem;
+    padding-top: 3.75rem;
     padding-bottom: 8rem;
-    padding-top: clamp(5.5rem, 4.574rem + 4.115vw, 8rem);
+    padding-top: clamp(2.625rem, 2.015rem + 2.711vw, 3.75rem);
     padding-bottom: clamp(5.5rem, 4.574rem + 4.115vw, 8rem);
   }
 }
@@ -10216,6 +10234,18 @@ body.single-post article.no-banner {
 .tax-style .sort-dropdown button.active:hover {
   cursor: default;
 }
+.page-template-page-beer .grid-wrap,
+.tax-style .grid-wrap {
+  padding-bottom: 8.094rem;
+  padding-bottom: clamp(8.094rem, 6.213rem + 8.358vw, 11.563rem);
+}
+@media print, screen and (min-width: 40em) {
+  .page-template-page-beer .grid-wrap,
+  .tax-style .grid-wrap {
+    padding-bottom: 11.563rem;
+    padding-bottom: clamp(8.094rem, 6.213rem + 8.358vw, 11.563rem);
+  }
+}
 .page-template-page-beer article.beer-card,
 .tax-style article.beer-card {
   margin-bottom: 2.875rem;
@@ -10256,6 +10286,11 @@ body.single-post article.no-banner {
 .page-template-page-beer article.beer-card .entry-footer,
 .tax-style article.beer-card .entry-footer {
   padding-top: 2rem;
+}
+.page-template-page-beer .load-more-wrap,
+.tax-style .load-more-wrap {
+  padding-top: 78px;
+  padding-top: clamp(3.413rem, 2.62rem + 3.524vw, 4.875rem);
 }
 
 .single-beer-cpt .beer-banner {

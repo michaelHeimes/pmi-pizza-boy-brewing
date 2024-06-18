@@ -21,7 +21,7 @@ header.site-header {
 		.icon-link {
 			font-size: rem-calc(23);
 			img {
-				margin-right: 14px;
+				margin-right: 10px;
 			}
 			&:not(.call-us-link) {
 				@include breakpoint(medium down) {
@@ -36,7 +36,7 @@ header.site-header {
 		}
 		.order-link {
 			a.button.chev-btn {
-				padding: .521em .7386em;
+				padding: 0.552em 0.858em;
 			}
 		}
 	}

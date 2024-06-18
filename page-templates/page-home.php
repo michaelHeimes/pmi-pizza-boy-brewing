@@ -83,7 +83,7 @@ $cscta_button_links = $fields['cscta_button_links'] ?? null;
 					<div class="content position-relative">
 						<div class="grid-container">				
 							<div class="grid-x grid-padding-x align-center">
-								<div class="cell small-12 tablet-10">
+								<div class="cell small-12">
 									<?php if( !empty($hero_top_headline) || !empty($hero_bottom_headline) ):?>
 										<h1 class="color-white">
 											<?php if( !empty($hero_top_headline) ) {

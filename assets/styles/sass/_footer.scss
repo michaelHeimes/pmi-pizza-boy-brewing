@@ -1,14 +1,14 @@
 .prefooter-cta {
 	border-bottom: 10px solid $white;
 	padding-top: 5.425rem;
-	padding-bottom: 6.213rem;
+	padding-bottom: 5.644rem;
 	padding-top: clamp(5.425rem, 4.164rem + 5.602vw, 7.75rem);
-	padding-bottom: clamp(6.213rem, 4.769rem + 6.416vw, 8.875rem);
+	padding-bottom: clamp(5.644rem, 4.332rem + 5.828vw, 8.063rem);
 		@include breakpoint(medium) {
 			padding-top: 7.75rem;
-			padding-bottom: 8.875rem;
+			padding-bottom: 8.063rem;
 			padding-top: clamp(5.425rem, 4.164rem + 5.602vw, 7.75rem);
-			padding-bottom: clamp(6.213rem, 4.769rem + 6.416vw, 8.875rem);
+			padding-bottom: clamp(5.644rem, 4.332rem + 5.828vw, 8.063rem);
 		}
 	
 	.bg.mask {

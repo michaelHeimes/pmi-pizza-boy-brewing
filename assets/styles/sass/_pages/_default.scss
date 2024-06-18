@@ -91,14 +91,14 @@ body.page-template-page-search,
 body.single-post {
 	.entry-content:not(.accordion-content):not(.tabs-panel) {
 		overflow: hidden;
-		padding-top: 5.5rem;
+		padding-top: 2.625rem;
 		padding-bottom: 5.5rem;
-		padding-top: clamp(5.5rem, 4.574rem + 4.115vw, 8rem);
+		padding-top: clamp(2.625rem, 2.015rem + 2.711vw, 3.75rem);
 		padding-bottom: clamp(5.5rem, 4.574rem + 4.115vw, 8rem);
 		@include breakpoint(medium) {
-			padding-top: 8rem;
+			padding-top: 3.75rem;
 			padding-bottom: 8rem;
-			padding-top: clamp(5.5rem, 4.574rem + 4.115vw, 8rem);
+			padding-top: clamp(2.625rem, 2.015rem + 2.711vw, 3.75rem);
 			padding-bottom: clamp(5.5rem, 4.574rem + 4.115vw, 8rem);
 		}
 		.inner > *:first-child {

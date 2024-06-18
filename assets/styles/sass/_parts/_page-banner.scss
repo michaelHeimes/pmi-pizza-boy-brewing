@@ -32,14 +32,21 @@
 			line-height: 1.2;
 			margin-bottom: 0;
 			padding: 4rem 0;
-			font-size: 4.287rem;
-			font-size: clamp(4.287rem, 3.394rem + 3.973vw, 6.125rem);
+			font-size: 5.338rem;
+			font-size: clamp(5.338rem, 4.097rem + 5.512vw, 7.625rem);
 			@include breakpoint(medium) {
-				font-size: 6.125rem;
-				font-size: clamp(4.287rem, 3.394rem + 3.973vw, 6.125rem);
+				font-size: 7.625rem;
+				font-size: clamp(5.338rem, 4.097rem + 5.512vw, 7.625rem);
 			}
 			span {
 				text-transform: none;
+				font-size: 4.9rem;
+				font-size: clamp(4.9rem, 3.761rem + 5.06vw, 7rem);
+				@include breakpoint(medium) {
+					font-size: 7rem;
+					font-size: clamp(4.9rem, 3.761rem + 5.06vw, 7rem);
+				}
+				
 			}
 		}
 	}

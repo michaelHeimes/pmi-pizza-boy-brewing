@@ -22,9 +22,11 @@
 }
 
 .grid-intro {
-	padding-bottom: rem-calc(51);
+	padding-bottom: 1.837rem;
+	padding-bottom: clamp(1.837rem, 1.411rem + 1.898vw, 2.625rem);
 	@include breakpoint(medium) {
-		padding-bottom: rem-calc(71);
+		padding-bottom: 2.625rem;
+		padding-bottom: clamp(1.837rem, 1.411rem + 1.898vw, 2.625rem);
 	}
 }
 
@@ -38,7 +40,6 @@
 .post-card {
 	margin-bottom: 3.6em;
 	a {
-		display: block;
 		position: relative;
 		.chev-btn {
 			min-width: 235px;
@@ -161,6 +162,9 @@
 				svg path {
 					fill: $color-yellow;
 				}
+			}
+			span.current {
+				color: $color-yellow;
 			}
 			.next {
 				flex-direction: row-reverse;	

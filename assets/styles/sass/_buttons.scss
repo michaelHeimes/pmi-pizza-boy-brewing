@@ -48,6 +48,7 @@ a.button,
 		}
 	}
 	&.bg-yellow {
+		background-color: $color-yellow;
 		&:hover,
 		&:active {
 			background-color: $color-blue;
