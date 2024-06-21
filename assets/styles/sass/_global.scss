@@ -272,12 +272,12 @@ POSTS & CONTENT STYLES
 		margin-left: auto; 
 		display: block; 
 		clear: both; 
-		@include breakpoint(small down) {
+		@media (max-width: 781px) {
 			text-align: center;
 		}
 	}
 	
-	@include breakpoint(small down) {
+	@media (max-width: 781px) {
 		.alignleft,
 		img.alignleft,
 		.alignright,
@@ -286,7 +286,9 @@ POSTS & CONTENT STYLES
 			display: block;
 			width: 100%;
 			text-align: center;
-			margin: auto;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
 		}
 	}
 			

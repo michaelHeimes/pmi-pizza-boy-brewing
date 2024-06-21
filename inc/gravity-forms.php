@@ -22,15 +22,17 @@ function acf_populate_gf_forms_ids( $field ) {
 }
 add_filter( 'acf/load_field/name=gravity_form', 'acf_populate_gf_forms_ids' );
 
+
+
 /**
-* Filters the next, previous and submit buttons.
-* Replaces the form's <input> buttons with <button> while maintaining attributes from original <input>.
-*
-* @param string $button Contains the <input> tag to be filtered.
-* @param object $form Contains all the properties of the current form.
-*
-* @return string The filtered button.
-*/
+ * Filters the next, previous and submit buttons.
+ * Replaces the form's <input> buttons with <button> while maintaining attributes from original <input>.
+ *
+ * @param string $button Contains the <input> tag to be filtered.
+ * @param object $form Contains all the properties of the current form.
+ *
+ * @return string The filtered button.
+ */
 add_filter( 'gform_next_button', 'modify_gform_button', 10, 2 );
 add_filter( 'gform_previous_button', 'modify_gform_button', 10, 2 );
 add_filter( 'gform_submit_button', 'modify_gform_button', 10, 2 );
@@ -43,7 +45,8 @@ function modify_gform_button( $button, $form ) {
 
 	// Create a new button element
 	$new_button = $dom->createElement( 'button' );
-	$new_button->setAttribute( 'class', 'button chev-link grid-x align-center' );
+	$new_button->setAttribute( 'class', $input->getAttribute( 'class' ) . ' chev-link grid-x align-center' );
+	$new_button->setAttribute( 'type', 'button' ); // Set the button type to 'button' to avoid form submission
 
 	// Create a span element to wrap the button text
 	$span = $dom->createElement( 'span', $button_text );
@@ -57,9 +60,12 @@ function modify_gform_button( $button, $form ) {
 	$new_button->appendChild( $span );
 	$new_button->appendChild( $svg_element );
 
+	// Add onclick event to ensure form submission
+	$new_button->setAttribute( 'onclick', 'this.closest("form").submit();' );
+
 	// Replace the input with the new button
 	$input->parentNode->replaceChild( $new_button, $input );
 
 	// Return the HTML of the modified button
-	return $dom->saveHtml( $new_button );
+	return $dom->saveHTML( $new_button );
 }
