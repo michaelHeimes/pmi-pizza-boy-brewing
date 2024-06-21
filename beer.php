@@ -7,22 +7,22 @@ $pagetitle = 'BEER/WINE LIST'
 ?>
 
 <?php //include('header.php'); ?>
-<div class="entry-content has-top-repeating-bg position-relative">
+<div class="entry-content entry-content-beer">
     <div class="grid-container position-relative">
         <div class="grid-x grid-padding-x align-center">
             <div class="content-wrap cell small-12">
     <section id="feature" >
         <div class="container">
            <div class="center wow fadeInDown">
-                <h2>BEER & WINE LIST</h2>
-                <p class="lead">OUR BEER AND WINE LIST IS ALWAYS UP TO DATE.<br>FOLLOW US ON <a href="//<?php echo $twitter_url; ?>" target="_BLANK"><i class="fa fa-twitter"></i> TWITTER</a> TO BE NOTIFIED WHEN OUR SELECTIONS CHANGE.</p>
-                <p class="lead-lg"><a href="#bottles">LIMITED RELEASES</a> &middot; <a href="#cask">CASK-CONDITIONED</a>  &middot; <a href="#drafts">DRAFT BEER</a>  &middot; <a href="#cans">CANS AVAILABLE</a>  &middot; <a href="#kegs">KEGS AVAILABLE</a>  &middot; <a href="#wine">WINE LIST</a></p>
+                <h2>BEER</h2>
+                <p class="lead">OUR BEER LIST IS ALWAYS UP TO DATE.<br>FOLLOW US ON <a href="//<?php echo $twitter_url; ?>" target="_BLANK"><i class="fa fa-twitter"></i> TWITTER</a> TO BE NOTIFIED WHEN OUR SELECTIONS CHANGE.</p>
+                <p class="lead-lg"><a href="#bottles">LIMITED RELEASES</a> &middot; <a href="#cask">CASK-CONDITIONED</a>  &middot; <a href="#drafts">DRAFT BEER</a>  &middot; <a href="#cans">CANS AVAILABLE</a>  &middot; <a href="#kegs">KEGS AVAILABLE</a></p>
             </div>
             <a name="bottles"></a>
             <div class="row">
                 <h2>LIMITED RELEASES</h2>
                 <p class="lead">ENJOY SOME OF THE LIMITED RELEASE, BARREL-AGED PIZZA BOY BOTTLES AND CANS ON-SITE.<br>FROM WORLD-CLASS SOURS TO TRADITIONAL STYLES AGED IN VIRGIN OR CHARRED OAK, SPENT LIQUOR OR SPENT WINE BARRELS.<br>OCCASIONALLY, WE WILL FEATURE LIMITED BEERS FROM OTHER BREWERIES HERE FOR IN-HOUSE CONSUMPTION ONLY.</p>
-                            <table id="bottle_list" class="table table-striped table-bordered responsive"  style="font-size: smaller;" cellspacing="0" align="center">
+                            <table id="bottle_list" class="table table-striped table-bordered responsive"  style="" cellspacing="0" align="center">
                     <thead>
                         <tr>
                             <th>BREWERY</th>
@@ -40,7 +40,7 @@ $pagetitle = 'BEER/WINE LIST'
             <div class="row">
                 <h2>CASK-CONDITIONED</h2>
                 <p class="lead">WE OFFER THREE ROTATING BEER ENGINES AND AN OCCASIONAL SPECIAL FIRKIN TO GIVE SOME OPTIONS TO TRY "REAL ALE".<br>CLICK <a href="//en.wikipedia.org/wiki/Cask_ale" target="_BLANK">HERE</a> TO READ ABOUT CASK-CONDITIONED BEERS.<br><i><small><i class="fa fa-warning"></i> NOTE: BECAUSE THESE BEERS ARE NOT FORCE CARBONATED, WE <STRONG>DO NOT</STRONG> ALLOW CROWLER OR GROWLER FILLS.</small></i></p>
-                            <table id="cask_list" class="table table-striped table-bordered" cellspacing="0"  style="font-size: smaller;" align="center">
+                            <table id="cask_list" class="table table-striped table-bordered" cellspacing="0"  style="" align="center">
                     <thead>
                         <tr>
                             <th>BREWERY</th>
@@ -58,7 +58,7 @@ $pagetitle = 'BEER/WINE LIST'
             <div class="row">
                 <h2>DRAFT BEER</h2>
                 <p class="lead">WE OFFER 99 CRAFT BEER TAPS WITH A LITTLE BIT OF SOMETHING FOR EVERYONE INCLUDING: 20-30 OF OUR OWN PIZZA BOY BEERS, SEVERAL SELECTIONS ON NITRO, AND PLENTY OF GREAT CRAFT BEERS FROM RESPECTED CRAFT BREWERS.<br><i><small><i class="fa fa-warning"></i> NOTE: PLEASE ORDER BY TAP NUMBER!&nbsp;&middot;&nbsp;KICKED KEGS NOT SHOWN.&nbsp;&middot;&nbsp;WE <u>DO NOT</u> OFFER SAMPLES OR FLIGHTS.</small></i></p>
-                            <table id="draft_list" class="table table-striped table-bordered" style="font-size: smaller;" cellspacing="0" align="center" width="100%">
+                            <table id="draft_list" class="table table-striped table-bordered" style="" cellspacing="0" align="center" width="100%">
                     <thead>
                         <tr>
                             <th>TAP#</th>
@@ -121,7 +121,7 @@ $pagetitle = 'BEER/WINE LIST'
                         ?><!--
                     </tbody>
                 </table>-->
-                <table id="cans" class="table table-striped table-bordered responsive"  style="font-size: smaller;" cellspacing="0" align="center">
+                <table id="cans" class="table table-striped table-bordered responsive"  style="" cellspacing="0" align="center">
                     <thead>
                         <tr>
                             <th>BEER</th>
@@ -182,68 +182,7 @@ $pagetitle = 'BEER/WINE LIST'
                         ?>
                     </tbody>
                 </table>-->
-            </div><!--/.row-->                      
-            <a name="wine"></a>
-            <div class="row">
-                <h2>WINE LIST</h2>
-                <p class="lead">YOU ASKED AND WE LISTENED!  AL'S OF HAMPDEN NOW OFFERS WINE BY THE GLASS.  OUR SELECTION OF WINE IS ALWAYS GROWING AND CHANGING.  SEE OUR FEATURED WINE SELECTIONS ON THE BOARDS NEXT TO OUR DRAFT BEER LIST.  </p>
-                            <table id="wine" class="table table-striped table-bordered responsive"  style="font-size: smaller;" cellspacing="0" align="center">
-                    <thead>
-                        <tr>
-                            <th>NUM</th>
-                            <th>VINEYARD</th>
-                            <th>WINE</th>
-                            <th>VINTAGE</th>
-                            <th>VARIETAL</th>
-                            <th>STYLE</th>
-                            <th>REGION</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-$sources = array();
-$sources[] = "https://spreadsheets.google.com/feeds/list/17yZGsa9cdr7RwjJHRhT3RHge80S4VDC5H5n3jRFGVys/1/public/values?alt=json";
-$sources[] = "https://spreadsheets.google.com/feeds/list/17yZGsa9cdr7RwjJHRhT3RHge80S4VDC5H5n3jRFGVys/2/public/values?alt=json";
-$sources[] = "https://spreadsheets.google.com/feeds/list/17yZGsa9cdr7RwjJHRhT3RHge80S4VDC5H5n3jRFGVys/3/public/values?alt=json";
-$sources[] = "https://spreadsheets.google.com/feeds/list/17yZGsa9cdr7RwjJHRhT3RHge80S4VDC5H5n3jRFGVys/4/public/values?alt=json";
-$scoperowcount = 0;
-foreach($sources as $source) {
-    $data = @file_get_contents($source);
-	if ($data) {
-    $json = json_decode($data);
-    $rows = $json->{'feed'}->{'entry'};
-    foreach($rows as $row) {
-        $winenum = $row->{'gsx$num'}->{'$t'};
-        $vineyard = $row->{'gsx$vineyard'}->{'$t'};
-        $wine = $row->{'gsx$wine'}->{'$t'};
-        $varietal = $row->{'gsx$varietal'}->{'$t'};
-        $style= $row->{'gsx$style'}->{'$t'};
-        $region = $row->{'gsx$region'}->{'$t'};
-        $vintage = $row->{'gsx$vintage'}->{'$t'};
-        
-        $scoperowcount++;
-        if($scoperowcount == 1) { $scopetag = "scope=\"row\""; }
-        else { $scopetag = ''; }
-        echo "<tr>";
-        echo "<td $scopetag style=\"text-align: center;\" data-label=\"NUM\">".strtoupper($winenum)."</td>";
-        echo "<td data-label=\"VINEYARD\">".strtoupper($vineyard)."</td>";
-        echo "<td data-label=\"WINE\">".strtoupper($wine)."</td>";
-        echo "<td style=\"text-align: center;\" data-label=\"VINTAGE\">".strtoupper($vintage)."</td>";
-        echo "<td style=\"text-align: center;\" data-label=\"VARIETAL\">".strtoupper($varietal)."</td>";
-        echo "<td style=\"text-align: center;\" data-label=\"STYLE\">".strtoupper($style)."</td>";
-        echo "<td style=\"text-align: center;\" data-label=\"REGION\">".strtoupper($region)."</td>";
-        echo "</tr>";
-
-    }
-	}
-}
-
-
-
-                        ?>
-                    </tbody>
-                </table>
-            </div><!--/.row-->  
+            </div><!--/.row-->
         </div><!--/.container-->
     </section><!--/#feature-->
 </div>
@@ -260,6 +199,15 @@ foreach($sources as $source) {
 .dataTables_filter {
 	display: none;
 }
+
+.entry-header + .entry-content {
+	padding-bottom: 0 !important;
+}
+
+.entry-content-beer {
+	padding-top: 0 !important;
+}
+
 </style>
 <script>
     jQuery(document).ready(function( $ ) {

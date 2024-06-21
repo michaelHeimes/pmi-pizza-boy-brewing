@@ -565,8 +565,8 @@
                 let minHeight = windowHeight - headerHeight;
         
                 // Ensure the minHeight does not exceed 790px
-                if (minHeight > 662) {
-                    minHeight = 662;
+                if (minHeight > 790) {
+                    minHeight = 790;
                 }
         
                 // Set the min-height of .style-hero-slider

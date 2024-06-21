@@ -7569,12 +7569,12 @@ POSTS & CONTENT STYLES
   display: block;
   clear: both;
 }
-@media (max-width: 781px) {
+@media print, screen and (max-width: 39.99875em) {
   .entry-content .aligncenter, .entry-content img.aligncenter {
     text-align: center;
   }
 }
-@media (max-width: 781px) {
+@media print, screen and (max-width: 39.99875em) {
   .entry-content .alignleft,
   .entry-content img.alignleft,
   .entry-content .alignright,
@@ -7583,9 +7583,7 @@ POSTS & CONTENT STYLES
     display: block;
     width: 100%;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    margin: auto;
   }
 }
 .entry-content video, .entry-content object {
@@ -9220,7 +9218,7 @@ a.button.large,
 }
 .page-banner.style-hero-slider {
   min-height: 100vh;
-  max-height: 662px;
+  max-height: 790px;
 }
 .page-banner.style-hero-slider .bg {
   position: absolute;
