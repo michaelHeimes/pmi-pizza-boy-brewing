@@ -54,12 +54,12 @@
         },
         {
             "key": "field_6655d950bb6af",
-            "label": "Brew Date",
-            "name": "brew_date",
+            "label": "Packaged Date",
+            "name": "packaged_date",
             "aria-label": "",
             "type": "date_picker",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "33",
@@ -89,5 +89,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1717096594
+    "modified": 1719853442
 }

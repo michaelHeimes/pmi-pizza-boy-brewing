@@ -44,6 +44,9 @@
 				font-size: 2.438rem;
 				font-size: clamp(1.706rem, 1.31rem + 1.762vw, 2.438rem);
 			}
+			a {
+				transition: color .25s ease;
+			}
 			img {
 				margin-right: 14px;
 			}

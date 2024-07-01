@@ -60,11 +60,25 @@ a.button,
 	}
 }
 
-.button-grid {
-	.button {
-		margin-bottom: $smallGutter;
+.button-grid.grid-x {
+	margin-right: -#{($smallGutter * .25)};
+	margin-left: -#{($smallGutter * .25)};
+	@include breakpoint(medium) {
+		margin-right: -#{($mediumGutter * .25)};
+		margin-left: -#{($mediumGutter * .25)};
+	}
+	> .cell {
+		padding-left: calc($smallGutter * .25);
+		padding-right: calc($smallGutter * .25);
 		@include breakpoint(medium) {
-			margin-bottom: $mediumGutter;
+			padding-left: calc($mediumGutter * .25);
+			padding-right: calc($mediumGutter * .25);
+		}
+	}
+	.button {
+		margin-bottom: calc($smallGutter * .5);
+		@include breakpoint(medium) {
+			margin-bottom: calc($mediumGutter * .5);
 		}
 	}
 }

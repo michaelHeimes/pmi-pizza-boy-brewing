@@ -13,7 +13,7 @@
  // banner
  $title = get_the_title();
  $abv = $fields['abv'] ?? null;
- $brew_date = get_field('brew_date') ?? null;
+ $packaged_date = get_field('packaged_date') ?? null;
  $banner_img = $fields['image_for_single_post_banner'] ?? null;
  
  $categories = $args['categories'] ?? null;
@@ -39,18 +39,18 @@
 						<div class="color-pale-blue">
 							<?php the_content();?>
 						</div>
-						<?php if( !empty($abv) || $brew_date ):?>
+						<?php if( !empty($abv) || $packaged_date ):?>
 							<div class="abv-date">
 								<?php if( !empty($abv ) ):?>
 								<div class="h4 color-white font-body weight-semibold">
 									ABV: <?=esc_html( $abv  );?>%
 								</div>
 								<?php endif;?>
-								<?php if( !empty($brew_date) ):
-									$date = DateTime::createFromFormat( 'Ymd', $brew_date );
+								<?php if( !empty($packaged_date) ):
+									$date = DateTime::createFromFormat( 'Ymd', $packaged_date );
 								?>
 									<div class="h4 color-white font-body weight-semibold">
-										Brew Date: <?=esc_html( $date->format( 'm/d/Y' ) );?>
+										Packaged Date: <?=esc_html( $date->format( 'm/d/Y' ) );?>
 									</div>	
 								<?php endif;?>
 							</div>

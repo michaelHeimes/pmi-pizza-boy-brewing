@@ -4,6 +4,9 @@
  *
  * For more info: https://jointswp.com/docs/off-canvas-menu/
  */
+ 
+ $global_cta_icon_links = get_field('global_cta_icon_links', 'option') ?? null;
+ $global_order_online_link = get_field('global_order_online_link', 'option') ?? null;
 ?>
 
 <div class="off-canvas position-right" id="off-canvas" data-off-canvas>
@@ -26,36 +29,47 @@
 			</ul>
 			<?php trailhead_off_canvas_nav(); ?>
 		</div>
-		<div class="grid-x grid-padding-x buttons-group">
-			<?php 
-			$link = get_field('mobile_nav_button_link', 'option');
-			if( $link ): 
-				$link_url = $link['url'];
-				$link_title = $link['title'];
-				$link_target = $link['target'] ? $link['target'] : '_self';
-				?>
-				<div class="cell shrink">
-					<a class="button chev-link no-bg grid-x align-center color-white" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
-						<span><?php echo esc_html( $link_title ); ?></span>
-						<svg xmlns="http://www.w3.org/2000/svg" width="12.746" height="20.641" viewBox="0 0 12.746 20.641"> <path id="ic_chevron_right_24px" d="M11.015,6,8.59,8.425l7.878,7.9-7.878,7.9,2.425,2.425L21.336,16.321Z" transform="translate(-8.59 -6)" fill="#ffffff"/></svg>
-					</a>
-				</div>
-			<?php endif; ?>
-			<?php 
-			$link = get_field('sticky_get_started_cta', 'option');
-			if( $link ): 
-				$link_url = $link['url'];
-				$link_title = $link['title'];
-				$link_target = $link['target'] ? $link['target'] : '_self';
-				?>
-				<div class="cell shrink">
-					<a class="button chev-link grid-x align-center" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
-						<span><?php echo esc_html( $link_title ); ?></span>
-						<svg xmlns="http://www.w3.org/2000/svg" width="10.239" height="16.582" viewBox="0 0 10.239 16.582"><path id="ic_chevron_right_24px" d="M10.538,6,8.59,7.948l6.329,6.343L8.59,20.634l1.948,1.948,8.291-8.291Z" transform="translate(-8.59 -6)"/></svg>
-					</a>
-				</div>
-			<?php endif; ?>
-		</div>
+		<?php if( !empty( $global_cta_icon_links ) || !empty( $global_order_online_link ) ):?>
+			<div class="icon-links-order-link cell font-heading">
+				<ul class="grid-x grid-padding-x no-bullet align-middle align-center">
+					<?php if( $global_cta_icon_links ):
+						foreach( $global_cta_icon_links as $global_cta_icon_link ):
+							$custom_class = $global_cta_icon_link['custom_class'] ?? null;
+							$icon = $global_cta_icon_link['white_icon'] ?? null;
+							$link = $global_cta_icon_link['link'] ?? null;
+							$link_url = $link['url'];
+							$link_title = $link['title'];
+							$link_target = $link['target'] ? $link['target'] : '_self';
+					?>
+						<li class="icon-link cell shrink <?=esc_attr( $custom_class );?>">
+							<a class="grid-x nowrap align-middle color-yellow" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+								<?php if( !empty( $icon ) ) {
+									$imgID = $icon['ID'];
+									$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+									$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
+									echo $img;
+								}?>
+								<span><?php echo esc_html( $link_title ); ?></span>
+							</a>
+						</li>
+					<?php endforeach; endif;?>
+					<?php 
+					$link = $global_order_online_link ?? null;
+					if( $link ): 
+						$link_url = $link['url'];
+						$link_title = $link['title'];
+						$link_target = $link['target'] ? $link['target'] : '_self';
+						?>
+						<li class="order-link cell shrink">
+							<a class="button grid-x chev-btn align-middle" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+								<span><?php echo esc_html( $link_title ); ?></span>
+								<svg xmlns="http://www.w3.org/2000/svg" width="12.35" height="20"><path d="M2.35 0 0 2.35 7.633 10 0 17.65 2.35 20l10-10Z" fill="#fff"/></svg>
+							</a>
+						</li>
+					<?php endif; ?>
+				</ul>
+			</div>
+		<?php endif;?>
 	</div>
 
 	<?php if ( is_active_sidebar( 'offcanvas' ) ) : ?>

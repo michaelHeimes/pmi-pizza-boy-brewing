@@ -16,6 +16,10 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	
+	<?php if( !empty( get_field('before_closing_header', 'option') ) ) {
+		echo get_field('before_closing_header', 'option');
+	};?>
 
 	<?php wp_head(); ?>
 </head>
@@ -25,7 +29,7 @@
 			<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'trailhead' ); ?></a>
 		
 			<div class="sticky-container">
-				<header class="site-header sticky bg-white" role="banner" data-sticky data-margin-top="0" data-sticky-on="small">
+				<header class="site-header sticky bg-white" role="banner" data-stick data-margin-top="0" data-sticky-on="small">
 					<?php get_template_part( 'template-parts/nav', 'offcanvas-topbar' ); ?>
 				</header><!-- #masthead -->
 			</div>

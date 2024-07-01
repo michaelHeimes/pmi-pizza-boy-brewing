@@ -15,13 +15,13 @@ $pagetitle = 'BEER/WINE LIST'
         <div class="container">
            <div class="center wow fadeInDown">
                 <h2>BEER</h2>
-                <p class="lead">OUR BEER LIST IS ALWAYS UP TO DATE.<br>FOLLOW US ON <a href="//<?php echo $twitter_url; ?>" target="_BLANK"><i class="fa fa-twitter"></i> TWITTER</a> TO BE NOTIFIED WHEN OUR SELECTIONS CHANGE.</p>
-                <p class="lead-lg"><a href="#bottles">LIMITED RELEASES</a> &middot; <a href="#cask">CASK-CONDITIONED</a>  &middot; <a href="#drafts">DRAFT BEER</a>  &middot; <a href="#cans">CANS AVAILABLE</a>  &middot; <a href="#kegs">KEGS AVAILABLE</a></p>
+                <p>Our beer list is always up to date. Follow us on <a href="//<?php echo $twitter_url; ?>" Target="_blank"><i class="fa fa-twitter"></i> Twitter</a> to be notified when our selections change.</P>
+                <p><a href="#bottles">limited releases</a> &middot; <a href="#cask">cask-conditioned</a>  &middot; <a href="#drafts">draft beer</a>  &middot; <a href="#cans">cans available</a>  &middot; <a href="#kegs">kegs available</a></p>
             </div>
             <a name="bottles"></a>
             <div class="row">
                 <h2>LIMITED RELEASES</h2>
-                <p class="lead">ENJOY SOME OF THE LIMITED RELEASE, BARREL-AGED PIZZA BOY BOTTLES AND CANS ON-SITE.<br>FROM WORLD-CLASS SOURS TO TRADITIONAL STYLES AGED IN VIRGIN OR CHARRED OAK, SPENT LIQUOR OR SPENT WINE BARRELS.<br>OCCASIONALLY, WE WILL FEATURE LIMITED BEERS FROM OTHER BREWERIES HERE FOR IN-HOUSE CONSUMPTION ONLY.</p>
+                <p>Enjoy some of the limited release, barrel-aged pizza boy bottles and cans on-site. From world-class sours to traditional styles aged in virgin or charred oak, spent liquor or spent wine barrels. Occasionally, we will feature limited beers from other breweries here for in-house consumption only.</p>
                             <table id="bottle_list" class="table table-striped table-bordered responsive"  style="" cellspacing="0" align="center">
                     <thead>
                         <tr>
@@ -39,7 +39,7 @@ $pagetitle = 'BEER/WINE LIST'
             <a name="cask"></a>   
             <div class="row">
                 <h2>CASK-CONDITIONED</h2>
-                <p class="lead">WE OFFER THREE ROTATING BEER ENGINES AND AN OCCASIONAL SPECIAL FIRKIN TO GIVE SOME OPTIONS TO TRY "REAL ALE".<br>CLICK <a href="//en.wikipedia.org/wiki/Cask_ale" target="_BLANK">HERE</a> TO READ ABOUT CASK-CONDITIONED BEERS.<br><i><small><i class="fa fa-warning"></i> NOTE: BECAUSE THESE BEERS ARE NOT FORCE CARBONATED, WE <STRONG>DO NOT</STRONG> ALLOW CROWLER OR GROWLER FILLS.</small></i></p>
+                <p>We offer three rotating beer engines and an occasional special firkin to give some options to try "real ale". Click <a href="//en.wikipedia.org/wiki/cask_ale" target="_blank">here</a> to read about cask-conditioned beers.<br><i><small><i class="fa fa-warning"></i> Note: because these beers are not force carbonated, we <strong>do not</strong> allow crowler or growler fills.</Small></i></p>
                             <table id="cask_list" class="table table-striped table-bordered" cellspacing="0"  style="" align="center">
                     <thead>
                         <tr>
@@ -57,7 +57,7 @@ $pagetitle = 'BEER/WINE LIST'
             <a name="drafts"></a>
             <div class="row">
                 <h2>DRAFT BEER</h2>
-                <p class="lead">WE OFFER 99 CRAFT BEER TAPS WITH A LITTLE BIT OF SOMETHING FOR EVERYONE INCLUDING: 20-30 OF OUR OWN PIZZA BOY BEERS, SEVERAL SELECTIONS ON NITRO, AND PLENTY OF GREAT CRAFT BEERS FROM RESPECTED CRAFT BREWERS.<br><i><small><i class="fa fa-warning"></i> NOTE: PLEASE ORDER BY TAP NUMBER!&nbsp;&middot;&nbsp;KICKED KEGS NOT SHOWN.&nbsp;&middot;&nbsp;WE <u>DO NOT</u> OFFER SAMPLES OR FLIGHTS.</small></i></p>
+                <p>We offer 99 craft beer taps with a little bit of something for everyone including: 20-30 of our own pizza boy beers, several selections on nitro, and plenty of great craft beers from respected craft brewers.<br><i><small><i class="fa fa-warning"></i> note: please order by tap number!&nbsp;&middot;&nbsp;kicked kegs not shown.&nbsp;&middot;&nbsp;we <u>do not</u> offer samples or flights.</small></i></p>
                             <table id="draft_list" class="table table-striped table-bordered" style="" cellspacing="0" align="center" width="100%">
                     <thead>
                         <tr>
@@ -77,7 +77,7 @@ $pagetitle = 'BEER/WINE LIST'
             <a name="cans"></a>
             <div class="row">
                 <h2>CANS AVAILABLE</h2>
-                <p class="lead">WE ALWAYS HAVE A SELECTION OF FRESH PIZZA BOY CANS AVAILABLE IN 6-PACKS AND CASES TO GO. NO PURCHASE LIMITS UNLESS SPECIFIED.</p>
+                <p>We always have a selection of fresh pizza boy cans available in 6-packs and cases to go. No purchase limits unless specified.</p>
   <!--                          <table id="cans" class="table table-striped table-bordered responsive"  style="font-size: smaller;" cellspacing="0" align="center">
                     <thead>
                         <tr>
@@ -134,7 +134,7 @@ $pagetitle = 'BEER/WINE LIST'
                     </thead>
                     <tbody>
                     	<tr>
-                    		<td colspan="6" scope="row" style="text-align: center;">FOR CAN AVAILABILITY, PLEASE CALL US AT (717)728-3840 OR CHECK ONLINE ORDERING.</td>
+                    		<td colspan="6" scope="row" style="text-align: center;">For can availability, please call us at (717)728-3840 or check online ordering.</td>
                     	</tr>
                     </tbody>
                 </table>
@@ -142,7 +142,7 @@ $pagetitle = 'BEER/WINE LIST'
             <a name="kegs"></a>
             <div class="row">
                 <h2>KEGS AVAILABLE</h2>
-                <p class="lead">WE USUALLY HAVE A SELECTION OF FRESH PIZZA BOY SIXTELS OR 30L ONE-WAY/NON-RETURNABLE KEGS AVAILABLE FOR SALE.  FOR AVAILABILITY AND PICKUP/PURCHASE INFO, PLEASE CALL US @ <a href="tel:+17177283840">717-728-3840</a>.</p>
+                <p>We usually have a selection of fresh pizza boy sixtels or 30l one-way/non-returnable kegs available for sale. For availability and pickup/purchase info, please call us @ <a href="tel:+17177283840">717-728-3840</a>.</p>
                             <!--<table id="kegs" class="table table-striped table-bordered responsive"  style="font-size: smaller;" cellspacing="0" align="center">
                     <thead>
                         <tr>
@@ -208,6 +208,9 @@ $pagetitle = 'BEER/WINE LIST'
 	padding-top: 0 !important;
 }
 
+table.dataTable, table#cans {
+	font-size: 18px;
+}
 </style>
 <script>
     jQuery(document).ready(function( $ ) {

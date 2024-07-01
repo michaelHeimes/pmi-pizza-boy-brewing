@@ -42,7 +42,7 @@ $slides = get_field('banner_slides') ?? null;
 				<?php endforeach;?>
 			</div>
 			<?php if( !empty( $slides ) && count($slides) > 1 ):?>
-				<div class="grid-container pagination-container">
+				<div class="grid-container pagination-container position-relative">
 					<div class="grid-x grid-padding-x align-center">
 						<div class="cell small-12">
 							<div class="position-relative">

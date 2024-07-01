@@ -14,7 +14,7 @@ $args = array(
 	'post_type' => 'beer-cpt',
 	'post_status' => 'publish',
 	'posts_per_page' => -1,
-	'meta_key' => 'brew_date',
+	'meta_key' => 'packaged_date',
 	'orderby' => 'meta_value',
 	'order' => 'ASC',
 );

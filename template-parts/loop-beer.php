@@ -7,7 +7,7 @@
  * @package trailhead
  */
  $abv = get_field('abv') ?? null;
- $brew_date = get_field('brew_date') ?? null;
+ $packaged_date = get_field('packaged_date') ?? null;
  
  $post_id = $post->ID;
  $term_slugs = [];
@@ -36,7 +36,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class($article_classes); ?> data-terms="<?= esc_attr($combined_terms); ?>" data-brew-date="<?=esc_attr($brew_date);?>">
+<article id="post-<?php the_ID(); ?>" <?php post_class($article_classes); ?> data-terms="<?= esc_attr($combined_terms); ?>" data-brew-date="<?=esc_attr($packaged_date);?>">
 	<a class="color-black grid-x flex-dir-column align-justify" href="<?=esc_url( get_permalink() );?>" rel="bookmark">
 		<div>
 			<div class="thumb-wrap">
@@ -59,15 +59,15 @@
 				}
 				echo '</div>';
 				?>
-				<?php if( !empty($abv) || $brew_date ):?>
+				<?php if( !empty($abv) || $packaged_date ):?>
 					<div class="meta p color-light-blue">
 						<?php if( !empty($abv) ):?>
 							<div>ABV: <?=esc_html($abv);?>%</div>	
 						<?php endif;?>
-						<?php if( !empty($brew_date) ):
-							$date = DateTime::createFromFormat( 'Ymd', $brew_date );
+						<?php if( !empty($packaged_date) ):
+							$date = DateTime::createFromFormat( 'Ymd', $packaged_date );
 						?>
-							<div>Brew Date: <span class="brew-date"><?=esc_html( $date->format( 'm/d/Y' ) );?></span></div>	
+							<div>Packaged Date: <span class="brew-date"><?=esc_html( $date->format( 'm/d/Y' ) );?></span></div>	
 						<?php endif;?>
 					</div>
 				<?php endif;?>

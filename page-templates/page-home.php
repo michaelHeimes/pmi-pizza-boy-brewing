@@ -67,7 +67,7 @@ $cscta_button_links = $fields['cscta_button_links'] ?? null;
 									<?php $i++; endforeach; endif;?>
 								</div>
 								<?php if( !empty( $slides ) && count($slides) > 1 ):?>
-									<div class="grid-container pagination-container">
+									<div class="grid-container pagination-container position-relative">
 										<div class="grid-x grid-padding-x align-center">
 											<div class="cell small-12">
 												<div class="position-relative">
@@ -145,14 +145,14 @@ $cscta_button_links = $fields['cscta_button_links'] ?? null;
 												$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "object-fit-img", "alt"=>$img_alt] );
 												echo $img;
 											}?>
-											<div class="inner position-relative grid-x flex-dir-column align-middle<?php if( $layout == 'linked-title' ) { echo ' align-right'; } else { echo ' align-center'; };?>">
-												<?php if( $layout == 'title-button' ):?>
+											<div class="inner position-relative grid-x flex-dir-column align-middle<?php if( $layout == 'linked-title' || $layout == 'just-title' ) { echo ' align-right'; } else { echo ' align-center'; };?>">
+												<?php if( $layout == 'title-button' || $layout == 'just-title' ):?>
 													<?php if( !empty($title) ):?>
-														<h2><?=esc_html( $title );?></h2>
+														<h2<?php if ($layout == 'just-title' ):?> class="text-center"<?php endif;?>><?=esc_html( $title );?></h2>
 													<?php endif;?>
 													<?php 
 													$link = $button_link;
-													if( $link ): 
+													if( $link && $layout != 'just-title' ): 
 														$link_url = $link['url'];
 														$link_title = $link['title'];
 														$link_target = $link['target'] ? $link['target'] : '_self';

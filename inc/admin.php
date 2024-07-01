@@ -115,15 +115,15 @@ add_filter('admin_footer_text', 'trailhead_custom_admin_footer');
 	
 	// Add custom admin column for event_date
 	function custom_brew_columns($columns) {
-		$columns['brew_date'] = 'Brew Date';
+		$columns['packaged_date'] = 'Packaged Date';
 		return $columns;
 	}
 	add_filter('manage_beer-cpt_posts_columns', 'custom_brew_columns');
 	
 	// Display event_date in custom admin column with format m/d/Y
 	function custom_brew_column_content($column, $post_id) {
-		if ($column == 'brew_date') {
-			$event_date = get_field('brew_date', $post_id); // Replace 'event_date' with your ACF field name
+		if ($column == 'packaged_date') {
+			$event_date = get_field('packaged_date', $post_id); // Replace 'event_date' with your ACF field name
 			if ($event_date) {
 				$formatted_date = date('m/d/Y', strtotime($event_date));
 				echo $formatted_date;
@@ -137,14 +137,14 @@ add_filter('admin_footer_text', 'trailhead_custom_admin_footer');
 	
 	
 	
-	// Make the brew_date column sortable
+	// Make the packaged_date column sortable
 	function beer_cpt_sortable_columns($columns) {
-		$columns['brew_date'] = 'brew_date';
+		$columns['packaged_date'] = 'packaged_date';
 		return $columns;
 	}
 	add_filter('manage_edit-beer-cpt_sortable_columns', 'beer_cpt_sortable_columns');
 	
-	// Add custom sorting for the brew_date column
+	// Add custom sorting for the packaged_date column
 	function beer_cpt_column_orderby($query) {
 		if (!is_admin()) {
 			return;
@@ -152,8 +152,8 @@ add_filter('admin_footer_text', 'trailhead_custom_admin_footer');
 	
 		$orderby = $query->get('orderby');
 	
-		if ('brew_date' === $orderby) {
-			$query->set('meta_key', 'brew_date');
+		if ('packaged_date' === $orderby) {
+			$query->set('meta_key', 'packaged_date');
 			$query->set('orderby', 'meta_value');
 		}
 	}

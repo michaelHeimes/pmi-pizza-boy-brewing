@@ -130,7 +130,7 @@ $availability_terms_check = array_merge($availability_terms_check, $post_terms);
 							</div>
 							<div class="btn-wrap">
 								<button id="sort-brew-date" type="button" class="active no-style font-heading uppercase color-yellow" data-sort-direction="asc" data-sort-value="brewdate">
-									Sort By Brew Date
+									Sort By Packaged Date
 								</button>
 							</div>
 						</div>

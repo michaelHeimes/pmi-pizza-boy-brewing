@@ -359,7 +359,8 @@
                     },
                     "choices": {
                         "title-button": "Title with Button",
-                        "linked-title": "Linked Title"
+                        "linked-title": "Linked Title",
+                        "just-title": "Just Title"
                     },
                     "default_value": "",
                     "return_format": "value",
@@ -458,6 +459,13 @@
                                 "operator": "==",
                                 "value": "title-button"
                             }
+                        ],
+                        [
+                            {
+                                "field": "field_66454834d4247",
+                                "operator": "==",
+                                "value": "just-title"
+                            }
                         ]
                     ],
                     "wrapper": {
@@ -507,7 +515,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_664519a59bc39",
@@ -549,7 +558,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_66461f2b78466",
@@ -616,7 +626,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_664519260cbd1",
@@ -653,7 +664,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_664519400cbd3",
@@ -717,5 +729,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1715871865
+    "modified": 1719430097
 }

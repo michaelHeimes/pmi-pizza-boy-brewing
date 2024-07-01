@@ -61,7 +61,7 @@
 															$imgID = $icon['ID'];
 															$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
 															$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
-															echo '<div class="icon-wrap">';
+															echo '<div class="icon-wrap grid-x align-middle">';
 															echo $img;
 															echo '</div>';
 														}?>
@@ -135,7 +135,7 @@
 									
 									<?php if( !empty($phone_number) ):?>
 										<div class="phone">
-											Call: <a class="color-pale-blue" href="tel:<?=esc_html( $phone_number );?>"><?=esc_html( $phone_number );?></a>
+											Call: <br><a class="color-pale-blue" href="tel:<?=esc_html( $phone_number );?>"><?=esc_html( $phone_number );?></a>
 										</div>
 									<?php endif;?>
 
@@ -204,6 +204,11 @@
 							</div>
 						</div>
 					</div>
+					<?php 
+						if( !empty( get_field('before_closing_footer', 'option') ) ) {
+							echo get_field('before_closing_footer', 'option');
+						};
+					?>
 				</footer><!-- #colophon -->
 					
 			</div><!-- #page -->

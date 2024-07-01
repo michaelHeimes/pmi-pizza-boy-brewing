@@ -3,6 +3,7 @@
 	overflow: hidden;
 	border-bottom: 7px solid $color-yellow;
 	.pagination-container {
+		z-index: 4;
 		max-width: rem-calc(1500);
 		.swiper-pagination.swiper-pagination-bullets {
 			text-align: left;
@@ -31,17 +32,18 @@
 			text-shadow: 0px 0px 8px rgba(0,0,0,1);
 			line-height: 1.2;
 			margin-bottom: 0;
-			padding: 4rem 0;
-			font-size: 5.338rem;
-			font-size: clamp(5.338rem, 4.097rem + 5.512vw, 7.625rem);
+			padding: 2.5rem 0;
+			font-size: 2.5rem;
+			font-size: clamp(2.5rem, 1rem + 7.5vw, 4rem);
 			@include breakpoint(medium) {
+				padding: 4rem 0;
 				font-size: 7.625rem;
 				font-size: clamp(5.338rem, 4.097rem + 5.512vw, 7.625rem);
 			}
 			span {
 				text-transform: none;
-				font-size: 4.9rem;
-				font-size: clamp(4.9rem, 3.761rem + 5.06vw, 7rem);
+				font-size: 2.29rem;
+				font-size: clamp(2.29rem, 0.91rem + 6.9vw, 3.67rem);
 				@include breakpoint(medium) {
 					font-size: 7rem;
 					font-size: clamp(4.9rem, 3.761rem + 5.06vw, 7rem);

@@ -104,7 +104,7 @@ body.single-post {
 		.inner > *:first-child {
 			margin-top: 0;
 		}
-		ul:not(.tabs):not(.accordion),
+		ul:not(.tabs):not(.accordion):not(.button-grid),
 		ol,
 		.button-group,
 		.inner > .wp-block-image  {
@@ -168,16 +168,16 @@ body.single-post {
 		}
 		ul,
 		ol {
-			&:not(.tabs) {
+			&:not(.tabs):not(.button-grid) {
 				margin-bottom: 2.5rem;
 				@include breakpoint(tablet) {
 					margin-bottom: 3rem;
 				}
 			}
-			&:not(.tabs):not(.accordion) {
+			&:not(.tabs):not(.accordion):not(.button-grid) {
 				padding-left: 2.5rem;
 			}
-			li:not(.accordion-item):not(.tabs-title) {
+			li:not(.accordion-item):not(.tabs-title):not(.grid-btn-wrap) {
 				margin-bottom: 1.4rem;
 			}
 		}

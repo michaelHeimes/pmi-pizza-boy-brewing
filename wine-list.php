@@ -15,7 +15,7 @@ $pagetitle = 'BEER/WINE LIST'
         <div class="container">
             <div class="row">
                 <h2>WINE LIST</h2>
-                <p class="lead">YOU ASKED AND WE LISTENED!  AL'S OF HAMPDEN NOW OFFERS WINE BY THE GLASS.  OUR SELECTION OF WINE IS ALWAYS GROWING AND CHANGING.  SEE OUR FEATURED WINE SELECTIONS ON THE BOARDS NEXT TO OUR DRAFT BEER LIST.  </p>
+                <p>You asked and we listened!  Al's of hampden now offers wine by the glass.  Our selection of wine is always growing and changing.  See our featured wine selections on the boards next to our draft beer list.</p>
                             <table id="wine" class="table table-striped table-bordered responsive"  style="" cellspacing="0" align="center">
                     <thead>
                         <tr>
@@ -98,6 +98,9 @@ foreach($sources as $source) {
 	padding-top: 0 !important;
 }
 
+table.dataTable {
+	font-size: 18px;
+}
 </style>
 <script>
     jQuery(document).ready(function( $ ) {

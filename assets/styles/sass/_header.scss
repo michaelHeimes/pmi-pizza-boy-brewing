@@ -10,7 +10,7 @@ header.site-header {
 			margin: 0;
 		}
 		.icon-links-order-link {
-			
+
 		}
 		.icon-link,
 		.order-link {
@@ -20,17 +20,25 @@ header.site-header {
 		}
 		.icon-link {
 			font-size: rem-calc(23);
-			img {
+			img,
+			svg {
 				margin-right: 10px;
 			}
 			&:not(.call-us-link) {
 				@include breakpoint(medium down) {
-					img {
+					img,
+					svg {
 						margin-right: 0;
 					}
 					span {
 						display: none;
 					}
+				}
+			}
+			a {
+				transition: color .25s ease;
+				&:hover {
+					color: $color-blue;
 				}
 			}
 		}
@@ -145,6 +153,7 @@ header.site-header {
 				ul.submenu {
 					background-color: $color-blue;
 					border-radius: 0 6px 6px 6px;
+					box-shadow: 1px 5px 10px 0px rgba(0,0,0,0.45);
 					overflow: hidden;
 					li {
 						&:first-child {
@@ -250,6 +259,7 @@ header.site-header {
 		transform: translateX(0px);
 	}
 	.off-canvas.position-right {
+		background-color: $color-yellow;
 		width: 100%;
 		max-width: 480px;
 		padding-bottom: 4rem;
@@ -260,14 +270,16 @@ header.site-header {
 		.inner {
 			position: relative;
 			z-index: 5;
-			padding: 0 18px;
+			padding: rem-calc(24) 0;
+			background-color: $color-yellow;
 			.close-menu {
 				padding-top: 21px;
-				padding-bottom: 43px;
+				padding-bottom: 21px;
 				width: 100%;
 				font-size: rem-calc(20);
 				b {
-					color: #8B8B8B;
+					color: $white;
+					text-transform: uppercase;
 				}
 			}
 		}
@@ -280,7 +292,8 @@ header.site-header {
 					text-transform: uppercase;
 					font-family: $font-heading;
 					font-weight: 700;
-					padding: .92rem 1rem;
+					padding: .92rem 1.3rem;
+					color: $white;
 				}
 				&.current-menu-item {
 					a {
@@ -290,8 +303,12 @@ header.site-header {
 			}
 			> li {
 				a {
-					color: $color-yellow;
+					color: $white;
 					font-size: rem-calc(28);
+				}
+				button {
+					background-color: transparent;
+					border-radius: 0;
 				}
 				&.is-accordion-submenu-parent.has-submenu-toggle {
 					
@@ -305,21 +322,29 @@ header.site-header {
 						}
 					}
 					.submenu {
+						background-color: $color-blue;
 						li {
 							a {
 								font-size: rem-calc(20);
-								color: #8B8B8B;
+								color: $white;
 								padding-left: 39px;
+							}
+							&.current-menu-item,
+							&:hover {
+								a {
+									background-color: $color-light-blue;
+								}
 							}
 						}
 					}
 					.submenu-toggle {
 						top: 9px;
+						padding-right: 16px;
 						&:after {
 							border: 0;
 							height: 15px;
 							width: 24.29px;
-							background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24.292' height='15'%3E%3Cpath d='M0 2.854 2.855 0l9.292 9.271L21.438 0l2.854 2.854L12.146 15Z' fill='%23F9AE4B'/%3E%3C/svg%3E");
+							background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24.292' height='15'%3E%3Cpath d='M0 2.854 2.855 0l9.292 9.271L21.438 0l2.854 2.854L12.146 15Z' fill='%23ffffff'/%3E%3C/svg%3E");
 							background-size: contain;
 							background-position: center;
 							background-repeat: no-repeat;
@@ -330,16 +355,25 @@ header.site-header {
 				}
 			}
 		}
-		.buttons-group {
-			padding-top: rem-calc(36);
-			@include breakpoint( small down ) {
-				justify-content: center;
+		.icon-link,
+		.order-link {
+			@include breakpoint(large) {
+				margin: 15px;
 			}
-			> div {
-				margin-bottom: rem-calc(20);
-				.button.no-bg {
-					padding-left: 0;
-				}
+		}
+		.icon-link {
+			font-size: rem-calc(23);
+			img {
+				margin-right: 10px;
+			}
+			a {
+				color: $white;
+			}
+		}
+		.order-link {
+			margin-top: rem-calc(32);
+			a.button.chev-btn {
+				padding: 0.552em 0.858em;
 			}
 		}
 	}

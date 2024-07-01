@@ -31,7 +31,7 @@ $menu_categories = get_field('menu_categories');
         <?php $i = 1; foreach($menu_categories as $menu_category):
             $title = $menu_category['title'];    
         ?>
-            <li class="cell shrink">
+            <li class="cell shrink grid-btn-wrap">
                 <a class="uppercase button bg-yellow" href="#<?= sanitize_title($title);?>">
                     <?= esc_attr( $title );?>
                 </a>
