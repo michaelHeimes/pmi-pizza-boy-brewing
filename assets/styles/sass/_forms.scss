@@ -89,7 +89,7 @@ body {
 				background-color: $white;
 				border: 1px solid $dark-gray;
 				border-radius: 0;
-				&:not(textarea):not(select) {
+				&:not(textarea) {
 					height: rem-calc(60);
 				}
 			}

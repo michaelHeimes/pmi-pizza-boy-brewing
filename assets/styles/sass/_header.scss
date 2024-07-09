@@ -24,7 +24,7 @@ header.site-header {
 			svg {
 				margin-right: 10px;
 			}
-			&:not(.call-us-link) {
+			&:not(.call-us-link):not(.show-text-on-mobile) {
 				@include breakpoint(medium down) {
 					img,
 					svg {

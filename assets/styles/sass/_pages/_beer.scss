@@ -132,12 +132,33 @@
 		}
 		a {
 			height: auto;
+			@include breakpoint(small down) {
+				max-width: 482px;
+				display: inline-flex;
+				margin-left: auto;
+				margin-right: auto;
+			}
 		}
 		.thumb-wrap {
 			margin-bottom: rem-calc(10);
+			width: 100%;
+			height: 22.5rem;
+			height: clamp(22.5rem, -1.196rem + 118.478vw, 36.125rem);
+			@include breakpoint(medium) {
+				height: 21.014rem;
+				height: clamp(21.014rem, -3.001rem + 60.039vw, 30.733rem);
+			}
+			@include breakpoint(tablet) {
+				height: 19.262rem;
+				height: clamp(19.262rem, 1.863rem + 30.932vw, 23.516rem);
+			}
 		}
 		img {
 			border-radius: 6px;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
 		}
 		h2 {
 			text-transform: none;
