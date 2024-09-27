@@ -115,7 +115,7 @@ $availability_terms_check = array_merge($availability_terms_check, $post_terms);
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12">
 				<div class="grid-container">
-					<div class="dropdown-wrap grid-x align-right">
+					<div class="dropdown-wrap grid-x align-right invisible">
 						<button class="button grid-x grid-padding-x" type="button" data-toggle="sort-dropdown">
 							<div class="cell auto uppercase">Sort By</div>
 							<div class="cell shrink">
@@ -136,7 +136,7 @@ $availability_terms_check = array_merge($availability_terms_check, $post_terms);
 						</div>
 					</div>
 				</div>
-				<div class="filter-grid grid-x grid-padding-x card-grid small-up-1 medium-up-2 tablet-up-3">
+				<div class="filter-grid equal-heights grid-x grid-padding-x card-grid small-up-1 medium-up-2 tablet-up-3">
 					<?php foreach( $posts as $post ){
 						get_template_part('template-parts/loop', 'beer',
 							array(

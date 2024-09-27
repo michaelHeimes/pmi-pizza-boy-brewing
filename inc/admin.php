@@ -105,8 +105,8 @@ add_filter('admin_footer_text', 'trailhead_custom_admin_footer');
 	
 	// add featured image instructions
 	function featured_image_dimensions( $content, $post_id, $thumbnail_id ) {
-			$help_text = '<p><b>Minimum Size:</b> 314px by 290px</p>';
-			$help_text .= '<p><b>Minimum Size:</b> 628px by 580px</p>';
+			$help_text = '<p><b>Minimum Size:</b> 403px by 492px</p>';
+			$help_text .= '<p><b>Preferred Size:</b> 806px by 894px</p>';
 			return $help_text . $content;
 		}
 	add_filter( 'admin_post_thumbnail_html', 'featured_image_dimensions', 10, 3 );

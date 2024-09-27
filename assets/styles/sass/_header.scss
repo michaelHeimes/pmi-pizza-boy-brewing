@@ -133,6 +133,10 @@ header.site-header {
 				color: $color-blue;
 			}
 			&.menu-item-has-children {
+				span {
+					position: relative;
+					z-index: 2;
+				}
 				&.is-active {
 					>a {
 						position: relative;
@@ -140,8 +144,9 @@ header.site-header {
 							content: '';
 							display: block;
 							background-color: $color-blue;
-							height: 9px;
+							height: calc(100% + 9px);
 							position: absolute;
+							z-index: 2;
 							left: 0;
 							right: 0;
 							width: 100%;

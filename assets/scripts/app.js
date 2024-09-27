@@ -235,22 +235,42 @@
                 });
                
                 // Function to set equal heights for each row
+                
+                // Debounce function
+                const debounce = (func, delay) => {
+                    let debounceTimeout;
+                    return function() {
+                        clearTimeout(debounceTimeout);
+                        debounceTimeout = setTimeout(() => func.apply(this, arguments), delay);
+                    };
+                };
+                
+                // Function to set equal heights for each row
                 const setEqualRowHeights = function() {
-                    const rows =$isotopeFilterLoadMore.querySelectorAll('.filter-grid.equal-heights > *'); // Assuming each row is a direct child of .filter-grid
+                    const rows = $isotopeFilterLoadMore.querySelectorAll('.filter-grid.equal-heights > *'); // Assuming each row is a direct child of .filter-grid
                     let maxRowHeight = 0;
-               
+                
                     rows.forEach(function(row) {
+                        row.style.minHeight = ''; // Reset the minHeight before recalculating
                         const rowHeight = row.getBoundingClientRect().height;
                         maxRowHeight = Math.max(maxRowHeight, rowHeight);
                     });
-               
+                
                     rows.forEach(function(row) {
                         row.style.minHeight = maxRowHeight + 'px';
                     });
                     $container.isotope('layout');
                 };
-                // Attach the event listener to the window object
-                window.addEventListener('resize', setEqualRowHeights);
+                
+                // Attach the debounced event listener to the window object
+                window.addEventListener('resize', debounce(() => {
+                    $container.isotope('layout'); // Force Isotope to re-layout
+                    setEqualRowHeights(); // Adjust row heights after Isotope layout
+                }, 100)); // 0.1 seconds debounce
+                
+                // Initial call to set equal row heights
+                setEqualRowHeights();
+
                 
                 $container.addClass('init');
 

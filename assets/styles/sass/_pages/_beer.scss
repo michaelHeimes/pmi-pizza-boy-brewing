@@ -1,9 +1,13 @@
 .beer-banner {
 	padding-top: 5.775rem;
 	padding-top: clamp(5.775rem, 4.433rem + 5.964vw, 8.25rem);
+	padding-bottom: 5.775rem;
+	padding-bottom: clamp(5.775rem, 4.433rem + 5.964vw, 8.25rem);
 	@include breakpoint(medium) {
 		padding-top: 8.25rem;
 		padding-top: clamp(5.775rem, 4.433rem + 5.964vw, 8.25rem);
+		padding-bottom: 8.25rem;
+		padding-bottom: clamp(5.775rem, 4.433rem + 5.964vw, 8.25rem);
 	}
 	&:before {
 		content: '';
@@ -21,7 +25,9 @@
 	}
 	.img-wrap,
 	.text-wrap {
-		margin-bottom: 3rem;
+		@include breakpoint(small down) {
+			margin-bottom: 3rem;
+		}
 	}
 	.img-wrap {
 		max-width: 433px;
@@ -45,12 +51,6 @@
 	}
 	.tax-menu {
 		padding-top: rem-calc(24);
-		li {
-			margin-bottom: $smallGutter;
-			@include breakpoint(medium) {
-				margin-bottom: $mediumGutter;
-			}
-		}
 	}
 }
 
@@ -138,8 +138,17 @@
 				margin-left: auto;
 				margin-right: auto;
 			}
+			&:hover {
+				.button {
+					background-color: $color-light-blue;
+					color: $white;
+				}
+			}
 		}
 		.thumb-wrap {
+			border: 1px solid #dadada;
+			border-radius: 6px;
+			overflow: hidden;
 			margin-bottom: rem-calc(10);
 			width: 100%;
 			height: 22.5rem;
@@ -154,7 +163,6 @@
 			}
 		}
 		img {
-			border-radius: 6px;
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
@@ -179,9 +187,6 @@
 }
 
 .single-beer-cpt {
-	.beer-banner {
-		padding-bottom: 5px;
-	}
 	.prefooter-cta {
 		border-top: 10px solid $white;
 	}

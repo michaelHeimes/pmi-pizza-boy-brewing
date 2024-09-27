@@ -14,7 +14,6 @@
  $title = get_the_title();
  $abv = $fields['abv'] ?? null;
  $packaged_date = get_field('packaged_date') ?? null;
- $banner_img = $fields['image_for_single_post_banner'] ?? null;
  
  $categories = $args['categories'] ?? null;
  $taxonomies = $args['taxonomies'] ?? null;
@@ -25,14 +24,9 @@
 	<header class="entry-header beer-banner position-relative bg-blue">
 		<div class="grid-container position-relative">
 			<div class="grid-x grid-padding-x medium-flex-dir-row-reverse color-white">
-				<?php if( !empty( $banner_img ) ) {
-					$imgID = $banner_img['ID'];
-					$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
-					$img = wp_get_attachment_image( $imgID, 'beer-post-banner', false, [ "class" => "", "alt"=>$img_alt] );
-					echo '<div class="cell small-12 medium-5 img-wrap">';
-					echo $img;
-					echo '</div>';
-				}?>
+				<div class="cell small-12 medium-5 img-wrap">
+					<?php the_post_thumbnail('beer-post-banner'); ?>
+				</div>
 				<div class="text-wrap cell small-12 medium-7 grid-x flex-dir-column align-justify color-white">
 					<div>
 						<h1 class="color-white"><?=esc_html($title);?></h1>
@@ -49,7 +43,7 @@
 								<?php if( !empty($packaged_date) ):
 									$date = DateTime::createFromFormat( 'Ymd', $packaged_date );
 								?>
-									<div class="h4 color-white font-body weight-semibold">
+									<div class="h4 color-white font-body weight-semibold hide">
 										Packaged Date: <?=esc_html( $date->format( 'm/d/Y' ) );?>
 									</div>	
 								<?php endif;?>

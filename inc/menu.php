@@ -21,6 +21,8 @@ function trailhead_top_nav() {
 		'depth'				=> 5,							// Limit the depth of the nav
 		'fallback_cb'		=> false,						// Fallback function (see below)
 		'walker'			=> new Topbar_Menu_Walker(),
+		'link_before'    => '<span>',
+		'link_after'     => '</span>'	
 	));
 }
 

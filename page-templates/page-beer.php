@@ -10,14 +10,24 @@
 get_header();
 $fields = get_fields();
 
+// temp package date disabling
+// $args = array(  
+// 	'post_type' => 'beer-cpt',
+// 	'post_status' => 'publish',
+// 	'posts_per_page' => -1,
+// 	'meta_key' => 'packaged_date',
+// 	'orderby' => 'meta_value',
+// 	'order' => 'ASC',
+// );
+
 $args = array(  
 	'post_type' => 'beer-cpt',
 	'post_status' => 'publish',
 	'posts_per_page' => -1,
-	'meta_key' => 'brew_date',
-	'orderby' => 'meta_value',
+	'orderby' => 'title',
 	'order' => 'ASC',
 );
+
 $posts = get_posts($args);	 
 ?>
 <div class="content">

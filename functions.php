@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( '_S_VERSION', '1.0.2' );
 }
 
 /**
@@ -166,29 +166,9 @@ function trailhead_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-	
-	/**
-	 * Enqueue Google Fonts.
-	 */
-	wp_enqueue_style( 'dmc-', 'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Francois+One&display=swap', array(), _S_VERSION, );
-	
+
 }
 add_action( 'wp_enqueue_scripts', 'trailhead_scripts' );
-
- 
- function google_font_loader_tag_filter( $html, $handle ) {
-	 if ( $handle === 'dmc-' ) {
-		 $rel_preconnect = "rel='stylesheet preconnect'";
- 
-		 return str_replace(
-			 "rel='stylesheet'",
-			 $rel_preconnect,
-			 $html
-		 );
-	 }
-	 return $html;
- }
- add_filter( 'style_loader_tag', 'google_font_loader_tag_filter', 10, 2 );
 
 
 /**

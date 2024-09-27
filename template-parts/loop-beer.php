@@ -67,7 +67,7 @@
 						<?php if( !empty($packaged_date) ):
 							$date = DateTime::createFromFormat( 'Ymd', $packaged_date );
 						?>
-							<div>Packaged Date: <span class="brew-date"><?=esc_html( $date->format( 'm/d/Y' ) );?></span></div>	
+							<div class="hide">Packaged Date: <span class="brew-date"><?=esc_html( $date->format( 'm/d/Y' ) );?></span></div>	
 						<?php endif;?>
 					</div>
 				<?php endif;?>
