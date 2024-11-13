@@ -8253,9 +8253,9 @@ header.site-header .top-bar {
   }
 }
 header.site-header .top-bar .top-bar-left {
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
   margin-right: auto;
 }
 header.site-header li.logo {

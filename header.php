@@ -38,7 +38,7 @@
 					<?php get_template_part( 'template-parts/nav', 'offcanvas-topbar' ); ?>
 				</header><!-- #masthead -->
 			</div>
-				
+<?php get_template_part( 'interstitial' ); ?>	
 				<div class="off-canvas-wrapper">
 				
 				<!-- Load off-canvas container. Feel free to remove if not using. -->			

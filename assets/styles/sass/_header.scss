@@ -58,9 +58,7 @@ header.site-header {
 			padding: 0;
 		}
 		.top-bar-left {
-			-webkit-box-flex: 1;
-			-ms-flex: 1 1 auto;
-			flex: 1 1 auto;
+			flex: none;
 			margin-right: auto;
 		}
 	}
